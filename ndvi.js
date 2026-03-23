@@ -90,8 +90,7 @@ function setupEventListeners() {
     document.getElementById('reset-view-btn').addEventListener('click', resetView);
     document.getElementById('capture-map-btn').addEventListener('click', captureMap);
     
-    // Refresh data button
-    document.getElementById('refresh-data').addEventListener('click', refreshData);
+    // REMOVED: Refresh data button event listener
     
     // Field select change
     document.getElementById('field-select').addEventListener('change', function() {
@@ -105,16 +104,7 @@ function setupEventListeners() {
         changeFlightMode(this.value);
     });
     
-    // REMOVED: Node click events (nodes are not clickable anymore)
-    /*
-    document.querySelectorAll('.node-item').forEach(node => {
-        node.addEventListener('click', function() {
-            const nodeName = this.querySelector('.node-name').textContent;
-            console.log('Node clicked:', nodeName);
-            selectNode(this);
-        });
-    });
-    */
+    // REMOVED: Node click events
     
     // Close modal when clicking outside
     window.addEventListener('click', function(event) {
@@ -811,21 +801,7 @@ function updateSystemStatus(status) {
     }
 }
 
-// REMOVED: selectNode function (nodes are not clickable)
-/*
-function selectNode(nodeElement) {
-    // Remove active class from all nodes
-    document.querySelectorAll('.node-item').forEach(node => {
-        node.classList.remove('active');
-    });
-    
-    // Add active class to clicked node
-    nodeElement.classList.add('active');
-    
-    const nodeName = nodeElement.querySelector('.node-name').textContent;
-    showNotification(`Selected ${nodeName}`, 'info');
-}
-*/
+// REMOVED: selectNode function
 
 function showNotification(message, type) {
     // Create notification element
@@ -874,16 +850,7 @@ function showNotification(message, type) {
     }, 3000);
 }
 
-// Other functions
-function refreshData() {
-    if (isDroneConnected()) {
-        showNotification('Data refreshed', 'success');
-        simulateDataUpdate();
-        updateStatusDisplays();
-    } else {
-        showNotification('Connect drone to refresh data', 'warning');
-    }
-}
+// REMOVED: refreshData function (since refresh button is removed)
 
 function changeField(field) {
     const fieldNames = {

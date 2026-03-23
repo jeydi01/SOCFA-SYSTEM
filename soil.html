@@ -24,9 +24,6 @@
             </div>
             <div class="header-right">
                 <div class="current-time" id="current-time">Loading...</div>
-                <button class="refresh-btn" id="refresh-data">
-                    <i class="fas fa-sync-alt"></i> Refresh
-                </button>
             </div>
         </header>
 
@@ -39,10 +36,6 @@
                         <i class="fas fa-compass"></i> Navigation
                     </h3>
                     <nav class="nav-menu">
-                        <a href="dashboard.html" class="nav-item">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span>Dashboard</span>
-                        </a>
                         <a href="ndvi.html" class="nav-item">
                             <i class="fas fa-map"></i>
                             <span>NDVI Map</span>
@@ -82,106 +75,133 @@
             </aside>
 
             <!-- Main Panel -->
-            <main class="main-panel">
-    <div class="section-header">
-        <h2 class="section-title">
-            <i class="fas fa-flask"></i> Soil Parameters
-        </h2>
-        <div class="section-controls">
-            <div class="time-filter">
-                <span class="filter-label">Time Range:</span>
-                <select id="time-range">
-                    <option value="realtime">Real-time</option>
-                    <option value="day">Last 24 Hours</option>
-                    <option value="week">Last Week</option>
-                    <option value="month">Last Month</option>
-                </select>
-            </div>
-            <div id="recommendation-section" class="recommendation-container"></div>
-        </div>
-    </div>
-                    <div class="parameters-grid">
-                        <!-- pH Level -->
-                        <div class="parameter-card">
-                            <div class="param-header">
-                                <h3>pH Level</h3>
-                                <div class="param-value">--</div>
-                            </div>
-                            <div class="param-status">--</div>
-                            <div class="param-range">
-                                <div class="range-bar">
-                                    <div class="range-fill" style="width: 0%;"></div>
-                                </div>
-                                <div class="range-labels">
-                                    <span>Acidic</span>
-                                    <span>Neutral</span>
-                                    <span>Alkaline</span>
-                                </div>
-                            </div>
-                            <div class="param-desc"></div>
+            <main class="main-panel" style="margin-top: -10px;">
+                <!-- Horizontal Sensor Status Bar -->
+                <div class="sensor-status-bar">
+                    <div class="status-header">
+                        <h3><i class="fas fa-microchip"></i> Sensor Nodes Status</h3>
+                        <div class="last-reading">Last reading: <span id="last-sensor-reading">Waiting for data...</span></div>
+                    </div>
+                    <div class="sensor-nodes-horizontal">
+                        <div class="horizontal-node-item">
+                            <div class="node-indicator" id="sensor-1-indicator"></div>
+                            <span class="node-label">Sensor Node 1</span>
+                            <span class="node-status-text" id="sensor-1-status">Offline</span>
                         </div>
-
-                        <!-- Temperature -->
-                        <div class="parameter-card">
-                            <div class="param-header">
-                                <h3>Temperature</h3>
-                                <div class="param-value">--</div>
-                            </div>
-                            <div class="param-status">--</div>
-                            <div class="param-range">
-                                <div class="range-bar">
-                                    <div class="range-fill" style="width: 0%;"></div>
-                                </div>
-                                <div class="range-labels">
-                                    <span>10°C</span>
-                                    <span>25°C</span>
-                                    <span>40°C</span>
-                                </div>
-                            </div>
-                            <div class="param-desc"></div>
+                        <div class="horizontal-node-item">
+                            <div class="node-indicator" id="sensor-2-indicator"></div>
+                            <span class="node-label">Sensor Node 2</span>
+                            <span class="node-status-text" id="sensor-2-status">Offline</span>
                         </div>
-
-                        <!-- Electrical Conductivity -->
-                        <div class="parameter-card">
-                            <div class="param-header">
-                                <h3>Electrical Conductivity</h3>
-                                <div class="param-value">--</div>
-                            </div>
-                            <div class="param-status">--</div>
-                            <div class="param-range">
-                                <div class="range-bar">
-                                    <div class="range-fill" style="width: 0%;"></div>
-                                </div>
-                                <div class="range-labels">
-                                    <span>Low</span>
-                                    <span>Moderate</span>
-                                    <span>High</span>
-                                </div>
-                            </div>
-                            <div class="param-desc"></div>
-                        </div>
-
-                        <!-- Humidity -->
-                        <div class="parameter-card">
-                            <div class="param-header">
-                                <h3>Humidity</h3>
-                                <div class="param-value">--</div>
-                            </div>
-                            <div class="param-status">--</div>
-                            <div class="param-range">
-                                <div class="range-bar">
-                                    <div class="range-fill" style="width: 0%;"></div>
-                                </div>
-
-                                <div class="range-labels">
-                                    <span>Dry</span>
-                                    <span>Optimal</span>
-                                    <span>Wet</span>
-                                </div>
-                            <div class="param-desc"></div>
+                        <div class="horizontal-node-item">
+                            <div class="node-indicator" id="sensor-3-indicator"></div>
+                            <span class="node-label">Sensor Node 3</span>
+                            <span class="node-status-text" id="sensor-3-status">Offline</span>
                         </div>
                     </div>
-                </section>
+                </div>
+
+                <div class="section-header" style="margin-top: -4px; margin-bottom: 12px;">
+                    <h2 class="section-title">
+                        <i class="fas fa-flask"></i> Soil Parameters
+                    </h2>
+                    <div class="section-controls">
+                        <div class="time-filter">
+                            <span class="filter-label">Time Range:</span>
+                            <select id="time-range">
+                                <option value="realtime">Real-time</option>
+                                <option value="day">Last 24 Hours</option>
+                                <option value="week">Last Week</option>
+                                <option value="month">Last Month</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parameters-grid" style="margin-top: 0;">
+                    <!-- pH Level -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>pH Level</h3>
+                            <div class="param-value">--</div>
+                        </div>
+                        <div class="param-status">--</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Acidic</span>
+                                <span>Neutral</span>
+                                <span>Alkaline</span>
+                            </div>
+                        </div>
+                        <div class="param-desc"></div>
+                    </div>
+
+                    <!-- Temperature -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Temperature</h3>
+                            <div class="param-value">--</div>
+                        </div>
+                        <div class="param-status">--</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>10°C</span>
+                                <span>25°C</span>
+                                <span>40°C</span>
+                            </div>
+                        </div>
+                        <div class="param-desc"></div>
+                    </div>
+
+                    <!-- Electrical Conductivity -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Electrical Conductivity</h3>
+                            <div class="param-value">--</div>
+                        </div>
+                        <div class="param-status">--</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Low</span>
+                                <span>Moderate</span>
+                                <span>High</span>
+                            </div>
+                        </div>
+                        <div class="param-desc"></div>
+                    </div>
+
+                    <!-- Humidity -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Humidity</h3>
+                            <div class="param-value">--</div>
+                        </div>
+                        <div class="param-status">--</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Dry</span>
+                                <span>Optimal</span>
+                                <span>Wet</span>
+                            </div>
+                        </div>
+                        <div class="param-desc"></div>
+                    </div>
+                </div>
+
+                <!-- Recommendations Section - Moved below parameters -->
+                <div id="recommendation-section" class="recommendation-grid"></div>
             </main>
         </div>
 
