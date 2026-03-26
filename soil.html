@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Condition - SoCFA</title>
+    <link rel="stylesheet" href="soil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="desktop-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+                    <span class="logo-text">SoCFA</span>
+                </div>
+                <div class="tagline">For Farmers</div>
+            </div>
+            <div class="header-center">
+                <h1>Soil Condition</h1>
+            </div>
+            <div class="header-right">
+                <div class="current-time" id="current-time">Loading...</div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content-area">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="navigation-section">
+                    <h3 class="sidebar-title">
+                        <i class="fas fa-compass"></i> Navigation
+                    </h3>
+                    <nav class="nav-menu">
+                        <a href="ndvi.html" class="nav-item">
+                            <i class="fas fa-map"></i>
+                            <span>NDVI Map</span>
+                        </a>
+                        <a href="#" class="nav-item active">
+                            <i class="fas fa-seedling"></i>
+                            <span>Soil Condition</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="nodes-section">
+                    <h3 class="sidebar-title">
+                        <i class="fas fa-microchip"></i> Sensor Nodes
+                    </h3>
+                    <div class="nodes-list">
+                        <div class="node-item active">
+                            <div class="node-info">
+                                <span class="node-status active"></span>
+                                <span class="node-name">Node 1</span>
+                            </div>
+                        </div>
+                        <div class="node-item">
+                            <div class="node-info">
+                                <span class="node-status"></span>
+                                <span class="node-name">Node 2</span>
+                            </div>
+                        </div>
+                        <div class="node-item">
+                            <div class="node-info">
+                                <span class="node-status"></span>
+                                <span class="node-name">Node 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Panel -->
+            <main class="main-panel" style="margin-top: -10px;">
+                <!-- Horizontal Sensor Status Bar -->
+                <div class="sensor-status-bar">
+                    <div class="status-header">
+                        <h3><i class="fas fa-microchip"></i> Sensor Nodes Status</h3>
+                        <div class="last-reading">Last reading: <span id="last-sensor-reading">Waiting for data...</span></div>
+                    </div>
+                    <div class="sensor-nodes-horizontal">
+                        <div class="horizontal-node-item">
+                            <div class="node-indicator" id="sensor-1-indicator"></div>
+                            <span class="node-label">Sensor Node 1</span>
+                            <span class="node-status-text" id="sensor-1-status">Offline</span>
+                        </div>
+                        <div class="horizontal-node-item">
+                            <div class="node-indicator" id="sensor-2-indicator"></div>
+                            <span class="node-label">Sensor Node 2</span>
+                            <span class="node-status-text" id="sensor-2-status">Offline</span>
+                        </div>
+                        <div class="horizontal-node-item">
+                            <div class="node-indicator" id="sensor-3-indicator"></div>
+                            <span class="node-label">Sensor Node 3</span>
+                            <span class="node-status-text" id="sensor-3-status">Offline</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-header" style="margin-top: -4px; margin-bottom: 12px;">
+                    <h2 class="section-title">
+                        <i class="fas fa-flask"></i> Soil Parameters
+                    </h2>
+                    <div class="section-controls">
+                        <div class="time-filter">
+                            <span class="filter-label">Time Range:</span>
+                            <select id="time-range">
+                                <option value="realtime">Real-time</option>
+                                <option value="day">Last 24 Hours</option>
+                                <option value="week">Last Week</option>
+                                <option value="month">Last Month</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parameters-grid" style="margin-top: 0;">
+                    <!-- pH Level -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>pH Level</h3>
+                            <div class="param-value">--</div>
+                        </div>
+                        <div class="param-status">--</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Acidic</span>
+                                <span>Neutral</span>
+                                <span>Alkaline</span>
+                            </div>
+                        </div>
+                        <div class="param-desc"></div>
+                    </div>
+
+                    <!-- Temperature -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Temperature</h3>
+                            <div class="param-value">--</div>
+                        </div>
+                        <div class="param-status">--</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>10°C</span>
+                                <span>25°C</span>
+                                <span>40°C</span>
+                            </div>
+                        </div>
+                        <div class="param-desc"></div>
+                    </div>
+
+                    <!-- Electrical Conductivity -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Electrical Conductivity</h3>
+                            <div class="param-value">--</div>
+                        </div>
+                        <div class="param-status">--</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Low</span>
+                                <span>Moderate</span>
+                                <span>High</span>
+                            </div>
+                        </div>
+                        <div class="param-desc"></div>
+                    </div>
+
+                    <!-- Humidity -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Humidity</h3>
+                            <div class="param-value">--</div>
+                        </div>
+                        <div class="param-status">--</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Dry</span>
+                                <span>Optimal</span>
+                                <span>Wet</span>
+                            </div>
+                        </div>
+                        <div class="param-desc"></div>
+                    </div>
+                </div>
+
+                <!-- Recommendations Section - Moved below parameters -->
+                <div id="recommendation-section" class="recommendation-grid"></div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <i class="fas fa-seedling"></i>
+                        <span>SoCFA System</span>
+                    </div>
+                    <div class="footer-info">
+                        <span>For Farmers | Precision Agriculture</span>
+                    </div>
+                </div>
+                <div class="footer-center">
+                    <div class="system-status">
+                        <span class="status-dot active"></span>
+                        <span>All Systems Operational</span>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="last-update">
+                        Last Update: <span id="last-update-time">Loading...</span>
+                    </div>
+                    <div class="version">v2.1.4</div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Node Modal -->
+        <div id="node-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Node Details</h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body" id="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="soil.js"></script>
+</body>
+</html>
