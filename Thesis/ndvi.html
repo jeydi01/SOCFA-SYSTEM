@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDVI Map - SoCFA</title>
+    <link rel="stylesheet" href="ndvi.css"> <!-- CHANGED TO ndvi.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="desktop-container">
+        <!-- Clean Header (SAME as soil dashboard) - REMOVED REFRESH BUTTON -->
+        <header class="main-header">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+                    <span class="logo-text">SoCFA</span>
+                </div>
+                <div class="tagline">For Farmers</div>
+            </div>
+            <div class="header-center">
+                <h1>NDVI Drone Map</h1>
+            </div>
+            <div class="header-right">
+                <div class="current-time" id="current-time">Loading...</div>
+                <!-- Refresh button removed -->
+            </div>
+        </header>
+
+        <!-- Main Content Area (SAME layout) -->
+        <div class="main-content-area">
+           <!-- Sidebar - Simplified -->
+<aside class="sidebar">
+
+    <!-- Navigation FIRST -->
+    <div class="navigation-section">
+        <h3 class="sidebar-title">
+            <i class="fas fa-compass"></i> Navigation
+        </h3>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-map"></i>
+                <span>NDVI Map</span>
+            </a>
+            <a href="soil.html" class="nav-item">
+                <i class="fas fa-seedling"></i>
+                <span>Soil Condition</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Drone Status SECOND -->
+    <div class="nodes-section">
+        <h3 class="sidebar-title">
+            <i class="fas fa-drone"></i> Drone Status
+        </h3>
+        <div class="nodes-list">
+
+            <!-- Drone Connection -->
+            <div class="status-display" id="drone-status-display">
+                <div class="status-info">
+                    <span class="status-indicator-dot" id="drone-connection-dot"></span>
+                    <span class="status-name">Drone Connection</span>
+                </div>
+                <span class="status-value" id="drone-connection-status">Disconnected</span>
+            </div>
+
+            <!-- Battery -->
+            <div class="status-display">
+                <div class="status-info">
+                    <span class="status-indicator-dot" id="battery-status-dot"></span>
+                    <span class="status-name">Battery Level</span>
+                </div>
+                <span class="status-value" id="sidebar-battery-value">0%</span>
+            </div>
+
+            <!-- Signal -->
+            <div class="status-display">
+                <div class="status-info">
+                    <span class="status-indicator-dot" id="signal-status-dot"></span>
+                    <span class="status-name">Signal Strength</span>
+                </div>
+                <span class="status-value" id="sidebar-signal-value">0%</span>
+            </div>
+
+            <!-- Disconnect Button -->
+            <button class="action-btn btn-danger" id="disconnect-drone-btn" style="margin-top: 15px; width: 100%;">
+                <i class="fas fa-unlink"></i> Disconnect Drone
+            </button>
+
+        </div>
+    </div>
+</aside>
+
+            <!-- Main Panel (Modified for NDVI) -->
+            <main class="main-panel">
+                <!-- NDVI Map Section -->
+                <section class="parameters-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-map-marked-alt"></i> NDVI Map Visualization
+                        </h2>
+                        <div class="time-filter">
+                            <span class="filter-label">Field:</span>
+                            <select id="field-select">
+                                <option value="north">North Field</option>
+                                <option value="south">South Field</option>
+                                <option value="east">East Field</option>
+                                <option value="west">West Field</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- NDVI Map Container -->
+                    <div class="ndvi-map-container" style="margin-bottom: 20px;">
+                        <div class="map-placeholder" id="ndvi-map-placeholder">
+                            <div class="map-overlay-controls">
+                                <div class="map-scale">Scale: 1:500</div>
+                                <div class="map-coordinates" id="map-coordinates">Lat: 14.5995°, Lng: 120.9842°</div>
+                            </div>
+                            <div class="map-content">
+                                <div class="drone-connection-prompt" id="drone-connection-prompt">
+                                    <div class="drone-icon-large">
+                                        <i class="fas fa-drone"></i>
+                                    </div>
+                                    <h3>Drone Not Connected</h3>
+                                    <p>Connect your drone to view live NDVI mapping</p>
+                                    <button class="action-btn" id="connect-drone-btn" style="margin-top: 20px;">
+                                        <i class="fas fa-plug"></i> Connect Drone
+                                    </button>
+                                </div>
+                                <div id="ndvi-map-canvas" style="display: none;">
+                                    <!-- NDVI map will be rendered here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Controls -->
+                    <div class="map-controls-row" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px;">
+                        <button class="btn-icon" id="zoom-in-btn">
+                            <i class="fas fa-search-plus"></i> Zoom In
+                        </button>
+                        <button class="btn-icon" id="zoom-out-btn">
+                            <i class="fas fa-search-minus"></i> Zoom Out
+                        </button>
+                        <button class="btn-icon" id="reset-view-btn">
+                            <i class="fas fa-expand-arrows-alt"></i> Reset View
+                        </button>
+                        <button class="btn-icon" id="capture-map-btn">
+                            <i class="fas fa-camera"></i> Capture Map
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Drone Controls & Statistics Grid -->
+                <div class="parameters-grid">
+                    <!-- Connection Status -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Connection Status</h3>
+                            <div class="param-value" id="connection-status-value">Offline</div>
+                        </div>
+                        <div class="param-status" id="connection-status">Offline</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;" id="connection-bar"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Offline</span>
+                                <span>Connecting</span>
+                                <span>Connected</span>
+                            </div>
+                        </div>
+                        <div class="param-desc" id="connection-desc">Drone not connected</div>
+                    </div>
+
+                    <!-- Signal Strength -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Signal Strength</h3>
+                            <div class="param-value" id="signal-value">0%</div>
+                        </div>
+                        <div class="param-status" id="signal-status">Poor</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;" id="signal-bar"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Weak</span>
+                                <span>Moderate</span>
+                                <span>Strong</span>
+                            </div>
+                        </div>
+                        <div class="param-desc" id="signal-desc">No signal</div>
+                    </div>
+
+                    <!-- Battery Level -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Battery Level</h3>
+                            <div class="param-value" id="battery-value">0%</div>
+                        </div>
+                        <div class="param-status" id="battery-status">Critical</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;" id="battery-bar"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Empty</span>
+                                <span>Half</span>
+                                <span>Full</span>
+                            </div>
+                        </div>
+                        <div class="param-desc" id="battery-desc">Battery not detected</div>
+                    </div>
+
+                    <!-- Flight Time -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Flight Time</h3>
+                            <div class="param-value" id="flight-time">00:00</div>
+                        </div>
+                        <div class="param-status">Ready</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;" id="flight-bar"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Start</span>
+                                <span>Half</span>
+                                <span>Max</span>
+                            </div>
+                        </div>
+                        <div class="param-desc" id="flight-desc">Ready for mission</div>
+                    </div>
+
+                    <!-- Area Covered -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Area Covered</h3>
+                            <div class="param-value" id="area-covered">0.0 ha</div>
+                        </div>
+                        <div class="param-status">0%</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;" id="area-bar"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>0 ha</span>
+                                <span>12.5 ha</span>
+                                <span>25 ha</span>
+                            </div>
+                        </div>
+                        <div class="param-desc" id="area-desc">No area covered yet</div>
+                    </div>
+
+                    <!-- Average NDVI -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Avg NDVI</h3>
+                            <div class="param-value" id="avg-ndvi">0.00</div>
+                        </div>
+                        <div class="param-status">No Data</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;" id="ndvi-bar"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>0.0</span>
+                                <span>0.5</span>
+                                <span>1.0</span>
+                            </div>
+                        </div>
+                        <div class="param-desc" id="ndvi-desc">No NDVI data available</div>
+                    </div>
+
+                    <!-- Vegetation Health -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Health Score</h3>
+                            <div class="param-value" id="health-score">0%</div>
+                        </div>
+                        <div class="param-status">No Data</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;" id="health-bar"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Poor</span>
+                                <span>Fair</span>
+                                <span>Excellent</span>
+                            </div>
+                        </div>
+                        <div class="param-desc" id="health-desc">No health data available</div>
+                    </div>
+
+                    <!-- Mission Status -->
+                    <div class="parameter-card">
+                        <div class="param-header">
+                            <h3>Mission Status</h3>
+                            <div class="param-value" id="mission-status">Idle</div>
+                        </div>
+                        <div class="param-status">Ready</div>
+                        <div class="param-range">
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: 0%;" id="mission-bar"></div>
+                            </div>
+                            <div class="range-labels">
+                                <span>Idle</span>
+                                <span>Active</span>
+                                <span>Complete</span>
+                            </div>
+                        </div>
+                        <div class="param-desc" id="mission-desc">No mission running</div>
+                    </div>
+                </div>
+
+                <!-- Mission Control Section -->
+                <section class="charts-section">
+                    <div class="chart-card">
+                        <h3 class="chart-title">
+                            <i class="fas fa-rocket"></i> Mission Control
+                        </h3>
+                        <div class="mission-controls" style="padding: 20px;">
+                            <div class="mission-buttons" style="display: flex; gap: 15px; margin-bottom: 20px;">
+                                <button class="action-btn btn-success" id="start-mission-btn">
+                                    <i class="fas fa-play"></i> Start Mission
+                                </button>
+                                <button class="action-btn btn-warning" id="pause-mission-btn" disabled>
+                                    <i class="fas fa-pause"></i> Pause
+                                </button>
+                                <button class="action-btn btn-danger" id="emergency-stop-btn">
+                                    <i class="fas fa-stop"></i> Emergency Stop
+                                </button>
+                            </div>
+                            <div class="mission-progress" style="margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span>Mission Progress</span>
+                                    <span id="mission-progress-text">0%</span>
+                                </div>
+                                <div class="range-bar" style="height: 10px;">
+                                    <div class="range-fill" style="width: 0%; height: 100%;" id="mission-progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="flight-mode" style="display: flex; align-items: center; gap: 15px;">
+                                <span>Flight Mode:</span>
+                                <select class="form-control" id="flight-mode-select" style="flex: 1;">
+                                    <option value="manual">Manual Control</option>
+                                    <option value="auto">Auto Mission</option>
+                                    <option value="grid">Grid Scan Pattern</option>
+                                    <option value="follow">Follow Path</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                   <!-- NDVI Legend Card -->
+<!-- NDVI Legend Card - Table Format -->
+<div class="chart-card">
+    <div class="card-header">
+        <h3 class="chart-title">
+    <i class="fas fa-palette"></i> NDVI Color Legend
+</h3>
+    </div>
+    <div class="card-body">
+        <div class="legend-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>NDVI Range</th>
+                        <th>Vegetation Status</th>
+                        <th>Health Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="color-box" style="background: #313695;"></div></td>
+                        <td><span class="range-badge">-1 to 0</span></td>
+                        <td>Non-vegetative surfaces</td>
+                        <td><span class="health-badge non-veg">Soil/Water</span></td>
+                    </tr>
+                    <tr>
+                        <td><div class="color-box" style="background: #fdae61;"></div></td>
+                        <td><span class="range-badge">0 to 0.3</span></td>
+                        <td>Sparse or stressed vegetation</td>
+                        <td><span class="health-badge poor">Poor</span></td>
+                    </tr>
+                    <tr>
+                        <td><div class="color-box" style="background: #ffffbf;"></div></td>
+                        <td><span class="range-badge">0.3 to 0.6</span></td>
+                        <td>Moderate vegetation health</td>
+                        <td><span class="health-badge moderate">Moderate</span></td>
+                    </tr>
+                    <tr>
+                        <td><div class="color-box" style="background: #1a9641;"></div></td>
+                        <td><span class="range-badge">0.6 to 1</span></td>
+                        <td>Dense and healthy vegetation</td>
+                        <td><span class="health-badge excellent">Excellent</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer (SAME as soil dashboard) -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <i class="fas fa-seedling"></i>
+                        <span>SoCFA System</span>
+                    </div>
+                    <div class="footer-info">
+                        <span>For Farmers | Precision Agriculture</span>
+                    </div>
+                </div>
+                <div class="footer-center">
+                    <div class="system-status">
+                        <span class="status-dot active" id="system-status-dot"></span>
+                        <span id="system-status-text">System Ready</span>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="last-update">
+                        Last Update: <span id="last-update-time">Loading...</span>
+                    </div>
+                    <div class="version">v2.1.4</div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Drone Connection Modal -->
+        <div id="drone-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title"><i class="fas fa-plug"></i> Connect to Drone</h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; color: #475569; font-weight: 500;">Drone IP Address</label>
+                        <input type="text" class="form-control" id="drone-ip" value="192.168.1.100" placeholder="Enter drone IP address" style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; color: #475569; font-weight: 500;">Connection Type</label>
+                        <select class="form-control" id="connection-type" style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            <option value="wifi">Wi-Fi Direct</option>
+                            <option value="socket">WebSocket</option>
+                            <option value="mqtt">MQTT Protocol</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; gap: 15px; justify-content: flex-end;">
+                        <button class="action-btn" id="test-connection-btn">
+                            <i class="fas fa-vial"></i> Test Connection
+                        </button>
+                        <button class="action-btn" id="connect-drone-confirm-btn" style="background-color: #0f766e;">
+                            <i class="fas fa-link"></i> Connect
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ndvi.js"></script>
+</body>
+</html>
