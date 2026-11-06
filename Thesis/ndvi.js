@@ -1,935 +1,620 @@
-// NDVI Dashboard JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize dashboard
-    initDashboard();
-    setupEventListeners();
+// ─── Theme ───────────────────────────────────────────────────────────────────
+function initTheme() { applyTheme(localStorage.getItem('socfa-theme') || 'light'); }
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const icon = document.getElementById('theme-icon');
+    const logoText = document.querySelector('.logo-text');
+    const microscopeIcon = document.querySelector('.upload-title i');
+    if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    if (logoText) logoText.style.color = theme === 'dark' ? '#ffffff' : '#000000';
+    if (microscopeIcon) microscopeIcon.style.color = theme === 'dark' ? '#ffffff' : '#000000';
+    localStorage.setItem('socfa-theme', theme);
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+    initTheme();
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+    document.getElementById('upload-input')?.addEventListener('change', handleUploadFile);
+    document.querySelectorAll('#view-switch button').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+    document.getElementById('clear-upload-btn')?.addEventListener('click', clearUploadPreview);
+    document.getElementById('drone-btn')?.addEventListener('click', openDroneModal);
+    document.getElementById('capture-btn')?.addEventListener('click', takePhotosNow);
+    document.getElementById('close-drone-modal')?.addEventListener('click', closeDroneModal);
+    document.getElementById('drone-modal')?.addEventListener('click', e => { if (e.target.id === 'drone-modal') closeDroneModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDroneModal(); });
     updateTime();
-    
-    // Update time every second
     setInterval(updateTime, 1000);
-    
-    // Update last update time
     updateLastUpdateTime();
+    loadNdviThresholds();
+    initCaptureOpts();
+    checkDroneLatest();
+    setInterval(checkDroneLatest, 10000);
+    pollCaptureStatus();
+    setInterval(pollCaptureStatus, 3000);
 });
 
-function initDashboard() {
-    console.log('Initializing NDVI Dashboard...');
-    
-    // Initialize all values to default
-    updateValue('connection-status-value', 'Offline');
-    updateValue('signal-value', '0%');
-    updateValue('battery-value', '0%');
-    updateValue('flight-time', '00:00');
-    updateValue('area-covered', '0.0 ha');
-    updateValue('avg-ndvi', '0.00');
-    updateValue('health-score', '0%');
-    updateValue('mission-status', 'Idle');
-    updateValue('mission-progress-text', '0%');
-    updateValue('drone-altitude', '0m');
-    updateValue('zoom-level', '1:500');
-    
-    // Set initial status colors
-    updateStatus('connection-status', 'Offline');
-    updateStatus('signal-status', 'Poor');
-    updateStatus('battery-status', 'Critical');
-    updateStatus('mission-status', 'Ready');
-    
-    // Initialize progress bars
-    updateProgressBar('connection-bar', 0);
-    updateProgressBar('signal-bar', 0);
-    updateProgressBar('battery-bar', 0);
-    updateProgressBar('flight-bar', 0);
-    updateProgressBar('area-bar', 0);
-    updateProgressBar('ndvi-bar', 0);
-    updateProgressBar('health-bar', 0);
-    updateProgressBar('mission-bar', 0);
-    updateProgressBar('mission-progress-bar', 0);
-    
-    // Update system status
-    updateSystemStatus('ready');
-    
-    // Initialize map coordinates
-    updateMapCoordinates(14.599512, 120.984222);
-    
-    // Initialize sidebar status displays
-    updateStatusDisplays();
-    
-    // Add initial notification
-    showNotification('NDVI Dashboard initialized', 'success');
-}
-
-function setupEventListeners() {
-    console.log('Setting up event listeners...');
-    
-    // Connect drone button
-    document.getElementById('connect-drone-btn').addEventListener('click', function() {
-        console.log('Connect drone button clicked');
-        openDroneConnectionModal();
-    });
-    
-    // Modal close button
-    document.querySelector('.close-modal').addEventListener('click', function() {
-        console.log('Close modal button clicked');
-        closeModal();
-    });
-    
-    // Test connection button
-    document.getElementById('test-connection-btn').addEventListener('click', testConnection);
-    
-    // Connect drone confirm button
-    document.getElementById('connect-drone-confirm-btn').addEventListener('click', connectDrone);
-    
-    // Mission control buttons
-    document.getElementById('start-mission-btn').addEventListener('click', startMission);
-    document.getElementById('pause-mission-btn').addEventListener('click', pauseMission);
-    document.getElementById('emergency-stop-btn').addEventListener('click', emergencyStop);
-    
-    // Map control buttons
-    document.getElementById('zoom-in-btn').addEventListener('click', zoomIn);
-    document.getElementById('zoom-out-btn').addEventListener('click', zoomOut);
-    document.getElementById('reset-view-btn').addEventListener('click', resetView);
-    document.getElementById('capture-map-btn').addEventListener('click', captureMap);
-    
-    // REMOVED: Refresh data button event listener
-    
-    // Field select change
-    document.getElementById('field-select').addEventListener('change', function() {
-        console.log('Field changed to:', this.value);
-        changeField(this.value);
-    });
-    
-    // Flight mode select change
-    document.getElementById('flight-mode-select').addEventListener('change', function() {
-        console.log('Flight mode changed to:', this.value);
-        changeFlightMode(this.value);
-    });
-    
-    // REMOVED: Node click events
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', function(event) {
-        const modal = document.getElementById('drone-modal');
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
-    
-    // Handle window resize for responsive design
-    window.addEventListener('resize', handleResize);
-    
-    console.log('Event listeners setup complete');
-}
-
-// ============================================
-// STATUS DISPLAY FUNCTIONS (Non-clickable)
-// ============================================
-
-function updateStatusDisplays() {
-    const isConnected = isDroneConnected();
-    const battery = parseInt(document.getElementById('battery-value').textContent) || 0;
-    const signal = parseInt(document.getElementById('signal-value').textContent) || 0;
-    
-    // Update drone connection display
-    updateStatusDisplay('drone-connection-dot', 'drone-connection-status', 
-                       isConnected ? 'connected' : 'disconnected',
-                       isConnected ? 'Connected' : 'Disconnected');
-    
-    // Update battery display
-    let batteryStatus = 'critical';
-    if (battery > 50) batteryStatus = 'good';
-    else if (battery > 20) batteryStatus = 'warning';
-    
-    updateStatusDisplay('battery-status-dot', 'sidebar-battery-value',
-                       batteryStatus, battery + '%');
-    
-    // Update signal display
-    let signalStatus = 'critical';
-    if (signal > 70) signalStatus = 'good';
-    else if (signal > 40) signalStatus = 'warning';
-    
-    updateStatusDisplay('signal-status-dot', 'sidebar-signal-value',
-                       signalStatus, signal + '%');
-}
-
-function updateStatusDisplay(dotId, valueId, status, text) {
-    const dot = document.getElementById(dotId);
-    const valueElement = document.getElementById(valueId);
-    
-    if (dot) {
-        dot.className = 'status-indicator-dot';
-        
-        switch(status) {
-            case 'connected':
-            case 'good':
-                dot.classList.add('active');
-                break;
-            case 'warning':
-                dot.classList.add('warning');
-                break;
-            case 'disconnected':
-            case 'critical':
-                dot.classList.add('critical');
-                break;
-        }
+// ─── NDVI guide ranges (thresholds come from app.py / ndvi_core.py) ──────────
+async function loadNdviThresholds() {
+    try {
+        const res = await fetch(`${API}/health`);
+        const data = await res.json();
+        if (data.ndvi_thresholds) applyNdviThresholds(data.ndvi_thresholds);
+    } catch (e) {
+        // app.py not running yet: the guide keeps its Table 7 defaults
     }
-    
-    if (valueElement) {
-        valueElement.textContent = text;
-        valueElement.className = 'status-value';
-        
-        switch(status) {
-            case 'connected':
-            case 'good':
-                valueElement.classList.add('good');
-                break;
-            case 'warning':
-                valueElement.classList.add('warning');
-                break;
-            case 'disconnected':
-            case 'critical':
-                valueElement.classList.add('critical');
-                break;
+}
+
+function applyNdviThresholds(th) {
+    const fmt = v => Number(v).toFixed(2);
+    const ranges = {
+        bare:   `0.00 to ${fmt(th.poor_max)}`,
+        sparse: `${fmt(th.poor_max)} to ${fmt(th.moderate_max)}`,
+        dense:  `above ${fmt(th.moderate_max)}`,
+    };
+    document.querySelectorAll('[data-ndvi-range]').forEach(el => {
+        el.textContent = ranges[el.dataset.ndviRange];
+    });
+}
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let uploadedImage = null;
+let currentCapture = null;   // {flight, pair} when the image came from the drone
+let viewImages = {}, currentView = null;   // drone result views: rgb / noir / ndvi
+const API = 'http://localhost:5000';
+
+// ─── Upload File ──────────────────────────────────────────────────────────────
+function handleUploadFile(event) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+            uploadedImage = img;
+            currentCapture = null; resetViews();
+            drawUploadPreview();
+            document.getElementById('upload-overlay-text').style.display = 'none';
+            document.getElementById('upload-status').textContent = 'Image loaded — analyzing automatically...';
+            autoAnalyze();
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+// ─── Auto Analyze ─────────────────────────────────────────────────────────────
+function autoAnalyze() {
+    if (!uploadedImage) return;
+    const canvas = document.createElement('canvas');
+    canvas.width = uploadedImage.width; canvas.height = uploadedImage.height;
+    canvas.getContext('2d').drawImage(uploadedImage, 0, 0);
+    analyzeImage({ image: canvas.toDataURL('image/png') });
+}
+
+// ─── Draw Preview ─────────────────────────────────────────────────────────────
+function drawUploadPreview() {
+    const canvas = document.getElementById('upload-preview-canvas');
+    // Drone result: the chosen view (aligned RGB / NoIR / NDVI maps); upload: the photo
+    const img = (currentView && viewImages[currentView]) || uploadedImage;
+    if (!canvas || !img) return;
+    const ctx = canvas.getContext('2d');
+    const container = canvas.parentElement;
+    const maxW = Math.max(container.clientWidth - 2, 200), maxH = 420;
+    const scale = Math.min(maxW / img.width, maxH / img.height, 1);
+    canvas.width = Math.round(img.width * scale);
+    canvas.height = Math.round(img.height * scale);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+}
+
+// ─── Preview views: RGB | NoIR | NDVI (drone results, aligned) ─────────────────
+function resetViews() {
+    viewImages = {};
+    currentView = null;
+    renderViewSwitch();
+}
+
+function loadView(name, src, makeCurrent = false) {
+    const im = new Image();
+    im.crossOrigin = 'anonymous';
+    im.onload = () => {
+        viewImages[name] = im;
+        if (makeCurrent || !currentView) currentView = name;
+        renderViewSwitch();
+        drawUploadPreview();
+    };
+    im.src = src;
+}
+
+function setView(name) {
+    if (!viewImages[name]) return;
+    currentView = name;
+    renderViewSwitch();
+    drawUploadPreview();
+}
+
+function renderViewSwitch() {
+    const box = document.getElementById('view-switch');
+    if (!box) return;
+    box.hidden = !viewImages.ndvi;                               // only drone results have views
+    box.querySelectorAll('button').forEach(b => {
+        b.hidden = !viewImages[b.dataset.view];
+        b.classList.toggle('active', b.dataset.view === currentView);
+    });
+}
+
+// ─── Clear ────────────────────────────────────────────────────────────────────
+function clearUploadPreview() {
+    uploadedImage = null;
+    currentCapture = null; resetViews();
+    const canvas = document.getElementById('upload-preview-canvas');
+    if (canvas) canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById('upload-overlay-text').style.display = 'block';
+    document.getElementById('upload-status').textContent = 'Ready — load or upload a field image to start analysis.';
+    document.getElementById('upload-input').value = '';
+    document.getElementById('results-section').style.display = 'none';
+    document.getElementById('results-empty').style.display = 'flex';
+}
+
+// ─── CNN Analysis ─────────────────────────────────────────────────────────────
+// payload: { image: dataURL } for uploads, or { capture: {flight, pair} } for drone pairs
+async function analyzeImage(payload) {
+    document.getElementById('upload-status').textContent = 'Analyzing image...';
+    let reached = false;   // true once app.py answered
+    try {
+        const res = await fetch(`${API}/analyze`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...payload, field: 'Field Analysis', coordinates: { lat: 14.5995, lng: 120.9842 } })
+        });
+        reached = true;
+        const result = await res.json();
+        if (result.success) {
+            showAnalysis(result, 'Analysis complete — see results on the right.');
+        } else throw new Error(result.error);
+    } catch (err) {
+        console.error(err);
+        if (!reached) {
+            showNotification('Could not reach Python API. Is app.py running?', 'error');
+            document.getElementById('upload-status').textContent = 'Analysis failed. Make sure app.py is running on port 5000.';
+        } else {
+            showNotification(`Analysis error: ${err.message}`, 'error');
+            document.getElementById('upload-status').textContent = `Analysis failed: ${err.message}`;
         }
     }
 }
 
-// ============================================
-// EXISTING FUNCTIONS (Updated)
-// ============================================
+// Show an analysis result (from /analyze or from an automatic drone result)
+function showAnalysis(result, statusText, notePrefix = '') {
+    document.getElementById('upload-status').textContent = statusText;
+    renderResults(result);
+    if (result.ndvi_thresholds) applyNdviThresholds(result.ndvi_thresholds);
+    // Drone pair: open on the map of the NDVI used for the class (NDVI_SOURCE in ndvi_core.py);
+    // the other NDVI is still saved in auto_result.json, just not shown
+    const flight = (currentCapture && currentCapture.flight) || result.flight;
+    const decide = result.ndvi_source === 'red' && result.ndvi_red_map ? 'ndvi_red' : 'ndvi';
+    if (result.aligned_files && flight) {
+        const base = `${API}/captures/${encodeURIComponent(flight)}/`;
+        loadView('rgb', base + encodeURIComponent(result.aligned_files.rgb));
+        loadView('noir', base + encodeURIComponent(result.aligned_files.noir));
+    } else if (uploadedImage && (result.ndvi_map || result.ndvi_red_map)) {
+        viewImages.rgb = uploadedImage;
+    }
+    const usedMap = decide === 'ndvi_red' ? result.ndvi_red_map : result.ndvi_map;
+    if (usedMap) loadView('ndvi', usedMap, true);
+    document.getElementById('results-section').style.display = 'block';
+    document.getElementById('results-empty').style.display = 'none';
+    showNotification(notePrefix + (result.method === 'ndvi_cnn'
+        ? `NDVI + CNN: ${result.health_class.toUpperCase()} (${Math.round(result.confidence*100)}%)`
+        : `CNN only: ${result.health_class.toUpperCase()} (${Math.round(result.confidence*100)}%, no NoIR photo)`),
+        result.health_class === 'healthy' ? 'success' : result.health_class === 'moderate' ? 'warning' : 'error');
+}
 
-// Time Functions
+// ─── Take Photos button + live capture indicator ─────────────────────────────
+// The Pi takes CAPTURE_PAIRS photo pairs right away; when it finishes, app.py
+// analyzes the flight and checkDroneLatest() shows the result automatically.
+// The indicator shows the drone's real state (also for the capture at power-on).
+const CAPTURE_OPTS_KEY = 'socfa-capture-opts';
+
+// Spot label + number of pairs for Take Photos (remembered in this browser)
+function initCaptureOpts() {
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(CAPTURE_OPTS_KEY) || '{}'); } catch (e) { saved = {}; }
+    document.getElementById('spot-input').value = saved.spot || '';
+    document.getElementById('pairs-select').value = String(saved.pairs || 3);
+    const store = () => {
+        try {
+            localStorage.setItem(CAPTURE_OPTS_KEY, JSON.stringify({
+                spot: document.getElementById('spot-input').value.trim(),
+                pairs: Number(document.getElementById('pairs-select').value)
+            }));
+        } catch (e) { /* storage unavailable: options just aren't remembered */ }
+    };
+    document.getElementById('spot-input').addEventListener('change', store);
+    document.getElementById('pairs-select').addEventListener('change', store);
+}
+
+// A-03 → A-04, B9 → B10 (keeps leading zeros); labels without a number stay the same
+function nextSpot(spot) {
+    const m = spot.match(/^(.*?)(\d+)$/);
+    if (!m) return spot;
+    const n = String(Number(m[2]) + 1).padStart(m[2].length, '0');
+    return m[1] + n;
+}
+const CAPTURE_BTN_LABEL = '<i class="fas fa-camera"></i> Take Photos';
+let captureRequestedAt = 0;   // button pressed, Pi not reporting the capture yet
+
+async function takePhotosNow() {
+    const btn = document.getElementById('capture-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Starting...';
+    try {
+        const spotInput = document.getElementById('spot-input');
+        const spot = spotInput.value.trim().toUpperCase().replace(/[^A-Z0-9_-]/g, '');
+        const res = await fetch(`${API}/drone/capture`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ count: Number(document.getElementById('pairs-select').value), spot })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Could not start the capture');
+        captureRequestedAt = Date.now();
+        showNotification(`Taking ${data.count} photo pairs${data.spot ? ` for spot ${data.spot}` : ''}. Keep the cameras still — the result appears here automatically.`, 'success');
+        if (spot) {                                   // ready for the next spot
+            spotInput.value = nextSpot(spot);
+            spotInput.dispatchEvent(new Event('change'));
+        }
+        pollCaptureStatus();
+    } catch (err) {
+        showNotification(err.message === 'Failed to fetch'
+            ? 'Could not reach app.py. Is it running?' : err.message, 'error');
+        btn.disabled = false;
+        btn.innerHTML = CAPTURE_BTN_LABEL;
+    }
+}
+
+async function pollCaptureStatus() {
+    let s = null;
+    try {
+        s = await (await fetch(`${API}/drone/capture-status`)).json();
+    } catch (e) { /* app.py not running */ }
+    const starting = Date.now() - captureRequestedAt < 12000;     // Pi takes a few seconds to start
+    let state = s ? s.state : 'idle';
+    if (state === 'idle' && starting) state = 'preparing';
+    renderCaptureIndicator(state, s || {});
+}
+
+function renderCaptureIndicator(state, s) {
+    const box = document.getElementById('capture-indicator');
+    const text = document.getElementById('capture-indicator-text');
+    const track = document.getElementById('capture-indicator-track');
+    const fill = document.getElementById('capture-indicator-fill');
+    const btn = document.getElementById('capture-btn');
+    if (!box || !btn) return;
+
+    box.classList.remove('preparing', 'capturing', 'analyzing');
+    track.hidden = true;
+    if (state === 'capturing') {
+        const of = s.target ? ` of ${s.target}` : '';
+        text.textContent = `Capturing${s.spot ? ` spot ${s.spot}` : ''} — ${s.pairs}${of} photo pairs. Keep the cameras still.`;
+        if (s.target) { track.hidden = false; fill.style.width = `${Math.min(100, s.pairs / s.target * 100)}%`; }
+        btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Capturing...';
+    } else if (state === 'preparing') {
+        text.textContent = 'Drone is getting ready to take photos...';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Starting...';
+    } else if (state === 'analyzing') {
+        text.textContent = 'Photos done — analyzing (NDVI + CNN)...';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+    }
+    const busy = state === 'capturing' || state === 'preparing' || state === 'analyzing';
+    box.hidden = !busy;
+    if (busy) box.classList.add(state);
+    btn.disabled = busy;
+    if (!busy) btn.innerHTML = CAPTURE_BTN_LABEL;
+}
+
+// ─── Automatic drone results ─────────────────────────────────────────────────
+// After landing, app.py imports and analyzes each new flight by itself; this
+// checks for the newest result and shows it without any button.
+let autoShownAt = null;      // processed_at of the drone result on screen
+let autoChecked = false;     // false until the first check after the page opened
+
+async function checkDroneLatest() {
+    let data;
+    try {
+        data = await (await fetch(`${API}/drone/latest`)).json();
+    } catch (e) {
+        return;              // app.py not running: nothing to show
+    }
+    const r = data.result;
+    const isNew = r && r.processed_at !== autoShownAt;
+    if (isNew) {
+        autoShownAt = r.processed_at;
+        if (r.success) showAutoResult(r, autoChecked);
+        else if (autoChecked) showNotification(`Drone flight ${r.flight}: ${r.error}`, 'error');
+    } else if (!uploadedImage && data.status) {
+        document.getElementById('upload-status').textContent = data.status.message;
+    }
+    autoChecked = true;
+}
+
+function showAutoResult(r, isNewArrival) {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+        uploadedImage = img;
+        currentCapture = { flight: r.flight, pair: r.pair }; resetViews();
+        drawUploadPreview();
+        document.getElementById('upload-overlay-text').style.display = 'none';
+        showAnalysis(r,
+            `Drone ${r.flight}${r.spot ? ` · spot ${r.spot}` : ''} — pair ${r.pair} of ${r.pairs_in_flight} (sharpest), analyzed automatically.`,
+            isNewArrival ? 'New drone result — ' : '');
+    };
+    img.onerror = () => showAnalysis(r, `Drone ${r.flight} — analyzed automatically (photo not available).`);
+    img.src = `${API}/captures/${encodeURIComponent(r.flight)}/${encodeURIComponent(r.rgb)}`;
+}
+
+// ─── Render Results ───────────────────────────────────────────────────────────
+function renderResults(result) {
+    const container = document.getElementById('results-content');
+    if (!container) return;
+    const cls = result.health_class;
+    const conf = Math.round(result.confidence * 100);
+    const hasNdvi = result.ndvi_value != null;                          // real NDVI from the NoIR photo
+    const usesRed = result.ndvi_source === 'red' && result.ndvi_red_shares != null;
+    const ndviMean = usesRed ? result.ndvi_red_value : result.ndvi_value;   // the NDVI used for the class
+    // The class comes from the share of area in each NDVI class, not from the
+    // average, so the average is shown as a plain number (no class colour/label)
+    const th = result.ndvi_thresholds || { poor_max: 0.15, moderate_max: 0.55 };
+    const probs = result.class_probabilities || {};
+    // NDVI decides when there is a NoIR photo; otherwise the RGB CNN is the backup
+    const byNdvi = result.method === 'ndvi_cnn';
+    const confText = byNdvi ? `${conf}% · NDVI + CNN` : `${conf}% confidence · CNN only (no NoIR photo)`;
+
+    const cfg = {
+        healthy:  { color:'#1D9E75', bg:'#e1f5ee', icon:'fa-check-circle',        label:'Healthy Vegetation Detected',  rec:'Excellent vegetation health. Continue current farming practices and monitor for seasonal changes.' },
+        moderate: { color:'#EF9F27', bg:'#fdf3e3', icon:'fa-exclamation-circle',   label:'Moderate Vegetation Detected', rec:'Moderate health. Monitor closely and consider soil testing or adjusted irrigation.' },
+        poor:     { color:'#E24B4A', bg:'#fdecea', icon:'fa-exclamation-triangle', label:'Poor Vegetation Detected',     rec:'Immediate attention required. Check soil conditions, irrigation, and pest control.' }
+    };
+    const c = cfg[cls] || cfg.poor;
+
+    container.innerHTML = `
+        <div class="result-card">
+            <div class="result-header" style="background:${c.bg};">
+                <div class="health-indicator" style="background:${c.color};">
+                    <i class="fas ${c.icon}"></i>
+                </div>
+                <div class="result-title">
+                    <h4 style="color:${c.color};">${c.label}</h4>
+                    <span class="confidence" style="color:${c.color};">${confText}</span>
+                </div>
+            </div>
+
+            <div class="result-metrics" style="grid-template-columns:repeat(${hasNdvi ? 2 : 1},minmax(0,1fr));">
+                ${hasNdvi ? `
+                <div class="metric" title="Average over the whole photo. ${Math.round(result.ndvi_shares.healthy * 100)}% of the area at NDVI ≥ ${th.moderate_max}, ${Math.round(result.ndvi_shares.poor * 100)}% below ${th.poor_max}.">
+                    <span class="metric-label">NDVI</span>
+                    <span class="metric-value">${ndviMean != null ? ndviMean.toFixed(3) : '--'}</span>
+                    <span class="metric-unit">Average</span>
+                </div>` : ''}
+                <div class="metric">
+                    <span class="metric-label">Health Class</span>
+                    <span class="metric-value" style="color:${c.color};">${cls.charAt(0).toUpperCase()+cls.slice(1)}</span>
+                    <span class="metric-unit">${byNdvi ? 'NDVI + CNN' : 'CNN only'}</span>
+                </div>
+            </div>
+            ${hasNdvi ? '' : `
+            <div class="ndvi-missing" style="margin:10px 0 0;padding:8px 12px;border-radius:10px;font-size:12px;line-height:1.5;background:#fdf3e3;color:#9a5b0a;">
+                <i class="fas fa-circle-info"></i> No NDVI for this photo — NDVI needs the NoIR photo, which comes with each drone capture.
+                Pick a capture <b>From Drone</b> for the NDVI result.
+            </div>`}
+            ${hasNdvi && usesRed ? alignmentLine(result.alignment) : ''}
+            ${hasNdvi ? ndviSection('NDVI', result.ndvi_shares, ndviMean, th, cfg, false, '') : ''}
+
+            <div class="class-probabilities">
+                <h5>${byNdvi ? 'Combined (average of CNN and NDVI)' : 'Class Probabilities (CNN)'}</h5>
+                <div class="prob-bars">
+                    <div class="prob-bar">
+                        <span class="prob-label">Healthy:</span>
+                        <div class="prob-fill" style="width:${((probs.healthy||0)*100).toFixed(1)}%;background:#1D9E75;"></div>
+                        <span class="prob-value" style="color:#1D9E75;">${((probs.healthy||0)*100).toFixed(1)}%</span>
+                    </div>
+                    <div class="prob-bar">
+                        <span class="prob-label">Moderate:</span>
+                        <div class="prob-fill" style="width:${((probs.moderate||0)*100).toFixed(1)}%;background:#EF9F27;"></div>
+                        <span class="prob-value" style="color:#EF9F27;">${((probs.moderate||0)*100).toFixed(1)}%</span>
+                    </div>
+                    <div class="prob-bar">
+                        <span class="prob-label">Poor:</span>
+                        <div class="prob-fill" style="width:${((probs.poor||0)*100).toFixed(1)}%;background:#E24B4A;"></div>
+                        <span class="prob-value" style="color:#E24B4A;">${((probs.poor||0)*100).toFixed(1)}%</span>
+                    </div>
+                </div>
+                ${byNdvi ? `
+                <div class="prob-parts" style="margin-top:10px;font-size:12px;line-height:1.6;color:var(--text-muted);">
+                    <div><b>CNN</b> (RGB photo): ${partLine(result.cnn_probabilities)}</div>
+                    <div><b>NDVI</b> (share of area): ${partLine(result.ndvi_shares)}</div>
+                </div>` : ''}
+            </div>
+
+        </div>
+    `;
+}
+
+// How the NoIR photo was lined up with the RGB photo
+function alignmentLine(a) {
+    if (!a) return '';
+    const text = a.method === 'auto'  ? `Photos aligned automatically (${a.inliers} matching points · ${Math.round(a.kept_pct)}% of the photo kept)`
+               : a.method === 'saved' ? `Photos aligned with the last good alignment (this pair had too few details to match) · ${Math.round(a.kept_pct)}% kept`
+               : 'Photos could not be aligned — red NDVI not available for this pair';
+    const icon = a.method === 'none' ? 'fa-triangle-exclamation' : 'fa-object-group';
+    return `<div style="margin:10px 0 0;font-size:12px;color:var(--text-muted);"><i class="fas ${icon}"></i> ${text}</div>`;
+}
+
+// One NDVI on its own: class = the NDVI class covering most of the area
+function ndviSection(title, shares, mean, th, cfg, decides, badge) {
+    const s = shares || {};
+    const ndviCls = ['healthy', 'moderate', 'poor'].reduce((a, b) => (s[b] || 0) > (s[a] || 0) ? b : a);
+    const c = cfg[ndviCls];
+    const name = ndviCls.charAt(0).toUpperCase() + ndviCls.slice(1);
+    const bar = (label, key, color, range) => `
+        <div class="prob-bar" title="NDVI ${range}">
+            <span class="prob-label">${label}:</span>
+            <div class="prob-fill" style="width:${((s[key] || 0) * 100).toFixed(1)}%;background:${color};"></div>
+            <span class="prob-value" style="color:${color};">${((s[key] || 0) * 100).toFixed(1)}%</span>
+        </div>`;
+    return `
+            <div class="class-probabilities ndvi-result">
+                <h5><i class="fas fa-leaf"></i> ${title}:
+                    <span style="color:${c.color};">${name}</span>
+                    <span style="font-weight:400;color:var(--text-muted);">· average ${mean != null ? mean.toFixed(3) : '--'}</span>
+                    ${badge ? `<span class="ndvi-badge ${badge}">${badge}</span>` : ''}
+                    ${decides ? '<span class="ndvi-badge decides" title="This NDVI is the one used in the result">used</span>' : ''}</h5>
+                <div class="prob-bars">
+                    ${bar('Healthy', 'healthy', '#1D9E75', `≥ ${th.moderate_max}`)}
+                    ${bar('Moderate', 'moderate', '#EF9F27', `${th.poor_max} – ${th.moderate_max}`)}
+                    ${bar('Poor', 'poor', '#E24B4A', `< ${th.poor_max}`)}
+                </div>
+                <div style="margin-top:6px;font-size:11.5px;color:var(--text-muted);">Share of the area in each NDVI class (Table 7).</div>
+            </div>`;
+}
+
+function partLine(p) {
+    p = p || {};
+    const v = k => Math.round((p[k] || 0) * 100);
+    return `Healthy ${v('healthy')}% · Moderate ${v('moderate')}% · Poor ${v('poor')}%`;
+}
+
+// ─── Time ─────────────────────────────────────────────────────────────────────
 function updateTime() {
     const now = new Date();
-    const timeString = now.toLocaleTimeString('en-US', {
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-    });
-    
-    const dateString = now.toLocaleDateString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-    });
-    
-    document.getElementById('current-time').textContent = timeString + ' | ' + dateString;
+    const el = document.getElementById('current-time');
+    if (el) el.textContent =
+        now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }) +
+        ' | ' + now.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
 }
-
 function updateLastUpdateTime() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString('en-US', {
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit'
-    });
-    document.getElementById('last-update-time').textContent = timeString;
+    const el = document.getElementById('last-update-time');
+    if (el) el.textContent = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
 }
 
-// Drone Connection Functions
-function openDroneConnectionModal() {
-    console.log('Opening drone connection modal');
+// ─── Notifications ────────────────────────────────────────────────────────────
+function showNotification(message, type = 'info') {
+    document.querySelector('.notif-toast')?.remove();
+    const note = document.createElement('div');
+    note.className = 'notif-toast';
+    const colors = { success: '#1D9E75', error: '#E24B4A', warning: '#EF9F27', info: '#1D9E75' };
+    note.style.cssText = `position:fixed;top:20px;right:20px;padding:14px 22px;border-radius:8px;color:white;font-weight:500;z-index:99999;box-shadow:0 4px 12px rgba(0,0,0,0.2);font-family:'Inter',sans-serif;font-size:13px;background:${colors[type]||colors.info};`;
+    note.textContent = message;
+    document.body.appendChild(note);
+    setTimeout(() => { if (note.parentNode) note.remove(); }, 3000);
+}
+
+// ─── Drone captures (Raspberry Pi) ───────────────────────────────────────────
+function openDroneModal() {
     document.getElementById('drone-modal').style.display = 'flex';
+    loadDroneLists();
 }
 
-function closeModal() {
-    console.log('Closing modal');
-    document.getElementById('drone-modal').style.display = 'none';
+function closeDroneModal() {
+    const m = document.getElementById('drone-modal');
+    if (m) m.style.display = 'none';
 }
 
-function testConnection() {
-    const ip = document.getElementById('drone-ip').value;
-    const type = document.getElementById('connection-type').value;
-    
-    console.log('Testing connection to', ip, 'via', type);
-    showNotification(`Testing connection to ${ip} via ${type}...`, 'info');
-    
-    // Simulate connection test
-    setTimeout(() => {
-        showNotification('✓ Connection test successful!', 'success');
-    }, 1500);
-}
+async function loadDroneLists() {
+    const piBox = document.getElementById('drone-pi-list');
+    const localBox = document.getElementById('drone-local-list');
+    piBox.innerHTML = '<p class="drone-note">Looking for the drone...</p>';
+    localBox.innerHTML = '<p class="drone-note">Loading...</p>';
 
-function connectDrone() {
-    const ip = document.getElementById('drone-ip').value;
-    const type = document.getElementById('connection-type').value;
-    
-    console.log('Connecting to drone at', ip, 'via', type);
-    showNotification(`Connecting to drone at ${ip} via ${type}...`, 'info');
-    
-    // Update connection status
-    updateStatus('connection-status', 'Connecting');
-    updateValue('connection-status-value', 'Connecting');
-    updateProgressBar('connection-bar', 50);
-    
-    // Simulate connection process
-    setTimeout(() => {
-        // Update UI for connected state
-        updateStatus('connection-status', 'Connected');
-        updateValue('connection-status-value', 'Connected');
-        updateProgressBar('connection-bar', 100);
-        
-        // Hide connection prompt and show map
-        document.getElementById('drone-connection-prompt').style.display = 'none';
-        showNDVIMap();
-        
-        // Start simulating data
-        startDataSimulation();
-        
-        // Close modal
-        closeModal();
-        
-        showNotification('✓ Drone connected successfully!', 'success');
-        updateSystemStatus('connected');
-        
-        // Update drone status text
-        document.getElementById('drone-status').textContent = 'Connected';
-        
-        // Update status displays
-        updateStatusDisplays();
-        
-    }, 2000);
-}
-
-// Mission Control Functions
-function startMission() {
-    if (!isDroneConnected()) {
-        showNotification('Please connect drone first', 'warning');
-        return;
+    // Flights already on this laptop
+    try {
+        const flights = await (await fetch(`${API}/drone/captures`)).json();
+        localBox.innerHTML = flights.length ? flights.map(f => `
+            <div class="drone-flight">
+                <div class="drone-flight-head"><b>${escapeText(f.flight)}${f.spot ? ` · spot ${escapeText(f.spot)}` : ''}</b><span>${f.pairs.length} pairs</span></div>
+                <div class="drone-pairs">${f.pairs.map(p => `
+                    <button class="drone-pair${p.id === f.auto_pair ? ' chosen' : ''}" data-flight="${escapeText(f.flight)}" data-pair="${p.id}" data-rgb="${escapeText(p.rgb)}"
+                            title="Pair ${p.id} · ${escapeText(p.time)} · RGB photo (CNN) + NoIR photo (NDVI)${p.id === f.auto_pair ? ' · chosen automatically (sharpest)' : ''}">
+                        <div class="pair-half">
+                            <img loading="lazy" src="${API}/captures/${encodeURIComponent(f.flight)}/${encodeURIComponent(p.rgb)}" alt="Pair ${p.id} RGB photo">
+                            <em>RGB</em>
+                        </div>
+                        <div class="pair-half">
+                            <img loading="lazy" src="${API}/captures/${encodeURIComponent(f.flight)}/${encodeURIComponent(p.noir)}" alt="Pair ${p.id} NoIR photo">
+                            <em>NoIR</em>
+                        </div>
+                        <span>${String(p.id).padStart(4, '0')}</span>
+                        ${p.id === f.auto_pair ? '<strong class="pair-chosen"><i class="fas fa-check"></i> Used</strong>' : ''}
+                    </button>`).join('')}
+                </div>
+            </div>`).join('') : '<p class="drone-note">No flights imported yet.</p>';
+        localBox.querySelectorAll('.drone-pair').forEach(b =>
+            b.addEventListener('click', () => selectCapture(b.dataset.flight, +b.dataset.pair, b.dataset.rgb)));
+    } catch {
+        localBox.innerHTML = '<p class="drone-note">Could not reach app.py on port 5000.</p>';
     }
-    
-    console.log('Starting mission...');
-    
-    updateValue('mission-status', 'Active');
-    updateStatus('mission-status', 'Active');
-    updateProgressBar('mission-bar', 50);
-    
-    // Enable pause button
-    document.getElementById('pause-mission-btn').disabled = false;
-    
-    // Start mission simulation
-    simulateMission();
-    
-    showNotification('Mission started successfully', 'success');
-    updateSystemStatus('mission');
-}
 
-function pauseMission() {
-    if (!isDroneConnected()) return;
-    
-    console.log('Pausing mission...');
-    
-    updateValue('mission-status', 'Paused');
-    updateStatus('mission-status', 'Paused');
-    
-    // Pause mission timer
-    if (window.missionTimer) {
-        clearInterval(window.missionTimer);
-    }
-    
-    showNotification('Mission paused', 'warning');
-}
-
-function emergencyStop() {
-    if (!isDroneConnected()) return;
-    
-    if (confirm('Are you sure you want to emergency stop the drone?\n\nThis will immediately halt all operations.')) {
-        console.log('Emergency stop activated');
-        
-        updateValue('mission-status', 'Stopped');
-        updateStatus('mission-status', 'Critical');
-        updateProgressBar('mission-bar', 0);
-        
-        // Disable pause button
-        document.getElementById('pause-mission-btn').disabled = true;
-        
-        // Reset mission progress
-        if (window.missionTimer) {
-            clearInterval(window.missionTimer);
-        }
-        document.getElementById('mission-progress-text').textContent = '0%';
-        document.getElementById('mission-progress-bar').style.width = '0%';
-        
-        // Reset other values
-        updateValue('area-covered', '0.0 ha');
-        updateProgressBar('area-bar', 0);
-        
-        showNotification('⚠️ Emergency stop activated!', 'error');
-        updateSystemStatus('connected');
+    // Flights on the Pi (only when it is on the same Wi-Fi)
+    try {
+        const res = await fetch(`${API}/drone/flights`);
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error);
+        piBox.innerHTML = data.length ? data.map(f => `
+            <div class="drone-row">
+                <div><b>${escapeText(f.flight)}${f.spot ? ` · spot ${escapeText(f.spot)}` : ''}</b><span>${f.pairs} pairs${f.started ? ' · ' + escapeText(f.started.replace('T', ' ')) : ''}</span></div>
+                <button class="action-btn drone-import" data-flight="${escapeText(f.flight)}">
+                    ${f.imported ? '<i class="fas fa-rotate"></i> Re-sync' : '<i class="fas fa-download"></i> Import'}
+                </button>
+            </div>`).join('') : '<p class="drone-note">The drone has no flights yet.</p>';
+        piBox.querySelectorAll('.drone-import').forEach(b => b.addEventListener('click', () => importFlight(b)));
+    } catch (err) {
+        piBox.innerHTML = `<p class="drone-note"><i class="fas fa-wifi"></i> ${escapeText(err.message || 'Drone not reachable.')}</p>`;
     }
 }
 
-function simulateMission() {
-    let progress = 0;
-    
-    // Clear any existing interval
-    if (window.missionTimer) {
-        clearInterval(window.missionTimer);
-    }
-    
-    console.log('Simulating mission progress...');
-    
-    window.missionTimer = setInterval(() => {
-        progress += Math.random() * 3; // Random progress increment
-        
-        if (progress > 100) {
-            progress = 100;
-            clearInterval(window.missionTimer);
-            updateValue('mission-status', 'Complete');
-            updateStatus('mission-status', 'Complete');
-            updateProgressBar('mission-bar', 100);
-            document.getElementById('pause-mission-btn').disabled = true;
-            showNotification('✓ Mission completed successfully!', 'success');
-            updateSystemStatus('connected');
-        }
-        
-        // Update progress display
-        const progressPercent = Math.min(100, Math.round(progress));
-        document.getElementById('mission-progress-text').textContent = progressPercent + '%';
-        document.getElementById('mission-progress-bar').style.width = progressPercent + '%';
-        
-        // Update other values during mission
-        if (progressPercent % 10 === 0) {
-            simulateDataUpdate(progressPercent);
-        }
-        
-    }, 1000);
-}
-
-// Map Control Functions
-function zoomIn() {
-    if (!isDroneConnected()) {
-        showNotification('Connect drone first', 'warning');
-        return;
-    }
-    
-    const zoomElement = document.getElementById('zoom-level');
-    const currentZoom = zoomElement.textContent;
-    const zoomMatch = currentZoom.match(/1:(\d+)/);
-    
-    if (zoomMatch) {
-        const zoomValue = parseInt(zoomMatch[1]);
-        if (zoomValue > 100) {
-            const newZoom = zoomValue - 100;
-            zoomElement.textContent = `1:${newZoom}`;
-            showNotification(`Zoomed in to 1:${newZoom}`, 'info');
-            
-            // Simulate map update
-            simulateMapUpdate();
-        } else {
-            showNotification('Maximum zoom level reached', 'warning');
-        }
+async function importFlight(btn) {
+    const flight = btn.dataset.flight;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Importing...';
+    try {
+        const res = await fetch(`${API}/drone/import`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ flight })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error);
+        showNotification(`Imported ${data.pairs} photo pairs from ${flight}.`, 'success');
+        loadDroneLists();
+    } catch (err) {
+        showNotification(err.message || 'Import failed.', 'error');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-download"></i> Import';
     }
 }
 
-function zoomOut() {
-    if (!isDroneConnected()) {
-        showNotification('Connect drone first', 'warning');
-        return;
-    }
-    
-    const zoomElement = document.getElementById('zoom-level');
-    const currentZoom = zoomElement.textContent;
-    const zoomMatch = currentZoom.match(/1:(\d+)/);
-    
-    if (zoomMatch) {
-        const zoomValue = parseInt(zoomMatch[1]);
-        const newZoom = zoomValue + 100;
-        zoomElement.textContent = `1:${newZoom}`;
-        showNotification(`Zoomed out to 1:${newZoom}`, 'info');
-        
-        // Simulate map update
-        simulateMapUpdate();
-    }
-}
-
-function resetView() {
-    if (!isDroneConnected()) {
-        showNotification('Connect drone first', 'warning');
-        return;
-    }
-    
-    document.getElementById('zoom-level').textContent = '1:500';
-    showNotification('View reset to default', 'info');
-    simulateMapUpdate();
-}
-
-function captureMap() {
-    if (!isDroneConnected()) {
-        showNotification('Connect drone first', 'warning');
-        return;
-    }
-    
-    // Create a simulated map capture
-    showNotification('📸 Map screenshot saved to gallery', 'success');
-    
-    // Simulate file download
-    setTimeout(() => {
-        console.log('Map capture saved');
-    }, 500);
-}
-
-// Data Simulation
-function startDataSimulation() {
-    console.log('Starting data simulation...');
-    
-    // Simulate signal strength updates
-    window.signalInterval = setInterval(() => {
-        if (isDroneConnected()) {
-            const signal = Math.floor(Math.random() * 30) + 70; // 70-100%
-            updateValue('signal-value', signal + '%');
-            updateProgressBar('signal-bar', signal);
-            
-            // Update signal status
-            if (signal > 85) {
-                updateStatus('signal-status', 'Excellent');
-            } else if (signal > 70) {
-                updateStatus('signal-status', 'Good');
-            } else {
-                updateStatus('signal-status', 'Moderate');
-            }
-            
-            // Update sidebar displays
-            updateStatusDisplays();
-        }
-    }, 3000);
-    
-    // Simulate battery drain
-    window.batteryInterval = setInterval(() => {
-        if (isDroneConnected()) {
-            const currentBattery = parseInt(document.getElementById('battery-value').textContent) || 85;
-            const newBattery = Math.max(15, currentBattery - 0.3);
-            updateValue('battery-value', Math.round(newBattery) + '%');
-            updateProgressBar('battery-bar', newBattery);
-            
-            // Update battery status
-            if (newBattery > 60) {
-                updateStatus('battery-status', 'Good');
-            } else if (newBattery > 30) {
-                updateStatus('battery-status', 'Moderate');
-            } else {
-                updateStatus('battery-status', 'Low');
-            }
-            
-            // Update sidebar displays
-            updateStatusDisplays();
-        }
-    }, 5000);
-    
-    // Simulate other data updates
-    window.dataInterval = setInterval(() => {
-        if (isDroneConnected()) {
-            simulateDataUpdate();
-            // Update sidebar displays
-            updateStatusDisplays();
-        }
-    }, 2000);
-    
-    // Simulate altitude changes
-    window.altitudeInterval = setInterval(() => {
-        if (isDroneConnected()) {
-            const currentAlt = parseInt(document.getElementById('drone-altitude').textContent) || 120;
-            const newAlt = Math.max(50, Math.min(200, currentAlt + (Math.random() - 0.5) * 10));
-            updateValue('drone-altitude', Math.round(newAlt) + 'm');
-        }
-    }, 3000);
-}
-
-function simulateDataUpdate(missionProgress = 0) {
-    if (!isDroneConnected()) return;
-    
-    // Update flight time
-    const flightTimeElement = document.getElementById('flight-time');
-    const timeMatch = flightTimeElement.textContent.match(/(\d+):(\d+)/);
-    if (timeMatch) {
-        let minutes = parseInt(timeMatch[1]);
-        let seconds = parseInt(timeMatch[2]);
-        
-        seconds += 1;
-        if (seconds >= 60) {
-            seconds = 0;
-            minutes += 1;
-        }
-        
-        const newTime = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
-        updateValue('flight-time', newTime);
-        updateProgressBar('flight-bar', (minutes * 60 + seconds) / 3600 * 100);
-    }
-    
-    // Update area covered (only if mission is active)
-    if (missionProgress > 0) {
-        const areaElement = document.getElementById('area-covered');
-        const areaMatch = areaElement.textContent.match(/(\d+\.?\d*)/);
-        if (areaMatch) {
-            const currentArea = parseFloat(areaMatch[1]);
-            const newArea = Math.min(25.3, currentArea + (missionProgress / 1000));
-            updateValue('area-covered', newArea.toFixed(1) + ' ha');
-            updateProgressBar('area-bar', (newArea / 25.3) * 100);
-        }
-    }
-    
-    // Update NDVI value (simulate variations)
-    const baseNDVI = 0.65 + (Math.sin(Date.now() / 10000) * 0.15);
-    const ndvi = Math.max(0, Math.min(1, baseNDVI + (Math.random() - 0.5) * 0.1));
-    updateValue('avg-ndvi', ndvi.toFixed(2));
-    updateProgressBar('ndvi-bar', ndvi * 100);
-    
-    // Update health score based on NDVI
-    const health = (ndvi * 100) - 20 + (Math.random() * 20);
-    const healthPercent = Math.max(0, Math.min(100, Math.round(health)));
-    updateValue('health-score', healthPercent + '%');
-    updateProgressBar('health-bar', healthPercent);
-    
-    // Update map coordinates (simulate drone movement)
-    const lat = 14.599512 + (Math.random() - 0.5) * 0.0005;
-    const lng = 120.984222 + (Math.random() - 0.5) * 0.0005;
-    updateMapCoordinates(lat, lng);
-    
-    // Update last update time
-    updateLastUpdateTime();
-}
-
-// Map Display Functions
-function showNDVIMap() {
-    console.log('Showing NDVI map');
-    
-    const mapCanvas = document.getElementById('ndvi-map-canvas');
-    if (!mapCanvas) return;
-    
-    mapCanvas.style.display = 'block';
-    mapCanvas.innerHTML = '';
-    
-    // Create simulated NDVI map
-    createSimulatedNDVIMap();
-}
-
-function createSimulatedNDVIMap() {
-    const mapCanvas = document.getElementById('ndvi-map-canvas');
-    if (!mapCanvas) return;
-    
-    // Set dimensions
-    mapCanvas.style.width = '100%';
-    mapCanvas.style.height = '100%';
-    mapCanvas.style.position = 'relative';
-    mapCanvas.style.background = 'linear-gradient(135deg, #1a9641 0%, #d7191c 100%)';
-    mapCanvas.style.borderRadius = '8px';
-    
-    // Create grid pattern
-    const gridSize = 40;
-    const width = mapCanvas.offsetWidth;
-    const height = mapCanvas.offsetHeight;
-    const cols = Math.ceil(width / gridSize);
-    const rows = Math.ceil(height / gridSize);
-    
-    // Create grid cells
-    for (let i = 0; i < cols * rows; i++) {
-        const cell = document.createElement('div');
-        cell.style.position = 'absolute';
-        cell.style.width = gridSize + 'px';
-        cell.style.height = gridSize + 'px';
-        cell.style.left = (i % cols) * gridSize + 'px';
-        cell.style.top = Math.floor(i / cols) * gridSize + 'px';
-        cell.style.backgroundColor = getNDVIColor(Math.random());
-        cell.style.opacity = '0.8';
-        cell.style.border = '1px solid rgba(255,255,255,0.1)';
-        mapCanvas.appendChild(cell);
-    }
-    
-    // Add drone position indicator
-    const droneIndicator = document.createElement('div');
-    droneIndicator.id = 'drone-indicator';
-    droneIndicator.style.position = 'absolute';
-    droneIndicator.style.left = '50%';
-    droneIndicator.style.top = '50%';
-    droneIndicator.style.width = '20px';
-    droneIndicator.style.height = '20px';
-    droneIndicator.style.backgroundColor = '#2d3748';
-    droneIndicator.style.borderRadius = '50%';
-    droneIndicator.style.border = '3px solid #ffffff';
-    droneIndicator.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
-    droneIndicator.style.transform = 'translate(-50%, -50%)';
-    droneIndicator.style.zIndex = '10';
-    droneIndicator.innerHTML = '<i class="fas fa-drone" style="color: white; font-size: 10px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>';
-    mapCanvas.appendChild(droneIndicator);
-    
-    // Animate drone movement
-    animateDrone();
-}
-
-function animateDrone() {
-    const drone = document.getElementById('drone-indicator');
-    if (!drone) return;
-    
-    let x = 50;
-    let y = 50;
-    let dx = 0.5;
-    let dy = 0.3;
-    
-    function moveDrone() {
-        if (!drone || !isDroneConnected()) return;
-        
-        x += dx;
-        y += dy;
-        
-        // Bounce off edges
-        if (x <= 5 || x >= 95) dx = -dx;
-        if (y <= 5 || y >= 95) dy = -dy;
-        
-        drone.style.left = x + '%';
-        drone.style.top = y + '%';
-        
-        // Update coordinates
-        const lat = 14.599512 + (x - 50) * 0.0001;
-        const lng = 120.984222 + (y - 50) * 0.0001;
-        updateMapCoordinates(lat, lng);
-        
-        requestAnimationFrame(moveDrone);
-    }
-    
-    moveDrone();
-}
-
-function getNDVIColor(value) {
-    if (value < 0.2) return '#d7191c'; // Stress / Very Poor
-    if (value < 0.4) return '#fdae61'; // Poor Vegetation
-    if (value < 0.6) return '#ffffbf'; // Moderate Health
-    if (value < 0.8) return '#a6d96a'; // Good Health
-    return '#1a9641'; // Excellent Health
-}
-
-function simulateMapUpdate() {
-    const mapCanvas = document.getElementById('ndvi-map-canvas');
-    if (mapCanvas && mapCanvas.style.display !== 'none') {
-        // Simulate map refresh
-        mapCanvas.style.opacity = '0.8';
-        setTimeout(() => {
-            mapCanvas.style.opacity = '1';
-        }, 200);
-    }
-}
-
-function updateMapCoordinates(lat, lng) {
-    document.getElementById('map-coordinates').textContent = 
-        `Lat: ${lat.toFixed(6)}°, Lng: ${lng.toFixed(6)}°`;
-}
-
-// Utility Functions
-function isDroneConnected() {
-    return document.getElementById('connection-status-value').textContent === 'Connected';
-}
-
-function updateValue(elementId, value) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.textContent = value;
-    }
-}
-
-function updateStatus(elementId, status) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.textContent = status;
-        element.className = 'param-status';
-        
-        switch(status.toLowerCase()) {
-            case 'connected':
-            case 'excellent':
-            case 'good':
-            case 'complete':
-            case 'ready':
-                element.classList.add('good');
-                break;
-            case 'connecting':
-            case 'moderate':
-            case 'active':
-            case 'fair':
-                element.classList.add('moderate');
-                break;
-            case 'offline':
-            case 'poor':
-            case 'critical':
-            case 'stopped':
-            case 'low':
-                element.classList.add('poor');
-                break;
-        }
-    }
-}
-
-function updateProgressBar(barId, percentage) {
-    const bar = document.getElementById(barId);
-    if (bar) {
-        const percent = Math.min(100, Math.max(0, percentage));
-        bar.style.width = percent + '%';
-        
-        // Update color based on percentage
-        if (percent > 70) {
-            bar.style.backgroundColor = '#10b981';
-        } else if (percent > 40) {
-            bar.style.backgroundColor = '#f59e0b';
-        } else {
-            bar.style.backgroundColor = '#ef4444';
-        }
-    }
-}
-
-function updateSystemStatus(status) {
-    const dot = document.getElementById('system-status-dot');
-    const text = document.getElementById('system-status-text');
-    
-    if (dot && text) {
-        switch(status) {
-            case 'ready':
-                dot.className = 'status-dot';
-                text.textContent = 'System Ready';
-                break;
-            case 'connected':
-                dot.className = 'status-dot active';
-                text.textContent = 'Drone Connected';
-                break;
-            case 'mission':
-                dot.className = 'status-dot active';
-                text.textContent = 'Mission Active';
-                break;
-            case 'error':
-                dot.className = 'status-dot';
-                dot.style.backgroundColor = '#ef4444';
-                text.textContent = 'System Error';
-                break;
-        }
-    }
-}
-
-// REMOVED: selectNode function
-
-function showNotification(message, type) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 16px 24px;
-        border-radius: 8px;
-        color: white;
-        font-weight: 500;
-        z-index: 1000;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        animation: slideIn 0.3s ease;
-    `;
-    
-    // Set background color based on type
-    switch(type) {
-        case 'success':
-            notification.style.backgroundColor = '#10b981';
-            break;
-        case 'error':
-            notification.style.backgroundColor = '#ef4444';
-            break;
-        case 'warning':
-            notification.style.backgroundColor = '#f59e0b';
-            break;
-        case 'info':
-            notification.style.backgroundColor = '#0f766e';
-            break;
-    }
-    
-    notification.textContent = message;
-    
-    // Add to document
-    document.body.appendChild(notification);
-    
-    // Auto remove after 3 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 3000);
-}
-
-// REMOVED: refreshData function (since refresh button is removed)
-
-function changeField(field) {
-    const fieldNames = {
-        'north': 'North Field',
-        'south': 'South Field', 
-        'east': 'East Field',
-        'west': 'West Field'
+function selectCapture(flight, pair, rgbName) {
+    closeDroneModal();
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+        uploadedImage = img;
+        currentCapture = { flight, pair }; resetViews();
+        drawUploadPreview();
+        document.getElementById('upload-overlay-text').style.display = 'none';
+        document.getElementById('upload-status').textContent =
+            `Drone pair ${String(pair).padStart(4, '0')} (${flight}) — analyzing RGB + NoIR...`;
+        analyzeImage({ capture: { flight, pair } });
     };
-    showNotification(`Switched to ${fieldNames[field] || field}`, 'info');
-    
-    // Reset area covered when changing fields
-    updateValue('area-covered', '0.0 ha');
-    updateProgressBar('area-bar', 0);
+    img.onerror = () => showNotification('Could not load the drone photo from app.py.', 'error');
+    img.src = `${API}/captures/${encodeURIComponent(flight)}/${encodeURIComponent(rgbName)}`;
 }
 
-function changeFlightMode(mode) {
-    const modeNames = {
-        'manual': 'Manual Control',
-        'auto': 'Auto Mission',
-        'grid': 'Grid Scan Pattern',
-        'follow': 'Follow Path'
-    };
-    showNotification(`Flight mode changed to ${modeNames[mode] || mode}`, 'info');
+function escapeText(str) {
+    const d = document.createElement('div');
+    d.textContent = str == null ? '' : String(str);
+    return d.innerHTML.replace(/"/g, '&quot;');
 }
-
-function handleResize() {
-    // Handle window resize for responsive design
-    console.log('Window resized to:', window.innerWidth, 'x', window.innerHeight);
-    
-    // Recreate map if needed
-    if (isDroneConnected()) {
-        simulateMapUpdate();
-    }
-}
-
-// Clean up intervals when page is unloaded
-window.addEventListener('beforeunload', function() {
-    if (window.signalInterval) clearInterval(window.signalInterval);
-    if (window.batteryInterval) clearInterval(window.batteryInterval);
-    if (window.dataInterval) clearInterval(window.dataInterval);
-    if (window.altitudeInterval) clearInterval(window.altitudeInterval);
-    if (window.missionTimer) clearInterval(window.missionTimer);
-});
-
-document.getElementById("disconnect-drone-btn").addEventListener("click", () => {
-    document.getElementById("drone-connection-status").textContent = "Disconnected";
-    document.getElementById("drone-connection-dot").classList.remove("active");
-
-    document.getElementById("connection-status-value").textContent = "Offline";
-    document.getElementById("connection-status").textContent = "Offline";
-    document.getElementById("connection-desc").textContent = "Drone disconnected";
-
-    alert("Drone disconnected successfully.");
-});
-
-// Add CSS animations for notifications
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from { transform: translateX(100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes slideOut {
-        from { transform: translateX(0); opacity: 1; }
-        to { transform: translateX(100%); opacity: 0; }
-    }
-    .notification {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 16px 24px;
-        border-radius: 8px;
-        color: white;
-        font-weight: 500;
-        z-index: 1000;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        animation: slideIn 0.3s ease;
-    }
-`;
-document.head.appendChild(style);
-
-console.log('NDVI Dashboard JavaScript loaded successfully');

@@ -1,0 +1,1 @@
+date,time,zone,spot,flight,observer,observer_class,lcc_mean,growth_stage_dat,water_condition,standing_water_cm,weather,ndvi_class,ndvi_mean,cnn_class,drone_class,soil_class,final_class,final_score,sentinel_ndvi,handheld_ndvi,notes

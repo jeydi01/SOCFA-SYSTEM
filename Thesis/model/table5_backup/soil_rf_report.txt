@@ -1,0 +1,27 @@
+SoCFA Soil Random Forest
+Readings used: 7079 (from 8384)
+  - excluded 1300 suspected generated chili rows
+  - dropped 0 rows with missing values
+  - dropped 5 impossible readings (e.g. negative EC)
+Class distribution: {"Healthy": 299, "Moderate": 3775, "Poor": 3005}
+Split: train 4955 / val 1062 / test 1062
+5-fold CV accuracy: 99.94% ± 0.05%
+Validation accuracy: 100.00%
+Test accuracy: 99.91%
+Test macro F1: 99.60%
+
+              precision    recall  f1-score   support
+
+     Healthy     0.9783    1.0000    0.9890        45
+    Moderate     1.0000    0.9982    0.9991       567
+        Poor     1.0000    1.0000    1.0000       450
+
+    accuracy                         0.9991      1062
+   macro avg     0.9928    0.9994    0.9960      1062
+weighted avg     0.9991    0.9991    0.9991      1062
+
+Feature importance:
+  Moisture     0.7916
+  pH           0.1417
+  EC           0.0517
+  Temperature  0.0150

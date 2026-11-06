@@ -1,0 +1,23 @@
+# SoCFA — start the drone capture (hover mode) when the Raspberry Pi boots.
+#
+# Install (on the Pi, once):
+#   1. Copy pi_capture.py to /home/socfa/socfa/   (user "socfa")
+#   2. sudo cp socfa-capture.service /etc/systemd/system/
+#   3. sudo systemctl daemon-reload && sudo systemctl enable socfa-capture
+#
+# Change the hover delay / number of pairs in ExecStart.
+# Boot without capturing:  touch ~/socfa_no_capture   (delete it before flying)
+
+[Unit]
+Description=SoCFA drone capture (hover mode)
+After=multi-user.target
+
+[Service]
+Type=simple
+User=socfa
+WorkingDirectory=/home/socfa/socfa
+ExecStart=/usr/bin/python3 /home/socfa/socfa/pi_capture.py --delay 120 --count 10
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

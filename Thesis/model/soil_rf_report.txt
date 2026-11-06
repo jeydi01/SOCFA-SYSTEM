@@ -1,0 +1,30 @@
+SoCFA Soil Random Forest
+Readings used: 1628 (from 9375)
+  - excluded 1300 suspected generated chili rows
+  - dropped 0 rows with missing values
+  - dropped 5 impossible readings (e.g. negative EC)
+  - dropped 388 zero readings (probe not in soil)
+  - dropped 6054 readings above saturation (46.4% moisture)
+  - usable by source: {"kaggle": 1061, "socfa nodes": 567}
+Class distribution: {"Healthy": 50, "Moderate": 1117, "Poor": 461}
+Split: train 1139 / val 244 / test 245
+5-fold CV accuracy: 100.00% ± 0.00%
+Validation accuracy: 100.00%
+Test accuracy: 100.00%
+Test macro F1: 100.00%
+
+              precision    recall  f1-score   support
+
+     Healthy     1.0000    1.0000    1.0000         8
+    Moderate     1.0000    1.0000    1.0000       168
+        Poor     1.0000    1.0000    1.0000        69
+
+    accuracy                         1.0000       245
+   macro avg     1.0000    1.0000    1.0000       245
+weighted avg     1.0000    1.0000    1.0000       245
+
+Feature importance:
+  Moisture     0.4351
+  pH           0.2972
+  Temperature  0.1784
+  EC           0.0893

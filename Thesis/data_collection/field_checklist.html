@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoCFA Field Day Checklist</title>
+<style>
+    :root { --ink: #1f2328; --muted: #5f6672; --line: #c9ced6; --soft: #f3f5f7; --accent: #1f7a4d; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; color: var(--ink); font: 13px/1.45 "Segoe UI", Arial, sans-serif; }
+    .page { max-width: 820px; margin: 0 auto; padding: 24px 28px; }
+    h1 { font-size: 20px; margin: 0 0 2px; }
+    h2 { font-size: 15px; margin: 18px 0 6px; padding-bottom: 3px; border-bottom: 2px solid var(--accent); color: var(--accent); }
+    h3 { font-size: 13px; margin: 10px 0 4px; }
+    .sub { color: var(--muted); margin: 0 0 12px; }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 18px; margin: 8px 0 4px; }
+    .fields div { border-bottom: 1px solid var(--line); padding: 4px 0; color: var(--muted); }
+    ul.check { list-style: none; padding: 0; margin: 4px 0; }
+    ul.check li { position: relative; padding: 3px 0 3px 24px; }
+    ul.check li::before { content: ""; position: absolute; left: 2px; top: 5px; width: 12px; height: 12px; border: 1.5px solid var(--ink); border-radius: 2px; }
+    ol { margin: 4px 0; padding-left: 20px; } ol li { padding: 2px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+    th, td { border: 1px solid var(--line); padding: 5px 6px; text-align: left; vertical-align: top; }
+    th { background: var(--soft); font-weight: 600; }
+    .note { background: var(--soft); border-left: 3px solid var(--accent); padding: 6px 10px; margin: 8px 0; }
+    .sheet td { height: 30px; }
+    .small { font-size: 11.5px; color: var(--muted); }
+    .break { page-break-before: always; }
+    @media print {
+        .page { padding: 0; max-width: none; }
+        @page { size: A4; margin: 14mm; }
+        h2 { break-after: avoid; } table, .note { break-inside: avoid; }
+    }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>SoCFA Field Day Checklist</h1>
+<p class="sub">Drone NDVI + soil sensor data collection on palay. One copy per field day. Data goes into <b>validation_log.csv</b> (crop condition) and <b>sensor_reference_log.csv</b> (sensor checks).</p>
+
+<div class="fields">
+    <div>Date:</div><div>Field / barangay:</div>
+    <div>Team members:</div><div>Observer (crop rating):</div>
+    <div>Arrival time:</div><div>Weather (clear / partly cloudy / overcast):</div>
+    <div>Growth stage (days after transplanting):</div><div>Field water (flooded / saturated / dry):</div>
+</div>
+
+<h2>1. Before leaving</h2>
+<ul class="check">
+    <li>Drone batteries charged (enough for all zones + spare)</li>
+    <li>Raspberry Pi in its case, both cameras fixed, <b>blue filter on the NoIR lens</b></li>
+    <li>Pi power (drone battery regulator or power bank, 5 V / 5 A)</li>
+    <li>Pi set to capture at power-on — <b>no</b> <code>~/socfa_no_capture</code> file</li>
+    <li>Laptop charged; <code>server.js</code> and <code>app.py</code> start without errors</li>
+    <li>Phone hotspot on and charged (Pi, laptop and soil nodes connect to it)</li>
+    <li>Soil nodes charged / powered</li>
+    <li>Grey or white reference card</li>
+    <li>Leaf Color Chart (LCC)</li>
+    <li>Reference instruments: soil thermometer; pH meter and EC meter (if available)</li>
+    <li>Soil sample bags, marker, small trowel (on lab-sample days)</li>
+    <li>Flags / stakes for zone corners (if not already in the field)</li>
+    <li>This checklist, pens, clipboard; phone for ground photos</li>
+</ul>
+
+<h2>2. Setup at the field</h2>
+<ol>
+    <li>Check zone flags are in place (Zone A, B, C…). Note any that moved.</li>
+    <li>Turn on the hotspot; connect the laptop.</li>
+    <li>Start <code>server.js</code> and <code>app.py</code>. Open the <b>Soil</b> page: every node <b>Online</b>, no <b>Check probe</b>.</li>
+    <li>Fix any probe that is loose or not in the soil before continuing.</li>
+    <li>Place the grey/white card flat on the ground inside the first zone.</li>
+</ol>
+
+<h2>Zone layout (same for every zone, every visit)</h2>
+<svg viewBox="0 0 680 330" style="width:100%;max-width:680px;display:block;margin:4px 0" role="img" aria-label="Zone layout: 26 by 13 m zone, six drone spots, three soil nodes">
+    <rect x="20" y="10" width="640" height="270" rx="6" fill="none" stroke="#8a8f98" stroke-width="5"/>
+    <rect x="34" y="24" width="612" height="242" fill="#eef6e4" stroke="#7aa35a" stroke-width="1"/>
+    <text x="44" y="42" font-size="12" fill="#3f5f2a">Paddy at least 32 × 19 m · zone starts 3 m from the bund</text>
+    <rect x="80" y="54" width="520" height="200" fill="none" stroke="#333" stroke-dasharray="6 4"/>
+    <g fill="#d8f0e6" stroke="#1d9e75">
+        <rect x="83" y="57" width="168" height="94"/><rect x="256" y="57" width="168" height="94"/><rect x="429" y="57" width="168" height="94"/>
+        <rect x="83" y="157" width="168" height="94"/><rect x="256" y="157" width="168" height="94"/><rect x="429" y="157" width="168" height="94"/>
+    </g>
+    <g font-size="14" font-weight="600" fill="#085041" text-anchor="middle">
+        <text x="167" y="80">A-01</text><text x="340" y="80">A-02</text><text x="513" y="80">A-03</text>
+        <text x="167" y="180">A-04</text><text x="340" y="180">A-05</text><text x="513" y="180">A-06</text>
+    </g>
+    <text x="167" y="96" font-size="11" fill="#0f6e56" text-anchor="middle">photo ≈ 8.5 × 6.4 m</text>
+    <g stroke="#333" stroke-width="1.2"><path d="M161 112h12M167 106v12M334 112h12M340 106v12M507 112h12M513 106v12M161 212h12M167 206v12M334 212h12M340 206v12M507 212h12M513 206v12"/></g>
+    <g fill="#f5c4b3" stroke="#d85a30"><circle cx="200" cy="134" r="9"/><circle cx="480" cy="134" r="9"/><circle cx="340" cy="234" r="9"/></g>
+    <g font-size="12" fill="#712b13"><text x="214" y="138">N1</text><text x="452" y="138">N3</text><text x="354" y="238">N2</text></g>
+    <line x1="230" y1="134" x2="440" y2="134" stroke="#d85a30" stroke-dasharray="3 3"/>
+    <text x="340" y="129" font-size="11" fill="#712b13" text-anchor="middle">≈ 14 m</text>
+    <rect x="300" y="290" width="80" height="26" rx="4" fill="#eeedfe" stroke="#534ab7"/>
+    <text x="340" y="307" font-size="12" fill="#3c3489" text-anchor="middle">Phone</text>
+    <text x="392" y="307" font-size="12" fill="#333">hotspot + laptop on the bund, ≤ 15 m to every node</text>
+    <text x="34" y="307" font-size="12" fill="#333">Zone 26 × 13 m · fly at 7 m</text>
+</svg>
+<table>
+    <tr><th style="width:40%">What</th><th>Distance</th></tr>
+    <tr><td>Drone height</td><td><b>7 m</b>, the same every time (lower than ~5 m the propeller wind bends the leaves)</td></tr>
+    <tr><td>Spots per zone</td><td>6 (A-01 … A-06), hover over the + of each; photos do not overlap</td></tr>
+    <tr><td>Zone size / paddy needed</td><td>26 × 13 m inside a paddy of at least 32 × 19 m</td></tr>
+    <tr><td>From bund, canal, water inlet</td><td>at least 3 m</td></tr>
+    <tr><td>Soil nodes</td><td>N1 in A-01, N3 in A-03 (≈ 14 m apart), N2 in A-05 (≈ 10 m from each)</td></tr>
+    <tr><td>Probe / box</td><td>probe 10–15 cm deep between rice hills; ESP32 box on a stake 40–50 cm above the soil</td></tr>
+    <tr><td>Phone hotspot</td><td>on the bund by the middle of the zone, ≤ 15 m to every node, held up ~1 m</td></tr>
+    <tr><td>Between zones</td><td>different paddies, or at least 15 m apart; pick one healthy-, one moderate-, one poor-looking zone</td></tr>
+</table>
+<p class="small">Leave numbered bamboo stakes at N1, N2, N3 in every zone so the probes go back in the same place each visit.</p>
+
+<h2>Zones and field days</h2>
+<table>
+    <tr><th style="width:22%">Zone</th><th>Looks</th><th style="width:22%">Visited on</th><th>Paddy / location (write once)</th></tr>
+    <tr><td><b>A</b>, <b>D</b></td><td>Healthy-looking</td><td>A: odd days · D: even days</td><td>A: ____________ &nbsp; D: ____________</td></tr>
+    <tr><td><b>B</b>, <b>E</b></td><td>Moderate-looking</td><td>B: odd days · E: even days</td><td>B: ____________ &nbsp; E: ____________</td></tr>
+    <tr><td><b>C</b>, <b>F</b></td><td>Poor-looking</td><td>C: odd days · F: even days</td><td>C: ____________ &nbsp; F: ____________</td></tr>
+</table>
+<ul style="margin:4px 0;padding-left:20px">
+    <li><b>6 zones, 2 per class</b>, in different paddies (or ≥ 15 m apart). Each day visit 3 zones, one of each class: <b>odd days A, B, C</b> · <b>even days D, E, F</b>. Same 3 nodes, moved zone to zone.</li>
+    <li>The zone's look is only for balancing; the <b>class that counts is the rating of each spot</b>. Spots in zone D are D-01 … D-06, and so on.</li>
+    <li><b>9–10 field days</b> (≥ 50 rated spots per class, the usual minimum for accuracy assessment; Congalton &amp; Green), about <b>2 days a week over 5 weeks</b> to cover the growth stages. Minimum if time runs out: 5 days (~30 per class), stated as a limitation.</li>
+    <li>Lab soil samples: 1 per zone on 2–3 of the days (check the budget with your adviser).</li>
+</ul>
+<table>
+    <tr><th style="width:8%">Day</th><th style="width:16%">Date</th><th style="width:14%">Zones</th><th style="width:12%">DAT</th><th>Spots rated H / M / P</th><th style="width:22%">Running total H / M / P</th></tr>
+    <tr><td>1</td><td></td><td>A B C</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+    <tr><td>2</td><td></td><td>D E F</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+    <tr><td>3</td><td></td><td>A B C</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+    <tr><td>4</td><td></td><td>D E F</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+    <tr><td>5</td><td></td><td>A B C</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+    <tr><td>6</td><td></td><td>D E F</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+    <tr><td>7</td><td></td><td>A B C</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+    <tr><td>8</td><td></td><td>D E F</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+    <tr><td>9</td><td></td><td>A B C</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+    <tr><td>10</td><td></td><td>D E F</td><td></td><td>___ / ___ / ___</td><td>___ / ___ / ___</td></tr>
+</table>
+<p class="small">DAT = days after transplanting. Check the running total after each day: if one class falls behind, choose a zone that looks more like it for the next visits (and note the change).</p>
+
+<h2>Schedule with 3 nodes (one zone at a time)</h2>
+<p class="small">Odd days: 1st = A, 2nd = B, 3rd = C · even days: 1st = D, 2nd = E, 3rd = F.</p>
+<table>
+    <tr><th style="width:16%">Time</th><th>1st zone (A / D)</th><th>2nd zone (B / E)</th><th>3rd zone (C / F)</th></tr>
+    <tr><td>9:15</td><td>Install N1–N3, wait 30 min</td><td></td><td></td></tr>
+    <tr><td>9:45–10:15</td><td>Fly spots -01 … -06</td><td></td><td></td></tr>
+    <tr><td>10:15–10:30</td><td>Soil references, <b>record result</b></td><td></td><td></td></tr>
+    <tr><td>10:30</td><td>Move nodes → · rate crop here while waiting</td><td>Install, wait 30 min</td><td></td></tr>
+    <tr><td>11:00–11:45</td><td></td><td>Fly, references, <b>record result</b></td><td></td></tr>
+    <tr><td>11:45</td><td></td><td>Move nodes → · rate crop here while waiting</td><td>Install, wait 30 min</td></tr>
+    <tr><td>12:15–13:00</td><td></td><td></td><td>Fly, references, <b>record result</b>, rate crop</td></tr>
+</table>
+<div class="note"><b>Record before moving the nodes:</b> Field Assessment uses the <u>latest</u> node readings. Before you move the nodes to the next zone, screenshot Field Assessment and write that zone's soil class, final class and score on the log sheet. Rinse the probes with clean water between zones.</div>
+
+<h2>3. For each zone</h2>
+<h3>a) Drone</h3>
+<ol>
+    <li>Install the 3 nodes (see the schedule) and wait 30 min; the Soil page shows all 3 <b>Online</b>, readings steady.</li>
+    <li>Power on the drone + Pi; wait until the NDVI page finds the Pi. Note the time: ______</li>
+    <li>On the <b>NDVI page</b>, type the <b>spot</b> (e.g. A-01) and pick <b>Pairs</b> (3 is enough).</li>
+    <li>Fly to the + of that spot and hover at <b>7 m</b>. Press <b>Take Photos</b>; keep hovering until the status says the photos are done.</li>
+    <li>Fly to the next spot (the Spot box has already gone up by one: A-01 → A-02) and repeat until A-06.</li>
+    <li>Land. Open <b>From Drone</b> and check each spot's <b>Used</b> pair shows the right place. Re-fly any bad spot with the same spot label.</li>
+    <li>Write down the <b>spot</b> (and the flight name if you can, e.g. flight_20261102_101530).</li>
+    <li>Safe shutdown before removing the battery (press the Pi's power button once; wait for the steady red light).</li>
+</ol>
+<h3>b) Crop rating (ground truth) — rate <u>before</u> looking at the system's result</h3>
+<ol>
+    <li>Walk each spot (A-01 … A-06). Rate it with the rubric below: <b>Healthy / Moderate / Poor</b>; one row per spot on the log sheet.</li>
+    <li>LCC: compare ~10 leaves (youngest fully expanded leaf, shade the leaf with your body). Write the average.</li>
+    <li>Take 3–5 phone photos: overview, close-up of leaves, any pest/disease/damage.</li>
+    <li>Note water level (cm of standing water, or saturated/dry) and anything unusual.</li>
+</ol>
+<h3>c) Soil reference (objective 2)</h3>
+<ol>
+    <li>At each node: reference thermometer (and pH/EC meter if available) <b>right next to the probe, same depth</b>. Record the sensor value shown on the Soil page at the same time.</li>
+    <li>Lab days: take a soil sample at the probe, bag it, label <b>Zone–Node–Date</b>, record the sensor values at that moment.</li>
+</ol>
+<h3>d) System results</h3>
+<ol>
+    <li>Screenshot the <b>Field Assessment</b> page for the zone; write the soil class, final class and score on the log sheet <b>before moving the nodes</b>.</li>
+</ol>
+
+<h2>Crop rating rubric (palay)</h2>
+<table>
+    <tr><th style="width:14%">Class</th><th>What you see in the zone</th><th style="width:18%">LCC (guide)</th></tr>
+    <tr><td><b>Healthy</b></td><td>Uniform dark-green canopy, even height and stand, no visible stress; pests/disease absent or very minor.</td><td>Mostly ≥ 4</td></tr>
+    <tr><td><b>Moderate</b></td><td>Light green or patchy yellowing, uneven growth or gaps, some wilting or leaf damage on a small part of the zone.</td><td>Around 3</td></tr>
+    <tr><td><b>Poor</b></td><td>Widespread yellowing/browning, stunted or sparse plants, dry cracked soil, or damage on a large part of the zone.</td><td>≤ 2</td></tr>
+</table>
+<p class="small">Agree the rubric with your adviser or an agriculturist before the first field day, and keep it the same for the whole study. LCC values follow the chart used (check its instructions for your variety and planting method). Use the same observer for all ratings if possible.</p>
+
+<div class="note"><b>Same conditions every time:</b> 10:00–14:00, clear or steady light, same flight height, same zones. Don't fly in rain, strong wind, or partly cloudy light that changes during the flight.</div>
+
+<h2>4. End of the day</h2>
+<ul class="check">
+    <li>All zones flown; every spot of today's 3 zones (A–C or D–F, -01 … -06) rated and written down; running total updated</li>
+    <li>Log sheets filled in; copy them into <b>validation_log.csv</b> and <b>sensor_reference_log.csv</b> the same day</li>
+    <li>Back up the <code>captures</code> folder and phone photos (e.g. Google Drive)</li>
+    <li>Soil samples labelled and stored (cool, sealed) for the lab</li>
+    <li>Pi shut down safely; batteries charging for next time</li>
+    <li>Do <b>not</b> delete real flights</li>
+</ul>
+
+<div class="break"></div>
+<h1>Log sheet — crop condition (one row per zone)</h1>
+<p class="sub">Copy into <b>validation_log.csv</b>. NDVI / CNN / drone classes can be left blank: <code>evaluate_validation.py</code> fills them from the flight name, or from the date + spot if the flight is blank.</p>
+<table class="sheet">
+    <tr><th>Zone</th><th>Spot</th><th>Time</th><th>Flight name</th><th>Observer class (H/M/P)</th><th>LCC avg</th><th>Water (cm / sat / dry)</th><th>Soil class</th><th>Final class</th><th>Final score</th><th>Notes</th></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<h1 style="margin-top:22px;">Log sheet — sensor reference (one row per node check)</h1>
+<p class="sub">Copy into <b>sensor_reference_log.csv</b>. EC in µS/cm (lab results in dS/m: multiply by 1000).</p>
+<table class="sheet">
+    <tr><th>Node</th><th>Zone</th><th>Time</th><th>Depth cm</th><th>Sensor pH</th><th>Ref pH</th><th>Sensor EC</th><th>Ref EC</th><th>Sensor moist %</th><th>Ref moist %</th><th>Sensor °C</th><th>Ref °C</th><th>Lab sample ID</th></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<h2>Column guide</h2>
+<table>
+    <tr><th style="width:28%">validation_log.csv</th><th>Meaning</th></tr>
+    <tr><td>date, time, zone</td><td>2026-11-02, 10:15, A</td></tr>
+    <tr><td>spot</td><td>Spot typed before Take Photos (A-01, A-02…); with the date it finds the flight when <b>flight</b> is blank</td></tr>
+    <tr><td>flight</td><td>Flight name from <b>From Drone</b> (fills NDVI/CNN/drone columns automatically)</td></tr>
+    <tr><td>observer, observer_class</td><td>Who rated; Healthy / Moderate / Poor (the ground truth)</td></tr>
+    <tr><td>lcc_mean, growth_stage_dat</td><td>Average LCC reading; days after transplanting</td></tr>
+    <tr><td>water_condition, standing_water_cm, weather</td><td>flooded / saturated / dry; cm of water; clear / partly cloudy / overcast</td></tr>
+    <tr><td>soil_class, final_class, final_score</td><td>From the Field Assessment page</td></tr>
+    <tr><td>sentinel_ndvi, handheld_ndvi</td><td>Reference NDVI for the zone, if available (leave blank otherwise)</td></tr>
+    <tr><th>sensor_reference_log.csv</th><th>Meaning</th></tr>
+    <tr><td>node_id, zone, depth_cm</td><td>Which probe, which zone, how deep the reference was measured</td></tr>
+    <tr><td>sensor_* / ref_*</td><td>Sensor value and reference value taken at the same time (EC in µS/cm)</td></tr>
+    <tr><td>ref_method, lab_sample_id</td><td>e.g. "handheld meter", "lab", "thermometer"; label of the bagged sample</td></tr>
+</table>
+
+</div>
+</body>
+</html>

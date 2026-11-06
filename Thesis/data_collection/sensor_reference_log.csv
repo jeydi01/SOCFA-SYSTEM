@@ -1,0 +1,1 @@
+date,time,node_id,zone,depth_cm,sensor_ph,ref_ph,sensor_ec_uscm,ref_ec_uscm,sensor_moisture_pct,ref_moisture_pct,sensor_temp_c,ref_temp_c,ref_method,lab_sample_id,notes

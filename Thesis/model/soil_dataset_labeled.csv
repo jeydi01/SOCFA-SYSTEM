@@ -1,0 +1,1629 @@
+crop,moisture,temperature,ec,ph,source,ec_dsm,label
+chili,38.0,27.8,16,8.7,kaggle,0.016,Moderate
+chili,41.7,27.7,64,6.4,kaggle,0.064,Moderate
+chili,46.1,27.3,27,5.9,kaggle,0.027,Moderate
+chili,28.5,26.9,80,6.4,kaggle,0.08,Moderate
+chili,45.0,28.1,29,6.0,kaggle,0.029,Moderate
+chili,39.1,27.5,66,6.3,kaggle,0.066,Moderate
+chili,42.4,27.5,72,5.9,kaggle,0.072,Moderate
+chili,44.7,27.2,91,6.1,kaggle,0.091,Moderate
+chili,44.2,27.5,84,6.2,kaggle,0.084,Moderate
+chili,39.0,27.8,144,6.5,kaggle,0.144,Moderate
+chili,43.9,28.1,43,6.0,kaggle,0.043,Moderate
+chili,46.0,27.1,85,6.0,kaggle,0.085,Moderate
+chili,46.3,28.4,79,6.2,kaggle,0.079,Moderate
+chili,45.3,28.0,1,3.0,kaggle,0.001,Moderate
+chili,35.2,28.3,64,4.5,kaggle,0.064,Moderate
+chili,43.5,28.3,91,5.9,kaggle,0.091,Moderate
+chili,44.1,27.9,91,6.1,kaggle,0.091,Moderate
+chili,43.6,27.4,108,6.1,kaggle,0.108,Moderate
+chili,43.2,27.3,38,6.3,kaggle,0.038,Moderate
+chili,43.9,28.6,74,5.9,kaggle,0.074,Moderate
+chili,45.8,27.5,82,5.8,kaggle,0.082,Moderate
+chili,44.6,27.7,55,6.1,kaggle,0.055,Moderate
+chili,32.8,27.9,148,5.7,kaggle,0.148,Moderate
+chili,41.5,27.6,90,6.3,kaggle,0.09,Moderate
+chili,37.9,28.0,53,6.2,kaggle,0.053,Moderate
+chili,39.0,26.6,81,6.5,kaggle,0.081,Moderate
+chili,39.6,27.4,5,8.5,kaggle,0.005,Moderate
+chili,39.7,27.7,6,8.5,kaggle,0.006,Moderate
+chili,31.8,28.1,139,5.8,kaggle,0.139,Moderate
+chili,46.3,29.5,79,5.9,kaggle,0.079,Moderate
+chili,41.6,27.9,72,6.6,kaggle,0.072,Moderate
+chili,37.2,27.5,54,4.3,kaggle,0.054,Moderate
+chili,35.6,27.4,56,4.6,kaggle,0.056,Moderate
+chili,33.7,28.7,153,5.7,kaggle,0.153,Moderate
+chili,36.8,27.3,54,4.5,kaggle,0.054,Moderate
+chili,30.9,27.7,155,5.6,kaggle,0.155,Moderate
+chili,43.2,28.0,37,6.2,kaggle,0.037,Moderate
+chili,41.7,28.4,95,6.4,kaggle,0.095,Moderate
+chili,39.6,27.6,59,6.3,kaggle,0.059,Moderate
+chili,36.8,26.8,141,6.3,kaggle,0.141,Moderate
+chili,41.7,27.0,143,6.6,kaggle,0.143,Moderate
+chili,31.4,27.8,154,6.0,kaggle,0.154,Moderate
+chili,42.7,28.2,72,6.5,kaggle,0.072,Healthy
+chili,41.9,27.0,86,6.2,kaggle,0.086,Moderate
+chili,43.6,27.3,41,6.3,kaggle,0.041,Moderate
+chili,41.3,28.4,56,6.6,kaggle,0.056,Moderate
+chili,42.0,28.5,70,5.7,kaggle,0.07,Moderate
+chili,35.7,27.4,78,4.5,kaggle,0.078,Moderate
+chili,27.8,26.4,86,6.2,kaggle,0.086,Moderate
+chili,26.8,27.5,72,6.4,kaggle,0.072,Moderate
+chili,41.2,27.4,96,6.3,kaggle,0.096,Moderate
+chili,39.9,28.5,9,8.6,kaggle,0.009,Moderate
+chili,44.6,28.9,124,6.5,kaggle,0.124,Healthy
+chili,36.3,27.4,55,6.1,kaggle,0.055,Moderate
+chili,39.8,28.4,86,5.7,kaggle,0.086,Moderate
+chili,46.1,28.2,49,6.3,kaggle,0.049,Moderate
+chili,32.5,27.2,145,5.9,kaggle,0.145,Moderate
+chili,44.8,27.4,63,5.7,kaggle,0.063,Moderate
+chili,44.5,27.6,77,6.0,kaggle,0.077,Moderate
+chili,33.6,28.6,65,4.6,kaggle,0.065,Moderate
+chili,44.8,28.2,119,6.4,kaggle,0.119,Moderate
+chili,44.8,26.9,64,5.9,kaggle,0.064,Moderate
+chili,31.2,27.9,89,6.4,kaggle,0.089,Moderate
+chili,44.1,27.6,87,5.9,kaggle,0.087,Moderate
+chili,41.1,26.7,51,6.2,kaggle,0.051,Moderate
+chili,39.1,28.1,29,8.6,kaggle,0.029,Moderate
+chili,44.1,27.5,71,5.9,kaggle,0.071,Moderate
+chili,45.1,27.7,94,5.8,kaggle,0.094,Moderate
+chili,43.9,28.0,83,5.8,kaggle,0.083,Moderate
+chili,41.5,27.1,84,6.5,kaggle,0.084,Moderate
+chili,29.4,26.6,94,6.2,kaggle,0.094,Moderate
+chili,37.9,27.2,22,8.8,kaggle,0.022,Moderate
+chili,37.5,28.0,56,6.4,kaggle,0.056,Moderate
+chili,42.8,28.6,97,6.1,kaggle,0.097,Moderate
+chili,43.5,27.9,38,5.8,kaggle,0.038,Moderate
+chili,27.1,26.7,93,6.2,kaggle,0.093,Moderate
+chili,45.0,27.9,143,6.2,kaggle,0.143,Moderate
+chili,43.1,28.4,76,5.9,kaggle,0.076,Moderate
+chili,44.9,29.0,40,5.7,kaggle,0.04,Moderate
+chili,41.9,26.5,79,6.3,kaggle,0.079,Moderate
+chili,40.2,27.6,65,5.8,kaggle,0.065,Moderate
+chili,35.8,28.3,61,4.3,kaggle,0.061,Moderate
+chili,46.2,27.8,85,6.1,kaggle,0.085,Moderate
+chili,45.1,27.0,52,6.0,kaggle,0.052,Moderate
+chili,40.7,28.1,110,6.2,kaggle,0.11,Moderate
+chili,41.3,28.5,99,5.9,kaggle,0.099,Moderate
+chili,44.3,27.8,35,5.7,kaggle,0.035,Moderate
+chili,42.3,29.0,49,6.3,kaggle,0.049,Moderate
+chili,45.6,28.1,46,6.0,kaggle,0.046,Moderate
+chili,43.3,27.6,28,6.2,kaggle,0.028,Moderate
+chili,43.5,27.6,109,6.3,kaggle,0.109,Moderate
+chili,39.7,27.8,158,6.2,kaggle,0.158,Moderate
+chili,43.5,29.0,53,6.1,kaggle,0.053,Moderate
+chili,45.6,29.2,170,5.8,kaggle,0.17,Moderate
+chili,32.8,28.4,146,6.0,kaggle,0.146,Moderate
+chili,45.7,27.7,38,6.1,kaggle,0.038,Moderate
+chili,43.4,26.8,25,5.8,kaggle,0.025,Moderate
+chili,37.3,27.5,67,6.0,kaggle,0.067,Moderate
+chili,37.3,27.7,73,6.6,kaggle,0.073,Moderate
+chili,41.7,28.1,70,6.6,kaggle,0.07,Moderate
+chili,44.4,27.0,70,6.4,kaggle,0.07,Moderate
+chili,45.6,26.8,105,6.0,kaggle,0.105,Moderate
+chili,44.2,27.0,82,6.0,kaggle,0.082,Moderate
+chili,43.7,27.4,94,5.6,kaggle,0.094,Moderate
+chili,42.3,28.7,92,6.1,kaggle,0.092,Moderate
+chili,46.0,28.3,52,6.6,kaggle,0.052,Healthy
+chili,45.6,28.6,47,6.2,kaggle,0.047,Moderate
+chili,40.6,28.3,116,6.2,kaggle,0.116,Moderate
+chili,44.1,28.2,88,6.1,kaggle,0.088,Moderate
+chili,41.9,28.4,67,6.6,kaggle,0.067,Moderate
+chili,44.1,28.6,101,5.7,kaggle,0.101,Moderate
+chili,44.6,27.6,75,6.6,kaggle,0.075,Healthy
+chili,42.3,28.8,47,6.1,kaggle,0.047,Moderate
+chili,41.9,26.9,74,6.1,kaggle,0.074,Moderate
+chili,45.8,27.5,78,6.3,kaggle,0.078,Moderate
+chili,31.0,27.5,160,5.4,kaggle,0.16,Moderate
+chili,44.3,29.1,97,6.2,kaggle,0.097,Moderate
+chili,41.8,27.8,70,6.4,kaggle,0.07,Moderate
+chili,41.7,27.7,68,6.2,kaggle,0.068,Moderate
+chili,42.9,27.6,28,6.2,kaggle,0.028,Moderate
+chili,36.1,27.7,27,8.5,kaggle,0.027,Moderate
+chili,43.4,27.5,53,6.4,kaggle,0.053,Moderate
+chili,43.5,28.5,35,6.0,kaggle,0.035,Moderate
+chili,43.5,29.1,17,5.8,kaggle,0.017,Moderate
+chili,43.6,27.9,71,5.7,kaggle,0.071,Moderate
+chili,39.8,26.9,58,6.2,kaggle,0.058,Moderate
+chili,40.5,27.9,83,5.7,kaggle,0.083,Moderate
+chili,40.3,28.6,65,6.4,kaggle,0.065,Moderate
+chili,45.0,26.9,72,6.0,kaggle,0.072,Moderate
+chili,45.5,26.8,79,6.1,kaggle,0.079,Moderate
+chili,31.8,28.1,158,5.4,kaggle,0.158,Moderate
+chili,45.6,27.2,18,6.0,kaggle,0.018,Moderate
+chili,45.9,29.3,75,6.1,kaggle,0.075,Moderate
+chili,44.5,27.1,81,6.1,kaggle,0.081,Moderate
+chili,41.1,28.4,121,6.3,kaggle,0.121,Moderate
+chili,46.0,27.0,98,6.0,kaggle,0.098,Moderate
+chili,43.2,29.1,81,6.2,kaggle,0.081,Moderate
+chili,44.6,26.8,37,6.3,kaggle,0.037,Moderate
+chili,40.0,26.8,69,6.2,kaggle,0.069,Moderate
+chili,46.2,28.3,150,6.2,kaggle,0.15,Moderate
+chili,42.3,28.0,80,6.2,kaggle,0.08,Moderate
+chili,44.5,27.2,111,6.2,kaggle,0.111,Moderate
+chili,42.9,27.0,78,5.8,kaggle,0.078,Moderate
+chili,37.3,28.7,140,6.5,kaggle,0.14,Moderate
+chili,27.8,25.9,81,6.6,kaggle,0.081,Moderate
+chili,41.8,27.1,64,6.2,kaggle,0.064,Moderate
+chili,35.9,27.1,25,8.9,kaggle,0.025,Moderate
+chili,39.7,27.0,62,5.9,kaggle,0.062,Moderate
+chili,41.6,27.0,62,5.9,kaggle,0.062,Moderate
+chili,36.0,27.3,7,8.7,kaggle,0.007,Moderate
+chili,45.4,28.0,105,6.2,kaggle,0.105,Moderate
+chili,44.3,27.5,73,6.1,kaggle,0.073,Moderate
+chili,43.4,26.5,39,6.1,kaggle,0.039,Moderate
+chili,44.5,28.2,21,5.8,kaggle,0.021,Moderate
+chili,40.1,27.5,65,5.7,kaggle,0.065,Moderate
+chili,37.6,28.5,52,4.6,kaggle,0.052,Moderate
+chili,41.3,28.2,116,6.0,kaggle,0.116,Moderate
+chili,40.8,28.1,112,6.0,kaggle,0.112,Moderate
+chili,37.9,27.4,70,6.4,kaggle,0.07,Moderate
+chili,45.6,28.7,135,6.2,kaggle,0.135,Moderate
+chili,45.7,28.5,70,6.2,kaggle,0.07,Moderate
+chili,33.5,29.1,75,4.6,kaggle,0.075,Moderate
+chili,42.0,29.2,79,5.6,kaggle,0.079,Moderate
+chili,46.1,28.4,39,6.1,kaggle,0.039,Moderate
+chili,33.0,28.6,138,5.8,kaggle,0.138,Moderate
+chili,42.7,28.1,78,6.4,kaggle,0.078,Moderate
+chili,45.8,28.3,178,6.4,kaggle,0.178,Moderate
+chili,29.3,26.5,74,6.5,kaggle,0.074,Moderate
+chili,44.7,26.6,49,6.5,kaggle,0.049,Healthy
+chili,39.5,27.3,17,8.6,kaggle,0.017,Moderate
+chili,44.1,27.8,74,6.0,kaggle,0.074,Moderate
+chili,33.5,28.5,53,4.3,kaggle,0.053,Moderate
+chili,39.5,27.3,2,8.7,kaggle,0.002,Moderate
+chili,28.0,27.3,77,6.5,kaggle,0.077,Moderate
+chili,41.7,28.0,91,6.4,kaggle,0.091,Moderate
+chili,46.3,28.2,79,5.9,kaggle,0.079,Moderate
+chili,44.7,27.7,127,6.1,kaggle,0.127,Moderate
+chili,42.4,26.2,77,6.2,kaggle,0.077,Moderate
+chili,46.2,28.8,76,6.0,kaggle,0.076,Moderate
+chili,43.8,28.1,89,6.0,kaggle,0.089,Moderate
+chili,35.8,29.0,58,4.7,kaggle,0.058,Moderate
+chili,42.7,28.5,33,5.9,kaggle,0.033,Moderate
+chili,42.8,27.9,94,6.1,kaggle,0.094,Moderate
+chili,38.2,27.3,53,4.6,kaggle,0.053,Moderate
+chili,37.4,27.8,77,4.5,kaggle,0.077,Moderate
+chili,40.4,28.0,37,6.2,kaggle,0.037,Moderate
+chili,41.9,27.7,86,6.1,kaggle,0.086,Moderate
+chili,38.7,28.4,73,6.4,kaggle,0.073,Moderate
+chili,42.6,28.2,78,5.9,kaggle,0.078,Moderate
+chili,34.6,28.5,158,5.7,kaggle,0.158,Moderate
+chili,44.8,27.9,65,6.2,kaggle,0.065,Moderate
+chili,44.2,27.9,86,5.8,kaggle,0.086,Moderate
+chili,39.8,27.2,70,5.7,kaggle,0.07,Moderate
+chili,46.0,28.2,154,6.2,kaggle,0.154,Moderate
+chili,43.0,28.3,96,6.1,kaggle,0.096,Moderate
+chili,30.3,28.2,141,5.9,kaggle,0.141,Moderate
+chili,40.8,28.3,51,6.3,kaggle,0.051,Moderate
+chili,45.0,28.7,28,5.9,kaggle,0.028,Moderate
+chili,42.7,27.2,77,6.2,kaggle,0.077,Moderate
+chili,43.9,27.1,53,6.0,kaggle,0.053,Moderate
+chili,46.1,26.9,43,6.3,kaggle,0.043,Moderate
+chili,41.1,28.6,72,6.4,kaggle,0.072,Moderate
+chili,46.3,26.6,80,6.4,kaggle,0.08,Moderate
+chili,26.3,27.4,71,6.3,kaggle,0.071,Moderate
+chili,45.3,27.7,48,6.3,kaggle,0.048,Moderate
+chili,32.6,28.5,143,5.6,kaggle,0.143,Moderate
+chili,38.8,28.4,65,6.2,kaggle,0.065,Moderate
+chili,45.1,28.2,56,6.1,kaggle,0.056,Moderate
+chili,42.7,28.4,46,6.3,kaggle,0.046,Moderate
+chili,27.9,26.9,92,6.2,kaggle,0.092,Moderate
+chili,44.2,28.9,95,6.0,kaggle,0.095,Moderate
+chili,45.6,27.2,23,5.9,kaggle,0.023,Moderate
+chili,45.0,28.0,72,5.8,kaggle,0.072,Moderate
+chili,42.3,26.8,41,5.8,kaggle,0.041,Moderate
+chili,43.5,26.7,68,6.6,kaggle,0.068,Healthy
+chili,28.6,26.0,70,6.1,kaggle,0.07,Moderate
+chili,43.8,27.9,85,6.1,kaggle,0.085,Moderate
+chili,45.8,28.4,141,6.1,kaggle,0.141,Moderate
+chili,42.2,27.7,61,6.5,kaggle,0.061,Healthy
+chili,44.9,28.2,61,6.2,kaggle,0.061,Moderate
+chili,43.6,28.4,16,5.8,kaggle,0.016,Moderate
+chili,46.1,28.4,29,5.9,kaggle,0.029,Moderate
+chili,43.8,27.8,106,5.8,kaggle,0.106,Moderate
+chili,36.3,27.0,153,6.4,kaggle,0.153,Moderate
+chili,45.8,28.0,31,6.3,kaggle,0.031,Moderate
+chili,42.9,27.2,89,6.0,kaggle,0.089,Moderate
+chili,37.1,26.9,152,6.6,kaggle,0.152,Moderate
+chili,46.1,28.1,85,6.2,kaggle,0.085,Moderate
+chili,45.8,28.8,16,5.7,kaggle,0.016,Moderate
+chili,40.3,27.6,56,6.5,kaggle,0.056,Moderate
+chili,45.1,26.6,78,6.1,kaggle,0.078,Moderate
+chili,45.1,28.3,95,5.9,kaggle,0.095,Moderate
+chili,46.4,28.1,90,6.5,kaggle,0.09,Healthy
+chili,45.9,27.4,98,5.9,kaggle,0.098,Moderate
+chili,41.6,28.5,144,6.6,kaggle,0.144,Moderate
+chili,40.3,27.1,82,5.8,kaggle,0.082,Moderate
+chili,36.9,28.1,75,6.3,kaggle,0.075,Moderate
+chili,37.6,27.9,54,6.2,kaggle,0.054,Moderate
+chili,42.3,28.1,29,6.1,kaggle,0.029,Moderate
+chili,46.2,29.4,59,6.1,kaggle,0.059,Moderate
+chili,32.0,28.9,141,5.7,kaggle,0.141,Moderate
+chili,46.1,28.1,92,6.1,kaggle,0.092,Moderate
+chili,44.5,27.9,128,6.0,kaggle,0.128,Moderate
+chili,44.8,27.2,31,5.6,kaggle,0.031,Moderate
+chili,45.2,27.3,142,6.3,kaggle,0.142,Moderate
+chili,43.5,27.9,48,6.2,kaggle,0.048,Moderate
+chili,38.0,27.3,74,6.3,kaggle,0.074,Moderate
+chili,37.5,29.1,52,4.8,kaggle,0.052,Moderate
+chili,35.7,28.0,17,8.5,kaggle,0.017,Moderate
+chili,42.4,26.9,121,6.1,kaggle,0.121,Moderate
+chili,46.2,28.7,184,6.1,kaggle,0.184,Moderate
+chili,33.1,28.0,73,4.7,kaggle,0.073,Moderate
+chili,44.7,27.6,82,5.8,kaggle,0.082,Moderate
+chili,35.1,27.4,70,4.2,kaggle,0.07,Moderate
+chili,42.4,28.1,66,5.7,kaggle,0.066,Moderate
+chili,43.0,27.8,28,6.3,kaggle,0.028,Moderate
+chili,43.3,27.2,76,6.2,kaggle,0.076,Moderate
+chili,43.3,26.8,61,6.2,kaggle,0.061,Moderate
+chili,46.0,28.8,37,5.9,kaggle,0.037,Moderate
+chili,43.0,28.4,95,5.9,kaggle,0.095,Moderate
+chili,36.4,28.5,147,6.5,kaggle,0.147,Moderate
+chili,39.6,27.3,63,6.7,kaggle,0.063,Moderate
+chili,43.3,28.2,84,5.9,kaggle,0.084,Moderate
+chili,39.0,27.5,70,6.1,kaggle,0.07,Moderate
+chili,35.8,28.9,162,5.9,kaggle,0.162,Moderate
+chili,44.3,28.8,31,6.0,kaggle,0.031,Moderate
+chili,41.9,27.4,78,6.5,kaggle,0.078,Moderate
+chili,46.2,26.6,90,6.1,kaggle,0.09,Moderate
+chili,44.3,28.1,91,5.7,kaggle,0.091,Moderate
+chili,44.7,26.7,81,6.5,kaggle,0.081,Healthy
+chili,44.9,26.8,144,6.1,kaggle,0.144,Moderate
+chili,42.4,28.9,95,6.1,kaggle,0.095,Moderate
+chili,41.6,28.3,88,6.1,kaggle,0.088,Moderate
+chili,45.2,26.8,59,5.8,kaggle,0.059,Moderate
+chili,43.5,28.1,90,6.0,kaggle,0.09,Moderate
+chili,36.8,26.8,4,8.5,kaggle,0.004,Moderate
+chili,43.6,27.9,62,6.3,kaggle,0.062,Moderate
+chili,39.1,27.9,52,6.1,kaggle,0.052,Moderate
+chili,28.5,26.5,95,6.5,kaggle,0.095,Moderate
+chili,44.6,27.6,75,5.7,kaggle,0.075,Moderate
+chili,38.4,26.8,52,6.4,kaggle,0.052,Moderate
+chili,42.1,28.0,53,6.1,kaggle,0.053,Moderate
+chili,44.6,28.0,86,6.1,kaggle,0.086,Moderate
+chili,40.5,27.2,25,6.2,kaggle,0.025,Moderate
+chili,42.6,27.9,80,5.9,kaggle,0.08,Moderate
+chili,43.6,27.9,55,6.5,kaggle,0.055,Healthy
+chili,44.2,28.2,83,6.0,kaggle,0.083,Moderate
+chili,35.1,27.5,142,5.4,kaggle,0.142,Moderate
+chili,41.4,28.3,72,6.6,kaggle,0.072,Moderate
+chili,41.1,26.9,58,5.7,kaggle,0.058,Moderate
+chili,45.4,28.8,45,5.8,kaggle,0.045,Moderate
+chili,45.8,27.0,76,5.7,kaggle,0.076,Moderate
+chili,42.7,27.6,76,6.0,kaggle,0.076,Moderate
+chili,41.6,28.2,71,6.0,kaggle,0.071,Moderate
+chili,42.9,27.8,87,5.6,kaggle,0.087,Moderate
+chili,31.4,28.1,160,6.0,kaggle,0.16,Moderate
+chili,32.9,27.5,160,5.8,kaggle,0.16,Moderate
+chili,45.1,27.9,88,6.2,kaggle,0.088,Moderate
+chili,30.1,27.9,75,6.5,kaggle,0.075,Moderate
+chili,45.6,27.5,86,6.2,kaggle,0.086,Moderate
+chili,43.7,27.0,94,6.3,kaggle,0.094,Moderate
+chili,33.8,27.4,162,5.8,kaggle,0.162,Moderate
+chili,40.5,27.9,60,6.3,kaggle,0.06,Moderate
+chili,45.0,28.1,42,5.9,kaggle,0.042,Moderate
+chili,44.8,26.9,75,5.9,kaggle,0.075,Moderate
+chili,42.0,27.8,48,5.9,kaggle,0.048,Moderate
+chili,37.9,28.1,80,6.5,kaggle,0.08,Moderate
+chili,28.6,26.9,85,6.2,kaggle,0.085,Moderate
+chili,39.6,28.7,18,8.9,kaggle,0.018,Moderate
+chili,41.4,26.9,59,6.1,kaggle,0.059,Moderate
+chili,42.6,28.1,78,5.7,kaggle,0.078,Moderate
+chili,45.8,26.8,80,5.8,kaggle,0.08,Moderate
+chili,45.1,27.2,96,6.4,kaggle,0.096,Moderate
+chili,45.2,27.3,71,5.9,kaggle,0.071,Moderate
+chili,44.7,28.0,62,5.6,kaggle,0.062,Moderate
+chili,42.7,27.1,60,6.6,kaggle,0.06,Healthy
+chili,41.9,26.8,91,6.2,kaggle,0.091,Moderate
+chili,29.2,27.8,82,6.1,kaggle,0.082,Moderate
+chili,44.1,26.8,97,6.3,kaggle,0.097,Moderate
+chili,44.7,27.1,84,5.8,kaggle,0.084,Moderate
+chili,45.0,27.8,84,6.0,kaggle,0.084,Moderate
+chili,45.7,28.3,53,6.2,kaggle,0.053,Moderate
+chili,34.5,28.6,62,4.7,kaggle,0.062,Moderate
+chili,39.1,26.9,150,6.5,kaggle,0.15,Moderate
+chili,41.3,27.4,85,5.7,kaggle,0.085,Moderate
+chili,35.6,28.1,13,8.4,kaggle,0.013,Moderate
+chili,44.0,26.4,25,6.1,kaggle,0.025,Moderate
+chili,44.0,28.0,61,5.7,kaggle,0.061,Moderate
+chili,38.0,27.6,55,6.6,kaggle,0.055,Moderate
+chili,37.6,29.3,56,4.6,kaggle,0.056,Moderate
+chili,43.4,28.8,64,6.2,kaggle,0.064,Moderate
+chili,45.3,27.0,30,6.3,kaggle,0.03,Moderate
+chili,46.2,27.5,104,5.8,kaggle,0.104,Moderate
+chili,42.3,26.4,103,6.1,kaggle,0.103,Moderate
+chili,43.3,27.6,32,6.3,kaggle,0.032,Moderate
+chili,44.6,27.5,23,6.3,kaggle,0.023,Moderate
+chili,41.9,26.4,36,6.1,kaggle,0.036,Moderate
+chili,41.7,27.0,84,6.0,kaggle,0.084,Moderate
+chili,41.3,27.9,83,6.2,kaggle,0.083,Moderate
+chili,25.9,27.4,90,6.6,kaggle,0.09,Moderate
+chili,35.6,27.6,50,4.6,kaggle,0.05,Moderate
+chili,39.8,28.0,3,8.5,kaggle,0.003,Moderate
+chili,37.7,27.1,61,6.1,kaggle,0.061,Moderate
+chili,45.0,28.3,77,6.0,kaggle,0.077,Moderate
+chili,29.4,27.3,69,6.5,kaggle,0.069,Moderate
+chili,41.9,26.5,104,5.8,kaggle,0.104,Moderate
+chili,45.5,28.1,83,6.2,kaggle,0.083,Moderate
+chili,42.3,27.8,71,5.9,kaggle,0.071,Moderate
+chili,39.4,27.0,63,6.3,kaggle,0.063,Moderate
+chili,46.0,26.6,105,6.1,kaggle,0.105,Moderate
+chili,38.9,26.9,73,6.2,kaggle,0.073,Moderate
+chili,45.4,27.8,105,6.2,kaggle,0.105,Moderate
+chili,40.8,27.5,47,6.4,kaggle,0.047,Moderate
+chili,41.4,29.1,37,6.2,kaggle,0.037,Moderate
+chili,43.7,27.3,127,6.2,kaggle,0.127,Moderate
+chili,40.4,27.5,87,5.8,kaggle,0.087,Moderate
+chili,44.7,28.0,76,6.1,kaggle,0.076,Moderate
+chili,41.3,27.7,49,6.1,kaggle,0.049,Moderate
+chili,33.1,27.0,151,5.6,kaggle,0.151,Moderate
+chili,46.0,28.5,34,6.0,kaggle,0.034,Moderate
+chili,44.5,28.1,87,5.9,kaggle,0.087,Moderate
+chili,39.5,28.0,27,8.8,kaggle,0.027,Moderate
+chili,39.4,27.3,70,6.6,kaggle,0.07,Moderate
+chili,40.3,27.3,8,8.5,kaggle,0.008,Moderate
+chili,44.3,27.7,151,6.3,kaggle,0.151,Moderate
+chili,45.1,27.7,32,5.7,kaggle,0.032,Moderate
+chili,34.9,28.0,141,5.5,kaggle,0.141,Moderate
+chili,45.5,27.6,183,5.8,kaggle,0.183,Moderate
+chili,38.6,27.7,64,6.4,kaggle,0.064,Moderate
+chili,46.0,28.2,39,5.7,kaggle,0.039,Moderate
+chili,37.2,29.2,76,4.7,kaggle,0.076,Moderate
+chili,46.2,27.1,93,6.3,kaggle,0.093,Moderate
+chili,44.5,27.1,71,6.0,kaggle,0.071,Moderate
+chili,43.1,28.5,51,6.0,kaggle,0.051,Moderate
+chili,40.4,27.9,5,8.6,kaggle,0.005,Moderate
+chili,41.9,27.0,156,6.4,kaggle,0.156,Moderate
+chili,39.5,27.8,13,8.5,kaggle,0.013,Moderate
+chili,43.2,27.4,82,5.8,kaggle,0.082,Moderate
+chili,45.9,28.7,65,6.1,kaggle,0.065,Moderate
+chili,42.4,28.1,95,5.9,kaggle,0.095,Moderate
+chili,37.7,27.4,60,6.4,kaggle,0.06,Moderate
+chili,45.1,27.5,90,6.0,kaggle,0.09,Moderate
+chili,42.1,27.9,84,6.4,kaggle,0.084,Moderate
+chili,36.5,27.3,70,4.5,kaggle,0.07,Moderate
+chili,41.5,28.1,54,6.4,kaggle,0.054,Moderate
+chili,41.5,26.6,108,6.4,kaggle,0.108,Moderate
+chili,37.8,27.4,147,6.8,kaggle,0.147,Moderate
+chili,42.4,26.7,71,6.3,kaggle,0.071,Moderate
+chili,43.9,28.5,50,6.2,kaggle,0.05,Moderate
+chili,43.9,28.3,76,5.6,kaggle,0.076,Moderate
+chili,44.0,27.2,54,6.1,kaggle,0.054,Moderate
+chili,26.3,27.6,89,6.2,kaggle,0.089,Moderate
+chili,40.5,27.6,68,6.3,kaggle,0.068,Moderate
+chili,40.8,28.2,20,8.8,kaggle,0.02,Moderate
+chili,45.8,26.6,89,5.8,kaggle,0.089,Moderate
+chili,46.0,28.1,82,6.4,kaggle,0.082,Moderate
+chili,40.9,28.1,104,6.0,kaggle,0.104,Moderate
+chili,45.4,27.3,122,6.4,kaggle,0.122,Moderate
+chili,45.8,27.1,82,5.8,kaggle,0.082,Moderate
+chili,45.4,28.0,79,6.3,kaggle,0.079,Moderate
+chili,46.3,27.5,102,5.8,kaggle,0.102,Moderate
+chili,44.7,27.7,75,6.1,kaggle,0.075,Moderate
+chili,43.9,28.4,22,6.0,kaggle,0.022,Moderate
+chili,46.3,27.7,78,6.4,kaggle,0.078,Moderate
+chili,45.6,26.7,144,6.2,kaggle,0.144,Moderate
+chili,42.7,27.8,70,5.8,kaggle,0.07,Moderate
+chili,31.8,27.2,135,5.5,kaggle,0.135,Moderate
+chili,40.0,27.5,69,6.1,kaggle,0.069,Moderate
+chili,45.3,28.1,63,6.1,kaggle,0.063,Moderate
+chili,41.3,28.0,100,6.3,kaggle,0.1,Moderate
+chili,43.4,28.1,96,6.1,kaggle,0.096,Moderate
+chili,41.4,28.2,86,5.9,kaggle,0.086,Moderate
+chili,44.7,27.3,77,5.6,kaggle,0.077,Moderate
+chili,41.1,28.5,55,6.6,kaggle,0.055,Moderate
+chili,40.3,27.0,75,6.3,kaggle,0.075,Moderate
+chili,46.1,28.6,135,6.1,kaggle,0.135,Moderate
+chili,36.1,28.1,69,6.4,kaggle,0.069,Moderate
+chili,46.4,27.6,82,6.1,kaggle,0.082,Moderate
+chili,42.1,27.2,69,6.1,kaggle,0.069,Moderate
+chili,36.1,29.0,55,4.3,kaggle,0.055,Moderate
+chili,41.0,27.3,50,6.6,kaggle,0.05,Moderate
+chili,40.6,27.3,84,6.2,kaggle,0.084,Moderate
+chili,36.6,27.8,62,6.0,kaggle,0.062,Moderate
+chili,45.5,28.6,88,5.6,kaggle,0.088,Moderate
+chili,45.3,27.4,72,5.8,kaggle,0.072,Moderate
+chili,43.7,27.5,84,5.9,kaggle,0.084,Moderate
+chili,46.2,27.1,99,6.0,kaggle,0.099,Moderate
+chili,40.5,26.6,86,5.7,kaggle,0.086,Moderate
+chili,39.3,26.9,64,6.1,kaggle,0.064,Moderate
+chili,44.7,27.0,37,6.1,kaggle,0.037,Moderate
+chili,45.2,26.9,145,5.9,kaggle,0.145,Moderate
+chili,40.1,28.5,148,6.7,kaggle,0.148,Moderate
+chili,45.5,27.1,100,6.3,kaggle,0.1,Moderate
+chili,43.6,27.8,62,6.1,kaggle,0.062,Moderate
+chili,39.5,26.9,152,6.6,kaggle,0.152,Moderate
+chili,39.3,28.4,13,8.4,kaggle,0.013,Moderate
+chili,34.8,29.3,71,4.6,kaggle,0.071,Moderate
+chili,36.6,27.7,52,4.3,kaggle,0.052,Moderate
+chili,44.6,27.6,29,6.1,kaggle,0.029,Moderate
+chili,45.8,28.4,65,5.8,kaggle,0.065,Moderate
+chili,42.5,29.5,82,5.9,kaggle,0.082,Moderate
+chili,44.0,27.1,89,6.0,kaggle,0.089,Moderate
+chili,41.8,27.8,51,6.0,kaggle,0.051,Moderate
+chili,44.3,26.9,25,6.3,kaggle,0.025,Moderate
+chili,36.9,28.7,141,6.2,kaggle,0.141,Moderate
+chili,43.5,27.3,74,5.7,kaggle,0.074,Moderate
+chili,33.2,27.9,66,4.5,kaggle,0.066,Moderate
+chili,45.6,27.0,39,6.1,kaggle,0.039,Moderate
+chili,45.6,27.7,75,6.4,kaggle,0.075,Moderate
+chili,29.3,26.5,90,6.7,kaggle,0.09,Moderate
+chili,42.1,27.5,90,5.8,kaggle,0.09,Moderate
+chili,36.8,27.5,50,4.7,kaggle,0.05,Moderate
+chili,43.2,27.5,71,5.7,kaggle,0.071,Moderate
+chili,42.5,28.7,59,6.1,kaggle,0.059,Moderate
+chili,34.9,28.0,70,4.6,kaggle,0.07,Moderate
+chili,30.5,27.4,137,5.7,kaggle,0.137,Moderate
+chili,45.2,26.4,99,6.0,kaggle,0.099,Moderate
+chili,39.3,27.3,130,6.5,kaggle,0.13,Moderate
+chili,30.2,27.8,70,6.3,kaggle,0.07,Moderate
+chili,42.9,27.8,87,6.4,kaggle,0.087,Moderate
+chili,41.2,27.7,68,6.3,kaggle,0.068,Moderate
+chili,44.0,28.0,29,6.2,kaggle,0.029,Moderate
+chili,38.0,28.1,73,5.2,kaggle,0.073,Moderate
+chili,37.2,27.8,37,6.8,kaggle,0.037,Moderate
+chili,45.9,29.0,131,6.4,kaggle,0.131,Moderate
+chili,35.6,27.5,72,5.2,kaggle,0.072,Moderate
+chili,36.9,27.5,84,5.2,kaggle,0.084,Moderate
+chili,42.9,28.3,92,6.6,kaggle,0.092,Healthy
+chili,38.3,30.0,68,5.2,kaggle,0.068,Moderate
+chili,36.8,29.8,79,5.2,kaggle,0.079,Moderate
+chili,43.7,29.0,56,6.0,kaggle,0.056,Moderate
+chili,42.3,29.2,152,6.3,kaggle,0.152,Moderate
+chili,39.2,27.8,85,5.2,kaggle,0.085,Moderate
+chili,31.0,28.0,80,6.6,kaggle,0.08,Moderate
+chili,43.2,26.3,83,6.3,kaggle,0.083,Moderate
+chili,41.7,27.4,87,6.3,kaggle,0.087,Moderate
+chili,36.4,29.0,162,5.6,kaggle,0.162,Moderate
+chili,37.7,28.0,83,5.2,kaggle,0.083,Moderate
+chili,42.4,27.0,59,6.2,kaggle,0.059,Moderate
+chili,41.1,27.7,75,6.6,kaggle,0.075,Moderate
+chili,44.8,29.1,66,6.2,kaggle,0.066,Moderate
+chili,27.8,28.3,86,6.5,kaggle,0.086,Moderate
+chili,45.3,28.8,59,6.2,kaggle,0.059,Moderate
+chili,42.5,28.2,51,5.9,kaggle,0.051,Moderate
+chili,37.7,30.0,67,5.2,kaggle,0.067,Moderate
+chili,42.2,28.7,96,6.4,kaggle,0.096,Moderate
+chili,41.1,28.1,53,6.8,kaggle,0.053,Moderate
+chili,30.8,27.1,107,6.4,kaggle,0.107,Moderate
+chili,36.9,27.3,143,6.6,kaggle,0.143,Moderate
+chili,43.4,28.2,97,5.9,kaggle,0.097,Moderate
+chili,40.6,28.7,72,6.2,kaggle,0.072,Moderate
+chili,43.8,27.4,82,6.2,kaggle,0.082,Moderate
+chili,44.3,28.7,105,6.1,kaggle,0.105,Moderate
+chili,31.1,27.4,78,6.6,kaggle,0.078,Moderate
+chili,44.8,28.5,21,5.8,kaggle,0.021,Moderate
+chili,44.8,28.5,93,5.9,kaggle,0.093,Moderate
+chili,29.4,27.7,78,6.0,kaggle,0.078,Moderate
+chili,39.7,27.5,64,6.2,kaggle,0.064,Moderate
+chili,39.0,28.5,81,6.2,kaggle,0.081,Moderate
+chili,45.8,27.5,25,6.1,kaggle,0.025,Moderate
+chili,41.6,28.1,76,6.3,kaggle,0.076,Moderate
+chili,39.9,28.6,59,6.3,kaggle,0.059,Moderate
+chili,46.3,28.8,83,5.9,kaggle,0.083,Moderate
+chili,44.1,29.3,52,6.1,kaggle,0.052,Moderate
+chili,44.9,27.7,42,6.4,kaggle,0.042,Moderate
+chili,44.4,27.8,124,6.0,kaggle,0.124,Moderate
+chili,40.5,28.2,89,6.6,kaggle,0.089,Moderate
+chili,45.0,28.0,95,5.8,kaggle,0.095,Moderate
+chili,44.3,28.8,38,6.2,kaggle,0.038,Moderate
+chili,44.4,29.2,52,6.1,kaggle,0.052,Moderate
+chili,37.9,28.0,73,6.0,kaggle,0.073,Moderate
+chili,46.0,28.7,34,5.9,kaggle,0.034,Moderate
+chili,43.2,28.5,30,6.4,kaggle,0.03,Moderate
+chili,45.0,29.3,109,6.1,kaggle,0.109,Moderate
+chili,45.7,28.8,28,5.6,kaggle,0.028,Moderate
+chili,30.7,27.0,84,6.5,kaggle,0.084,Moderate
+chili,41.5,27.4,54,6.2,kaggle,0.054,Moderate
+chili,45.4,28.5,53,6.3,kaggle,0.053,Moderate
+chili,42.7,28.2,62,5.9,kaggle,0.062,Moderate
+chili,42.8,27.0,93,6.2,kaggle,0.093,Moderate
+chili,27.9,26.4,90,6.8,kaggle,0.09,Moderate
+chili,43.3,29.6,95,6.0,kaggle,0.095,Moderate
+chili,42.6,29.7,92,5.8,kaggle,0.092,Moderate
+chili,40.2,27.9,91,5.2,kaggle,0.091,Moderate
+chili,44.5,27.6,117,6.0,kaggle,0.117,Moderate
+chili,41.7,28.2,96,6.1,kaggle,0.096,Moderate
+chili,38.2,28.2,31,6.8,kaggle,0.031,Moderate
+chili,43.6,28.3,86,6.1,kaggle,0.086,Moderate
+chili,42.4,28.2,79,6.1,kaggle,0.079,Moderate
+chili,45.9,28.8,32,6.0,kaggle,0.032,Moderate
+chili,44.1,28.2,98,5.8,kaggle,0.098,Moderate
+chili,43.4,28.1,97,6.2,kaggle,0.097,Moderate
+chili,27.2,28.2,93,6.1,kaggle,0.093,Moderate
+chili,46.2,27.9,88,5.5,kaggle,0.088,Moderate
+chili,45.3,27.5,120,6.2,kaggle,0.12,Moderate
+chili,45.4,29.1,62,6.1,kaggle,0.062,Moderate
+chili,44.0,27.7,53,5.5,kaggle,0.053,Moderate
+chili,44.2,29.4,110,6.3,kaggle,0.11,Moderate
+chili,43.1,27.9,83,5.7,kaggle,0.083,Moderate
+chili,42.5,28.6,33,6.8,kaggle,0.033,Healthy
+chili,45.5,28.8,96,5.5,kaggle,0.096,Moderate
+chili,42.3,29.0,83,5.6,kaggle,0.083,Moderate
+chili,38.4,29.0,74,5.2,kaggle,0.074,Moderate
+chili,39.0,27.9,81,5.2,kaggle,0.081,Moderate
+chili,41.1,27.9,92,5.4,kaggle,0.092,Moderate
+chili,44.2,28.3,89,6.5,kaggle,0.089,Healthy
+chili,37.8,28.3,86,6.5,kaggle,0.086,Moderate
+chili,41.7,28.9,62,6.4,kaggle,0.062,Moderate
+chili,30.3,27.5,101,5.9,kaggle,0.101,Moderate
+chili,39.1,28.6,68,6.3,kaggle,0.068,Moderate
+chili,41.6,28.4,28,6.8,kaggle,0.028,Moderate
+chili,44.5,29.0,48,5.9,kaggle,0.048,Moderate
+chili,40.7,27.5,52,6.5,kaggle,0.052,Moderate
+chili,39.3,28.8,44,6.8,kaggle,0.044,Moderate
+chili,44.5,28.7,72,5.7,kaggle,0.072,Moderate
+chili,44.5,26.5,88,6.3,kaggle,0.088,Moderate
+chili,31.1,28.0,162,5.6,kaggle,0.162,Moderate
+chili,45.3,29.1,67,5.5,kaggle,0.067,Moderate
+chili,36.9,28.2,27,6.8,kaggle,0.027,Moderate
+chili,42.6,29.0,116,6.1,kaggle,0.116,Moderate
+chili,31.7,28.8,99,6.3,kaggle,0.099,Moderate
+chili,42.6,28.7,63,6.5,kaggle,0.063,Healthy
+chili,43.6,28.1,88,6.0,kaggle,0.088,Moderate
+chili,45.6,28.0,35,5.9,kaggle,0.035,Moderate
+chili,45.9,29.1,109,6.3,kaggle,0.109,Moderate
+chili,44.6,28.4,51,5.8,kaggle,0.051,Moderate
+chili,29.7,27.4,98,6.3,kaggle,0.098,Moderate
+chili,36.4,29.4,164,5.8,kaggle,0.164,Moderate
+chili,38.9,27.6,162,6.5,kaggle,0.162,Moderate
+chili,44.2,27.0,75,6.1,kaggle,0.075,Moderate
+chili,40.5,28.6,61,6.0,kaggle,0.061,Moderate
+chili,42.2,29.3,101,5.7,kaggle,0.101,Moderate
+chili,43.5,27.6,149,6.7,kaggle,0.149,Healthy
+chili,39.2,29.6,146,6.0,kaggle,0.146,Moderate
+chili,40.1,28.2,157,6.3,kaggle,0.157,Moderate
+chili,46.1,29.4,59,5.7,kaggle,0.059,Moderate
+chili,43.2,27.9,67,6.3,kaggle,0.067,Moderate
+chili,42.5,28.0,73,5.7,kaggle,0.073,Moderate
+chili,34.6,28.7,159,5.9,kaggle,0.159,Moderate
+chili,30.2,27.3,102,6.1,kaggle,0.102,Moderate
+chili,42.1,28.5,103,6.4,kaggle,0.103,Moderate
+chili,32.6,28.3,162,5.4,kaggle,0.162,Moderate
+chili,44.4,28.5,76,5.7,kaggle,0.076,Moderate
+chili,46.0,28.5,80,6.2,kaggle,0.08,Moderate
+chili,41.8,27.6,61,5.9,kaggle,0.061,Moderate
+chili,45.2,28.5,104,6.2,kaggle,0.104,Moderate
+chili,41.1,28.4,49,6.4,kaggle,0.049,Moderate
+chili,37.1,27.9,29,6.8,kaggle,0.029,Moderate
+chili,44.7,28.7,101,6.1,kaggle,0.101,Moderate
+chili,42.9,28.5,59,6.1,kaggle,0.059,Moderate
+chili,45.7,28.2,109,6.2,kaggle,0.109,Moderate
+chili,28.7,28.2,93,6.3,kaggle,0.093,Moderate
+chili,28.8,27.5,91,6.2,kaggle,0.091,Moderate
+chili,41.9,28.0,71,6.2,kaggle,0.071,Moderate
+chili,44.6,27.2,92,6.4,kaggle,0.092,Moderate
+chili,39.3,28.3,62,5.9,kaggle,0.062,Moderate
+chili,30.9,28.4,87,6.5,kaggle,0.087,Moderate
+chili,45.4,28.0,103,6.3,kaggle,0.103,Moderate
+chili,43.6,28.7,79,6.2,kaggle,0.079,Moderate
+chili,44.3,29.6,97,5.7,kaggle,0.097,Moderate
+chili,41.9,27.6,103,6.3,kaggle,0.103,Moderate
+chili,44.2,29.3,24,5.9,kaggle,0.024,Moderate
+chili,45.4,26.5,29,6.1,kaggle,0.029,Moderate
+chili,35.1,27.6,165,5.6,kaggle,0.165,Moderate
+chili,45.0,27.3,81,6.1,kaggle,0.081,Moderate
+chili,46.0,29.3,27,6.1,kaggle,0.027,Moderate
+chili,45.9,27.7,138,6.0,kaggle,0.138,Moderate
+chili,44.7,29.0,134,6.7,kaggle,0.134,Healthy
+chili,37.7,28.2,68,6.1,kaggle,0.068,Moderate
+chili,38.5,27.3,10,6.8,kaggle,0.01,Moderate
+chili,45.3,27.9,90,5.8,kaggle,0.09,Moderate
+chili,43.9,28.2,126,5.8,kaggle,0.126,Moderate
+chili,46.2,28.2,61,6.5,kaggle,0.061,Healthy
+chili,37.9,28.6,80,6.5,kaggle,0.08,Moderate
+chili,40.1,27.9,73,6.4,kaggle,0.073,Moderate
+chili,45.6,28.5,108,6.1,kaggle,0.108,Moderate
+chili,44.5,29.7,25,5.6,kaggle,0.025,Moderate
+chili,44.7,27.8,32,6.0,kaggle,0.032,Moderate
+chili,43.7,28.7,83,5.7,kaggle,0.083,Moderate
+chili,37.6,29.1,78,6.6,kaggle,0.078,Moderate
+chili,42.0,28.3,19,6.8,kaggle,0.019,Healthy
+chili,37.2,27.6,57,5.2,kaggle,0.057,Moderate
+chili,43.0,28.7,62,6.1,kaggle,0.062,Moderate
+chili,45.6,28.2,37,6.1,kaggle,0.037,Moderate
+chili,35.9,29.9,78,5.2,kaggle,0.078,Moderate
+chili,42.9,27.6,107,6.3,kaggle,0.107,Moderate
+chili,36.0,29.5,171,5.9,kaggle,0.171,Moderate
+chili,40.1,28.1,152,6.5,kaggle,0.152,Moderate
+chili,42.3,27.1,71,5.7,kaggle,0.071,Moderate
+chili,42.5,28.2,62,6.6,kaggle,0.062,Healthy
+chili,38.3,28.2,68,6.6,kaggle,0.068,Moderate
+chili,40.1,27.4,87,6.8,kaggle,0.087,Moderate
+chili,43.1,29.1,43,5.6,kaggle,0.043,Moderate
+chili,42.3,28.5,122,5.7,kaggle,0.122,Moderate
+chili,46.1,27.9,101,6.1,kaggle,0.101,Moderate
+chili,45.4,28.6,104,5.9,kaggle,0.104,Moderate
+chili,31.4,28.0,72,6.4,kaggle,0.072,Moderate
+chili,29.0,26.2,84,6.0,kaggle,0.084,Moderate
+chili,36.0,29.4,149,6.0,kaggle,0.149,Moderate
+chili,39.8,27.7,75,6.1,kaggle,0.075,Moderate
+chili,43.6,27.0,79,6.2,kaggle,0.079,Moderate
+chili,44.3,28.7,92,6.0,kaggle,0.092,Moderate
+chili,39.7,28.2,65,5.2,kaggle,0.065,Moderate
+chili,35.7,29.4,138,5.8,kaggle,0.138,Moderate
+chili,43.1,28.1,80,6.7,kaggle,0.08,Healthy
+chili,42.8,29.0,92,6.0,kaggle,0.092,Moderate
+chili,44.0,27.7,82,5.7,kaggle,0.082,Moderate
+chili,45.8,27.3,68,6.0,kaggle,0.068,Moderate
+chili,38.6,28.3,64,6.2,kaggle,0.064,Moderate
+chili,44.7,29.1,102,6.8,kaggle,0.102,Healthy
+chili,38.8,28.1,80,6.5,kaggle,0.08,Moderate
+chili,42.3,28.3,172,5.8,kaggle,0.172,Moderate
+chili,44.0,29.7,90,5.6,kaggle,0.09,Moderate
+chili,45.1,27.4,93,6.1,kaggle,0.093,Moderate
+chili,45.9,27.1,109,6.3,kaggle,0.109,Moderate
+chili,37.3,30.1,78,5.2,kaggle,0.078,Moderate
+chili,39.9,29.7,148,6.3,kaggle,0.148,Moderate
+chili,45.1,29.0,72,5.6,kaggle,0.072,Moderate
+chili,45.4,28.2,85,5.8,kaggle,0.085,Moderate
+chili,37.8,29.1,90,6.6,kaggle,0.09,Moderate
+chili,41.4,28.4,145,6.6,kaggle,0.145,Moderate
+chili,41.9,27.4,58,6.5,kaggle,0.058,Moderate
+chili,43.2,28.0,52,6.5,kaggle,0.052,Healthy
+chili,41.8,28.6,97,5.9,kaggle,0.097,Moderate
+chili,31.9,26.9,102,6.3,kaggle,0.102,Moderate
+chili,44.9,27.2,79,6.2,kaggle,0.079,Moderate
+chili,41.0,28.4,64,6.4,kaggle,0.064,Moderate
+chili,40.8,28.1,170,6.5,kaggle,0.17,Moderate
+chili,46.1,29.2,48,6.0,kaggle,0.048,Moderate
+chili,38.7,28.3,58,5.2,kaggle,0.058,Moderate
+chili,46.0,27.7,74,5.6,kaggle,0.074,Moderate
+chili,37.7,28.0,87,5.2,kaggle,0.087,Moderate
+chili,44.4,28.8,76,6.6,kaggle,0.076,Healthy
+chili,45.4,27.8,34,5.3,kaggle,0.034,Moderate
+chili,43.1,29.5,73,6.2,kaggle,0.073,Moderate
+chili,46.1,29.0,50,6.2,kaggle,0.05,Moderate
+chili,40.2,28.0,63,6.5,kaggle,0.063,Moderate
+chili,44.0,27.8,75,6.4,kaggle,0.075,Moderate
+chili,41.6,28.2,43,6.8,kaggle,0.043,Moderate
+chili,36.7,28.2,65,5.2,kaggle,0.065,Moderate
+chili,44.7,29.1,108,6.2,kaggle,0.108,Moderate
+chili,37.4,29.6,65,5.2,kaggle,0.065,Moderate
+chili,45.0,27.3,71,5.6,kaggle,0.071,Moderate
+chili,34.9,28.8,153,5.7,kaggle,0.153,Moderate
+chili,41.8,28.3,20,6.8,kaggle,0.02,Moderate
+chili,45.0,28.5,107,6.1,kaggle,0.107,Moderate
+chili,46.2,27.3,55,5.8,kaggle,0.055,Moderate
+chili,39.2,28.3,60,5.2,kaggle,0.06,Moderate
+chili,39.5,26.9,15,6.8,kaggle,0.015,Moderate
+chili,42.9,28.2,103,6.3,kaggle,0.103,Moderate
+chili,46.3,28.6,100,5.9,kaggle,0.1,Moderate
+chili,43.7,28.2,104,6.3,kaggle,0.104,Moderate
+chili,37.5,27.9,91,5.2,kaggle,0.091,Moderate
+chili,45.8,29.2,16,5.8,kaggle,0.016,Moderate
+chili,36.2,27.5,149,5.7,kaggle,0.149,Moderate
+chili,42.6,28.0,62,6.5,kaggle,0.062,Healthy
+chili,31.7,28.4,151,5.7,kaggle,0.151,Moderate
+chili,42.4,28.4,99,5.8,kaggle,0.099,Moderate
+chili,28.6,27.6,96,6.1,kaggle,0.096,Moderate
+chili,43.3,29.0,47,6.1,kaggle,0.047,Moderate
+chili,37.6,29.2,150,6.7,kaggle,0.15,Moderate
+chili,40.8,27.9,94,5.7,kaggle,0.094,Moderate
+chili,44.7,28.3,90,6.0,kaggle,0.09,Moderate
+chili,39.5,27.5,19,6.8,kaggle,0.019,Moderate
+chili,33.5,28.4,168,6.3,kaggle,0.168,Moderate
+chili,43.6,29.1,96,6.2,kaggle,0.096,Moderate
+chili,45.9,27.4,88,5.7,kaggle,0.088,Moderate
+chili,37.6,28.1,54,5.2,kaggle,0.054,Moderate
+chili,45.8,28.7,96,6.1,kaggle,0.096,Moderate
+chili,37.2,28.9,88,6.1,kaggle,0.088,Moderate
+chili,40.0,28.5,65,6.1,kaggle,0.065,Moderate
+chili,42.0,28.2,74,6.6,kaggle,0.074,Healthy
+chili,40.8,27.4,78,6.2,kaggle,0.078,Moderate
+chili,44.3,28.2,92,6.4,kaggle,0.092,Moderate
+chili,44.0,27.8,156,6.8,kaggle,0.156,Healthy
+chili,36.8,29.1,166,5.8,kaggle,0.166,Moderate
+chili,43.5,27.7,97,6.5,kaggle,0.097,Healthy
+chili,44.3,28.5,95,5.7,kaggle,0.095,Moderate
+chili,45.7,29.0,13,5.2,kaggle,0.013,Moderate
+chili,45.4,27.9,111,6.1,kaggle,0.111,Moderate
+chili,45.0,27.0,38,6.5,kaggle,0.038,Healthy
+chili,45.2,28.8,69,6.4,kaggle,0.069,Moderate
+chili,43.8,28.8,90,6.6,kaggle,0.09,Healthy
+chili,45.5,27.5,30,6.1,kaggle,0.03,Moderate
+chili,40.9,27.9,66,6.6,kaggle,0.066,Moderate
+chili,41.4,29.5,61,6.8,kaggle,0.061,Moderate
+chili,37.4,27.6,64,5.2,kaggle,0.064,Moderate
+chili,45.3,28.1,88,5.7,kaggle,0.088,Moderate
+chili,42.6,27.8,83,6.2,kaggle,0.083,Moderate
+chili,42.9,27.6,30,6.1,kaggle,0.03,Moderate
+chili,40.5,29.1,154,6.8,kaggle,0.154,Moderate
+chili,46.2,29.0,42,6.2,kaggle,0.042,Moderate
+chili,45.2,28.6,105,6.0,kaggle,0.105,Moderate
+chili,44.1,28.4,96,5.9,kaggle,0.096,Moderate
+chili,41.8,28.8,148,6.6,kaggle,0.148,Moderate
+chili,41.7,27.4,22,6.8,kaggle,0.022,Moderate
+chili,41.3,28.1,39,6.8,kaggle,0.039,Moderate
+chili,41.9,27.3,72,6.2,kaggle,0.072,Moderate
+chili,44.6,27.5,74,5.5,kaggle,0.074,Moderate
+chili,39.3,27.3,56,6.7,kaggle,0.056,Moderate
+chili,31.9,28.0,71,6.5,kaggle,0.071,Moderate
+chili,39.4,29.2,80,6.2,kaggle,0.08,Moderate
+chili,46.4,29.0,96,6.2,kaggle,0.096,Moderate
+chili,41.5,29.0,67,6.3,kaggle,0.067,Moderate
+chili,45.6,29.5,108,6.0,kaggle,0.108,Moderate
+chili,40.4,28.2,64,6.4,kaggle,0.064,Moderate
+chili,37.4,28.6,65,6.1,kaggle,0.065,Moderate
+chili,44.8,28.1,67,5.7,kaggle,0.067,Moderate
+chili,45.0,28.8,136,6.3,kaggle,0.136,Moderate
+chili,45.8,28.5,76,5.8,kaggle,0.076,Moderate
+chili,43.7,28.8,83,6.5,kaggle,0.083,Healthy
+chili,45.9,27.3,88,5.5,kaggle,0.088,Moderate
+chili,39.5,29.1,143,6.3,kaggle,0.143,Moderate
+chili,41.6,28.0,108,6.5,kaggle,0.108,Moderate
+chili,43.4,29.7,57,6.2,kaggle,0.057,Moderate
+chili,45.3,27.2,53,5.9,kaggle,0.053,Moderate
+chili,45.9,28.5,70,5.4,kaggle,0.07,Moderate
+chili,41.2,27.5,83,6.5,kaggle,0.083,Moderate
+chili,45.4,27.8,54,6.1,kaggle,0.054,Moderate
+chili,46.2,29.7,89,6.0,kaggle,0.089,Moderate
+chili,43.5,28.1,85,6.0,kaggle,0.085,Moderate
+chili,44.1,27.1,80,5.9,kaggle,0.08,Moderate
+chili,43.3,29.1,34,6.8,kaggle,0.034,Healthy
+chili,45.8,27.4,144,6.3,kaggle,0.144,Moderate
+chili,26.8,28.0,91,6.2,kaggle,0.091,Moderate
+chili,39.3,28.8,94,6.6,kaggle,0.094,Moderate
+chili,46.3,28.7,92,5.8,kaggle,0.092,Moderate
+chili,42.8,29.3,64,6.4,kaggle,0.064,Moderate
+chili,38.4,28.6,89,6.5,kaggle,0.089,Moderate
+chili,40.9,28.0,17,6.8,kaggle,0.017,Moderate
+chili,44.2,28.5,54,5.7,kaggle,0.054,Moderate
+chili,42.7,29.7,86,6.1,kaggle,0.086,Moderate
+chili,33.9,28.7,66,5.2,kaggle,0.066,Moderate
+chili,37.6,28.0,57,6.3,kaggle,0.057,Moderate
+chili,45.8,28.8,29,6.3,kaggle,0.029,Moderate
+chili,32.1,28.0,81,6.8,kaggle,0.081,Moderate
+chili,40.9,27.6,95,5.8,kaggle,0.095,Moderate
+chili,36.5,28.2,80,5.2,kaggle,0.08,Moderate
+chili,46.4,28.7,109,5.8,kaggle,0.109,Moderate
+chili,39.9,28.1,58,6.2,kaggle,0.058,Moderate
+chili,39.8,27.1,75,6.1,kaggle,0.075,Moderate
+chili,44.3,28.6,90,6.1,kaggle,0.09,Moderate
+chili,38.4,29.2,68,5.2,kaggle,0.068,Moderate
+chili,41.9,28.2,123,5.8,kaggle,0.123,Moderate
+chili,41.6,27.6,24,6.8,kaggle,0.024,Moderate
+chili,44.0,27.3,93,6.8,kaggle,0.093,Healthy
+chili,45.8,28.2,195,5.9,kaggle,0.195,Moderate
+chili,44.8,29.0,80,5.8,kaggle,0.08,Moderate
+chili,41.6,29.4,129,5.8,kaggle,0.129,Moderate
+chili,45.4,27.2,87,6.0,kaggle,0.087,Moderate
+chili,45.9,28.7,39,5.7,kaggle,0.039,Moderate
+chili,41.7,29.0,17,6.8,kaggle,0.017,Moderate
+chili,43.4,28.9,67,6.7,kaggle,0.067,Healthy
+chili,44.3,27.7,65,6.1,kaggle,0.065,Moderate
+chili,39.9,27.5,73,5.8,kaggle,0.073,Moderate
+chili,41.8,28.8,101,6.3,kaggle,0.101,Moderate
+chili,44.3,28.0,53,6.4,kaggle,0.053,Moderate
+chili,39.9,28.5,21,6.8,kaggle,0.021,Moderate
+chili,44.0,28.5,82,6.0,kaggle,0.082,Moderate
+chili,33.9,30.0,76,5.2,kaggle,0.076,Moderate
+chili,46.3,28.8,164,6.2,kaggle,0.164,Moderate
+chili,30.8,28.1,148,5.6,kaggle,0.148,Moderate
+chili,36.3,28.0,78,5.2,kaggle,0.078,Moderate
+chili,45.8,28.2,77,6.3,kaggle,0.077,Moderate
+chili,45.7,28.1,41,6.3,kaggle,0.041,Moderate
+chili,39.8,27.6,68,5.2,kaggle,0.068,Moderate
+chili,38.3,27.6,33,6.8,kaggle,0.033,Moderate
+chili,39.3,27.5,74,6.3,kaggle,0.074,Moderate
+chili,36.9,29.3,169,5.5,kaggle,0.169,Moderate
+chili,46.1,28.6,86,6.1,kaggle,0.086,Moderate
+chili,37.5,27.9,88,5.2,kaggle,0.088,Moderate
+chili,39.0,28.4,69,6.6,kaggle,0.069,Moderate
+chili,44.3,26.5,86,6.3,kaggle,0.086,Moderate
+chili,43.0,26.9,87,6.1,kaggle,0.087,Moderate
+chili,35.4,29.2,68,5.2,kaggle,0.068,Moderate
+chili,45.5,27.3,54,6.3,kaggle,0.054,Moderate
+chili,30.2,28.2,89,6.5,kaggle,0.089,Moderate
+chili,42.3,28.1,73,5.6,kaggle,0.073,Moderate
+chili,43.4,28.5,52,6.2,kaggle,0.052,Moderate
+chili,38.0,27.3,13,6.8,kaggle,0.013,Moderate
+chili,35.7,29.4,74,5.2,kaggle,0.074,Moderate
+chili,41.8,28.6,130,5.8,kaggle,0.13,Moderate
+chili,42.9,27.7,91,5.7,kaggle,0.091,Moderate
+chili,40.2,27.6,64,6.5,kaggle,0.064,Moderate
+chili,37.6,29.3,169,5.7,kaggle,0.169,Moderate
+chili,28.2,26.9,98,6.1,kaggle,0.098,Moderate
+chili,42.5,29.4,103,6.0,kaggle,0.103,Moderate
+chili,45.3,28.2,141,5.7,kaggle,0.141,Moderate
+chili,44.8,28.7,97,5.9,kaggle,0.097,Moderate
+chili,45.9,26.6,55,6.5,kaggle,0.055,Healthy
+chili,42.3,29.1,155,6.2,kaggle,0.155,Moderate
+chili,38.5,27.6,167,6.3,kaggle,0.167,Moderate
+chili,38.7,27.5,152,6.0,kaggle,0.152,Moderate
+chili,37.9,28.1,75,6.4,kaggle,0.075,Moderate
+chili,44.8,27.8,84,6.2,kaggle,0.084,Moderate
+chili,42.9,27.5,71,6.5,kaggle,0.071,Healthy
+chili,37.6,29.6,171,5.6,kaggle,0.171,Moderate
+chili,29.4,27.7,92,5.7,kaggle,0.092,Moderate
+chili,44.3,28.4,82,5.9,kaggle,0.082,Moderate
+chili,44.6,28.4,99,5.7,kaggle,0.099,Moderate
+chili,46.1,28.4,51,6.1,kaggle,0.051,Moderate
+chili,45.6,28.8,54,5.9,kaggle,0.054,Moderate
+chili,30.5,28.1,79,6.4,kaggle,0.079,Moderate
+chili,40.8,28.2,162,6.8,kaggle,0.162,Moderate
+chili,35.8,29.0,151,5.7,kaggle,0.151,Moderate
+chili,43.7,28.2,77,6.2,kaggle,0.077,Moderate
+chili,40.8,27.8,73,5.6,kaggle,0.073,Moderate
+chili,40.6,27.9,74,6.2,kaggle,0.074,Moderate
+chili,40.3,28.5,80,6.1,kaggle,0.08,Moderate
+chili,44.5,28.1,85,6.0,kaggle,0.085,Moderate
+chili,31.7,26.7,83,6.8,kaggle,0.083,Moderate
+chili,42.1,27.4,71,5.7,kaggle,0.071,Moderate
+chili,44.0,28.3,93,6.3,kaggle,0.093,Moderate
+chili,43.5,28.7,81,6.6,kaggle,0.081,Healthy
+chili,45.4,28.8,43,6.3,kaggle,0.043,Moderate
+chili,45.9,28.3,73,5.9,kaggle,0.073,Moderate
+chili,36.4,28.6,77,5.2,kaggle,0.077,Moderate
+chili,38.3,28.5,63,5.2,kaggle,0.063,Moderate
+chili,28.4,26.5,89,6.5,kaggle,0.089,Moderate
+chili,43.8,28.2,79,6.2,kaggle,0.079,Moderate
+chili,43.0,29.7,101,6.0,kaggle,0.101,Moderate
+chili,43.6,28.2,109,5.9,kaggle,0.109,Moderate
+chili,42.2,28.7,20,6.8,kaggle,0.02,Healthy
+chili,45.0,28.5,67,5.8,kaggle,0.067,Moderate
+chili,42.4,28.0,73,5.9,kaggle,0.073,Moderate
+chili,32.8,28.5,163,5.8,kaggle,0.163,Moderate
+chili,45.1,28.1,106,5.7,kaggle,0.106,Moderate
+chili,32.6,27.6,144,5.8,kaggle,0.144,Moderate
+chili,44.7,28.5,102,6.0,kaggle,0.102,Moderate
+chili,37.6,28.2,41,6.8,kaggle,0.041,Moderate
+chili,42.3,28.4,49,6.4,kaggle,0.049,Moderate
+chili,43.3,27.8,72,6.1,kaggle,0.072,Moderate
+chili,44.7,28.3,54,5.7,kaggle,0.054,Moderate
+chili,29.2,26.6,83,6.1,kaggle,0.083,Moderate
+chili,43.8,28.9,59,6.7,kaggle,0.059,Healthy
+chili,41.3,28.9,29,6.8,kaggle,0.029,Moderate
+chili,42.7,29.8,51,6.1,kaggle,0.051,Moderate
+chili,43.7,28.2,81,6.2,kaggle,0.081,Moderate
+chili,42.2,28.4,59,5.7,kaggle,0.059,Moderate
+chili,42.0,27.9,20,6.8,kaggle,0.02,Healthy
+chili,40.5,27.8,8,6.8,kaggle,0.008,Moderate
+chili,43.1,28.5,60,6.7,kaggle,0.06,Healthy
+chili,46.4,27.8,48,6.1,kaggle,0.048,Moderate
+chili,44.4,28.1,98,6.4,kaggle,0.098,Moderate
+chili,45.9,27.3,83,6.8,kaggle,0.083,Healthy
+chili,33.3,27.2,137,5.3,kaggle,0.137,Moderate
+chili,42.5,28.7,50,5.8,kaggle,0.05,Moderate
+chili,30.1,27.7,100,6.1,kaggle,0.1,Moderate
+chili,40.5,27.4,63,6.5,kaggle,0.063,Moderate
+chili,41.1,28.1,74,5.4,kaggle,0.074,Moderate
+chili,43.2,28.5,88,6.0,kaggle,0.088,Moderate
+chili,41.2,27.3,61,6.7,kaggle,0.061,Moderate
+chili,42.5,29.2,24,6.8,kaggle,0.024,Healthy
+chili,46.2,28.5,68,6.0,kaggle,0.068,Moderate
+chili,39.7,27.9,63,6.2,kaggle,0.063,Moderate
+chili,45.5,28.3,36,5.5,kaggle,0.036,Moderate
+chili,39.7,29.3,27,6.8,kaggle,0.027,Moderate
+chili,43.6,28.4,106,6.3,kaggle,0.106,Moderate
+chili,45.4,29.0,108,6.0,kaggle,0.108,Moderate
+chili,40.8,27.7,15,6.8,kaggle,0.015,Moderate
+chili,45.2,27.5,31,5.8,kaggle,0.031,Moderate
+chili,44.6,28.5,35,6.2,kaggle,0.035,Moderate
+chili,45.5,27.5,99,5.8,kaggle,0.099,Moderate
+chili,40.6,27.0,63,6.6,kaggle,0.063,Moderate
+chili,44.3,27.9,93,6.5,kaggle,0.093,Healthy
+chili,34.7,29.9,85,5.2,kaggle,0.085,Moderate
+chili,43.3,28.5,64,6.6,kaggle,0.064,Healthy
+chili,35.1,29.5,142,5.7,kaggle,0.142,Moderate
+chili,38.6,27.6,68,5.2,kaggle,0.068,Moderate
+chili,36.9,27.5,60,5.2,kaggle,0.06,Moderate
+chili,32.1,27.8,148,5.5,kaggle,0.148,Moderate
+chili,37.0,28.6,159,5.6,kaggle,0.159,Moderate
+chili,44.4,28.4,40,5.7,kaggle,0.04,Moderate
+chili,45.5,28.1,95,6.2,kaggle,0.095,Moderate
+chili,45.3,28.6,94,5.8,kaggle,0.094,Moderate
+chili,42.8,27.5,72,6.3,kaggle,0.072,Moderate
+chili,44.4,27.8,75,5.9,kaggle,0.075,Moderate
+chili,45.3,29.8,96,6.4,kaggle,0.096,Moderate
+chili,45.1,28.8,48,5.7,kaggle,0.048,Moderate
+chili,43.4,29.0,106,6.8,kaggle,0.106,Healthy
+chili,44.0,28.3,75,6.4,kaggle,0.075,Moderate
+chili,46.2,28.1,30,6.1,kaggle,0.03,Moderate
+chili,37.1,27.9,86,5.2,kaggle,0.086,Moderate
+chili,34.9,27.5,175,5.6,kaggle,0.175,Moderate
+chili,41.6,28.3,154,6.3,kaggle,0.154,Moderate
+chili,29.6,26.9,107,6.5,kaggle,0.107,Moderate
+chili,46.1,27.4,104,5.4,kaggle,0.104,Moderate
+chili,44.9,28.4,82,5.6,kaggle,0.082,Moderate
+chili,44.0,28.7,54,6.0,kaggle,0.054,Moderate
+chili,43.5,28.0,104,5.9,kaggle,0.104,Moderate
+chili,45.7,27.0,150,6.0,kaggle,0.15,Moderate
+chili,28.7,27.0,108,6.5,kaggle,0.108,Moderate
+chili,39.2,27.4,73,5.2,kaggle,0.073,Moderate
+chili,46.0,27.7,87,5.9,kaggle,0.087,Moderate
+chili,41.2,28.2,9,6.8,kaggle,0.009,Moderate
+chili,33.4,28.4,170,5.7,kaggle,0.17,Moderate
+chili,30.8,27.3,99,6.5,kaggle,0.099,Moderate
+bok choy,43.2,23.0,196,6.8,kaggle,0.196,Healthy
+bok choy,10.3,21.1,193,6.1,kaggle,0.193,Poor
+bok choy,31.0,27.5,206,6.8,kaggle,0.206,Moderate
+bok choy,15.6,27.9,43,6.6,kaggle,0.043,Poor
+bok choy,45.0,26.7,62,6.6,kaggle,0.062,Healthy
+bok choy,40.0,23.1,56,6.7,kaggle,0.056,Moderate
+bok choy,20.0,26.5,37,6.8,kaggle,0.037,Poor
+bok choy,43.0,26.1,47,6.6,kaggle,0.047,Healthy
+bok choy,30.0,26.1,50,6.4,kaggle,0.05,Moderate
+bok choy,34.0,29.2,111,6.5,kaggle,0.111,Moderate
+bok choy,41.0,27.3,69,6.3,kaggle,0.069,Moderate
+bok choy,36.1,29.6,196,6.8,kaggle,0.196,Moderate
+bok choy,24.0,23.2,103,6.8,kaggle,0.103,Poor
+bok choy,36.0,24.9,30,6.0,kaggle,0.03,Moderate
+bok choy,37.0,23.1,45,6.7,kaggle,0.045,Moderate
+bok choy,20.0,24.7,153,6.6,kaggle,0.153,Poor
+bok choy,42.4,26.7,121,6.5,kaggle,0.121,Healthy
+cucumber,34.3,27.9,100,6.8,kaggle,0.1,Moderate
+cucumber,34.3,28.0,100,6.7,kaggle,0.1,Moderate
+cucumber,34.5,28.0,100,6.7,kaggle,0.1,Moderate
+cucumber,34.5,28.0,100,6.7,kaggle,0.1,Moderate
+cucumber,34.5,28.0,100,6.7,kaggle,0.1,Moderate
+cucumber,34.8,28.0,100,6.6,kaggle,0.1,Moderate
+cucumber,35.0,28.0,100,6.6,kaggle,0.1,Moderate
+cucumber,34.8,28.1,100,6.6,kaggle,0.1,Moderate
+cucumber,34.7,28.1,100,6.6,kaggle,0.1,Moderate
+cucumber,34.7,28.1,100,6.5,kaggle,0.1,Moderate
+cucumber,34.7,28.1,100,6.5,kaggle,0.1,Moderate
+cucumber,34.7,28.1,100,6.5,kaggle,0.1,Moderate
+cucumber,34.8,28.1,100,6.5,kaggle,0.1,Moderate
+cucumber,34.8,28.1,100,6.5,kaggle,0.1,Moderate
+cucumber,34.7,28.1,100,6.5,kaggle,0.1,Moderate
+cucumber,34.8,28.1,100,6.4,kaggle,0.1,Moderate
+cucumber,35.0,28.1,100,6.4,kaggle,0.1,Moderate
+cucumber,35.0,28.1,100,6.3,kaggle,0.1,Moderate
+cucumber,35.0,28.1,100,6.3,kaggle,0.1,Moderate
+cucumber,34.8,28.1,100,6.4,kaggle,0.1,Moderate
+cucumber,35.0,28.1,100,6.4,kaggle,0.1,Moderate
+cucumber,35.0,28.1,100,6.4,kaggle,0.1,Moderate
+cucumber,35.0,28.1,100,6.4,kaggle,0.1,Moderate
+cucumber,35.0,28.1,100,6.4,kaggle,0.1,Moderate
+cucumber,35.0,28.1,100,6.4,kaggle,0.1,Moderate
+cucumber,35.0,28.2,100,6.3,kaggle,0.1,Moderate
+cucumber,35.0,28.2,100,6.3,kaggle,0.1,Moderate
+cucumber,35.0,28.2,100,6.3,kaggle,0.1,Moderate
+cucumber,35.1,28.2,100,6.3,kaggle,0.1,Moderate
+cucumber,35.1,28.2,100,6.3,kaggle,0.1,Moderate
+cucumber,35.1,28.2,100,6.3,kaggle,0.1,Moderate
+cucumber,35.1,28.2,100,6.3,kaggle,0.1,Moderate
+cucumber,37.6,28.9,114,6.5,kaggle,0.114,Moderate
+cucumber,35.3,28.1,115,6.6,kaggle,0.115,Moderate
+cucumber,35.9,28.7,114,6.4,kaggle,0.114,Moderate
+cucumber,36.3,28.7,108,6.2,kaggle,0.108,Moderate
+cucumber,35.9,28.0,103,6.7,kaggle,0.103,Moderate
+cucumber,36.9,28.7,111,6.5,kaggle,0.111,Moderate
+cucumber,36.4,28.8,111,6.5,kaggle,0.111,Moderate
+cucumber,36.0,28.3,101,6.8,kaggle,0.101,Moderate
+cucumber,35.3,28.2,105,6.5,kaggle,0.105,Moderate
+cucumber,37.3,28.5,107,6.2,kaggle,0.107,Moderate
+cucumber,35.1,28.9,109,6.1,kaggle,0.109,Moderate
+cucumber,37.3,28.9,103,6.5,kaggle,0.103,Moderate
+cucumber,34.7,28.7,109,6.8,kaggle,0.109,Moderate
+cucumber,36.8,28.7,112,6.7,kaggle,0.112,Moderate
+cucumber,36.3,28.7,115,6.8,kaggle,0.115,Moderate
+cucumber,36.2,29.0,102,6.6,kaggle,0.102,Moderate
+cucumber,37.7,28.6,114,6.7,kaggle,0.114,Moderate
+cucumber,37.8,28.8,113,6.4,kaggle,0.113,Moderate
+cucumber,35.1,28.7,112,6.1,kaggle,0.112,Moderate
+cucumber,36.1,28.2,107,6.8,kaggle,0.107,Moderate
+cucumber,37.5,29.0,106,6.2,kaggle,0.106,Moderate
+cucumber,37.7,28.3,109,5.9,kaggle,0.109,Moderate
+cucumber,34.9,28.4,102,6.6,kaggle,0.102,Moderate
+cucumber,37.1,29.1,113,6.5,kaggle,0.113,Moderate
+cucumber,36.7,28.6,115,6.5,kaggle,0.115,Moderate
+cucumber,35.1,28.7,114,6.5,kaggle,0.114,Moderate
+cucumber,36.3,28.2,107,6.2,kaggle,0.107,Moderate
+cucumber,35.5,28.8,107,6.6,kaggle,0.107,Moderate
+cucumber,38.1,28.3,113,6.1,kaggle,0.113,Moderate
+cucumber,35.1,28.8,105,6.6,kaggle,0.105,Moderate
+cucumber,36.1,28.2,104,6.8,kaggle,0.104,Moderate
+cucumber,36.8,29.1,118,5.9,kaggle,0.118,Moderate
+cucumber,39.6,28.8,124,6.2,kaggle,0.124,Moderate
+cucumber,36.8,28.7,126,6.6,kaggle,0.126,Moderate
+cucumber,38.0,29.1,117,6.6,kaggle,0.117,Moderate
+cucumber,36.0,28.9,107,6.3,kaggle,0.107,Moderate
+cucumber,38.4,29.4,126,6.0,kaggle,0.126,Moderate
+cucumber,35.7,29.5,119,6.7,kaggle,0.119,Moderate
+cucumber,38.6,29.2,106,6.7,kaggle,0.106,Moderate
+cucumber,37.5,29.5,116,6.3,kaggle,0.116,Moderate
+cucumber,40.1,29.3,128,6.3,kaggle,0.128,Moderate
+cucumber,36.8,29.7,122,6.3,kaggle,0.122,Moderate
+cucumber,39.9,29.2,120,6.1,kaggle,0.12,Moderate
+cucumber,37.3,28.8,118,6.8,kaggle,0.118,Moderate
+cucumber,37.2,29.0,116,6.1,kaggle,0.116,Moderate
+cucumber,39.7,28.6,128,6.2,kaggle,0.128,Moderate
+cucumber,36.5,29.2,121,6.5,kaggle,0.121,Moderate
+cucumber,36.2,29.5,124,6.4,kaggle,0.124,Moderate
+cucumber,38.0,29.0,117,6.8,kaggle,0.117,Moderate
+cucumber,40.4,28.5,126,6.0,kaggle,0.126,Moderate
+cucumber,38.1,29.2,116,6.5,kaggle,0.116,Moderate
+cucumber,38.1,28.2,115,6.3,kaggle,0.115,Moderate
+cucumber,37.9,29.1,116,6.5,kaggle,0.116,Moderate
+cucumber,38.5,28.4,121,5.8,kaggle,0.121,Moderate
+cucumber,36.0,29.5,108,6.7,kaggle,0.108,Moderate
+cucumber,35.7,29.1,116,6.4,kaggle,0.116,Moderate
+cucumber,38.6,28.4,115,6.2,kaggle,0.115,Moderate
+cucumber,38.0,29.0,111,6.8,kaggle,0.111,Moderate
+cucumber,37.4,29.1,119,6.8,kaggle,0.119,Moderate
+cucumber,40.6,28.8,122,6.2,kaggle,0.122,Moderate
+cucumber,39.4,29.2,123,6.5,kaggle,0.123,Moderate
+cucumber,36.1,29.5,120,6.3,kaggle,0.12,Moderate
+cucumber,40.6,28.4,118,6.1,kaggle,0.118,Moderate
+cucumber,39.0,28.6,123,6.5,kaggle,0.123,Moderate
+cucumber,35.2,28.8,106,6.4,kaggle,0.106,Moderate
+cucumber,38.0,29.0,117,6.4,kaggle,0.117,Moderate
+cucumber,37.8,29.7,121,6.7,kaggle,0.121,Moderate
+cucumber,40.8,28.9,126,5.7,kaggle,0.126,Moderate
+cucumber,38.0,29.7,119,6.4,kaggle,0.119,Moderate
+cucumber,37.8,28.7,108,6.6,kaggle,0.108,Moderate
+cucumber,38.2,29.4,129,6.5,kaggle,0.129,Moderate
+cucumber,37.7,29.0,121,6.8,kaggle,0.121,Moderate
+cucumber,39.1,28.5,110,6.1,kaggle,0.11,Moderate
+cucumber,37.4,29.6,118,6.7,kaggle,0.118,Moderate
+cucumber,40.4,28.7,123,5.9,kaggle,0.123,Moderate
+palay,23.9,33.4,294,9.0,socfa nodes,0.294,Poor
+palay,23.8,32.9,287,6.5,socfa nodes,0.287,Poor
+palay,23.8,32.8,285,6.0,socfa nodes,0.285,Poor
+palay,23.8,32.8,284,5.8,socfa nodes,0.284,Poor
+palay,23.8,32.7,283,5.7,socfa nodes,0.283,Poor
+palay,23.8,32.7,283,5.6,socfa nodes,0.283,Poor
+palay,23.8,32.7,283,5.5,socfa nodes,0.283,Poor
+palay,23.8,32.7,283,5.6,socfa nodes,0.283,Poor
+palay,23.6,32.6,260,5.7,socfa nodes,0.26,Poor
+palay,23.6,32.6,259,5.6,socfa nodes,0.259,Poor
+palay,18.5,32.0,82,7.3,socfa nodes,0.082,Poor
+palay,18.4,29.7,78,6.2,socfa nodes,0.078,Poor
+palay,18.4,28.4,76,6.2,socfa nodes,0.076,Poor
+palay,18.3,28.1,75,6.2,socfa nodes,0.075,Poor
+palay,18.2,28.4,75,6.2,socfa nodes,0.075,Poor
+palay,18.2,28.5,74,6.2,socfa nodes,0.074,Poor
+palay,18.2,28.3,73,6.2,socfa nodes,0.073,Poor
+palay,18.2,28.3,72,6.2,socfa nodes,0.072,Poor
+palay,18.1,28.6,72,6.2,socfa nodes,0.072,Poor
+palay,21.7,32.9,262,9.0,socfa nodes,0.262,Poor
+palay,21.7,32.9,170,6.4,socfa nodes,0.17,Poor
+palay,21.6,32.9,266,7.8,socfa nodes,0.266,Poor
+palay,21.8,32.8,170,5.4,socfa nodes,0.17,Poor
+palay,21.8,32.9,272,7.4,socfa nodes,0.272,Poor
+palay,26.1,32.5,71,6.0,socfa nodes,0.071,Moderate
+palay,21.8,32.8,170,5.3,socfa nodes,0.17,Poor
+palay,22.0,32.9,276,7.2,socfa nodes,0.276,Poor
+palay,21.7,32.7,170,5.2,socfa nodes,0.17,Poor
+palay,22.0,32.9,278,7.1,socfa nodes,0.278,Poor
+palay,21.9,32.7,170,5.2,socfa nodes,0.17,Poor
+palay,22.1,32.9,281,7.0,socfa nodes,0.281,Poor
+palay,21.8,32.7,170,5.2,socfa nodes,0.17,Poor
+palay,22.1,32.8,283,6.9,socfa nodes,0.283,Poor
+palay,21.9,32.7,170,5.2,socfa nodes,0.17,Poor
+palay,22.2,32.8,286,6.9,socfa nodes,0.286,Poor
+palay,21.8,32.7,170,5.1,socfa nodes,0.17,Poor
+palay,22.1,32.8,287,6.8,socfa nodes,0.287,Poor
+palay,21.8,32.7,170,5.1,socfa nodes,0.17,Poor
+palay,22.3,32.8,288,6.8,socfa nodes,0.288,Poor
+palay,21.9,32.7,170,5.1,socfa nodes,0.17,Poor
+palay,26.2,32.4,75,5.6,socfa nodes,0.075,Moderate
+palay,22.3,32.8,290,6.8,socfa nodes,0.29,Poor
+palay,21.9,32.7,170,5.1,socfa nodes,0.17,Poor
+palay,22.3,32.8,291,6.7,socfa nodes,0.291,Poor
+palay,21.8,32.7,170,5.2,socfa nodes,0.17,Poor
+palay,22.3,32.8,292,6.7,socfa nodes,0.292,Poor
+palay,21.9,32.7,170,5.1,socfa nodes,0.17,Poor
+palay,22.4,32.8,293,6.7,socfa nodes,0.293,Poor
+palay,22.0,32.7,170,5.1,socfa nodes,0.17,Poor
+palay,22.3,32.8,293,6.7,socfa nodes,0.293,Poor
+palay,21.9,32.7,170,5.1,socfa nodes,0.17,Poor
+palay,22.3,32.8,294,6.7,socfa nodes,0.294,Poor
+palay,22.0,32.7,170,5.1,socfa nodes,0.17,Poor
+palay,22.3,32.8,295,6.7,socfa nodes,0.295,Poor
+palay,22.0,32.6,170,5.0,socfa nodes,0.17,Poor
+palay,22.4,32.8,295,6.7,socfa nodes,0.295,Poor
+palay,21.9,32.6,170,5.1,socfa nodes,0.17,Poor
+palay,26.2,32.4,76,5.5,socfa nodes,0.076,Moderate
+palay,22.4,32.8,296,6.7,socfa nodes,0.296,Poor
+palay,21.9,32.6,170,5.1,socfa nodes,0.17,Poor
+palay,26.2,32.4,76,5.4,socfa nodes,0.076,Moderate
+palay,22.4,32.8,297,6.7,socfa nodes,0.297,Poor
+palay,21.9,32.6,170,5.0,socfa nodes,0.17,Poor
+palay,22.4,32.8,297,6.7,socfa nodes,0.297,Poor
+palay,22.0,32.6,170,5.1,socfa nodes,0.17,Poor
+palay,22.5,32.8,298,6.8,socfa nodes,0.298,Poor
+palay,26.2,32.4,77,5.4,socfa nodes,0.077,Moderate
+palay,22.0,32.6,171,5.1,socfa nodes,0.171,Poor
+palay,22.4,32.8,298,6.8,socfa nodes,0.298,Poor
+palay,26.0,32.4,77,5.4,socfa nodes,0.077,Moderate
+palay,21.9,32.6,170,5.0,socfa nodes,0.17,Poor
+palay,22.3,32.8,298,6.8,socfa nodes,0.298,Poor
+palay,22.0,32.6,170,5.1,socfa nodes,0.17,Poor
+palay,22.5,32.8,298,6.8,socfa nodes,0.298,Poor
+palay,22.0,32.6,171,5.1,socfa nodes,0.171,Poor
+palay,22.5,32.8,299,6.8,socfa nodes,0.299,Poor
+palay,26.2,32.4,77,5.4,socfa nodes,0.077,Moderate
+palay,21.9,32.6,170,5.0,socfa nodes,0.17,Poor
+palay,22.3,32.7,299,6.8,socfa nodes,0.299,Poor
+palay,26.2,32.4,77,5.4,socfa nodes,0.077,Moderate
+palay,21.8,32.6,171,5.1,socfa nodes,0.171,Poor
+palay,22.5,32.8,299,6.8,socfa nodes,0.299,Poor
+palay,21.8,32.6,171,5.0,socfa nodes,0.171,Poor
+palay,26.0,32.4,77,5.4,socfa nodes,0.077,Moderate
+palay,22.5,32.8,299,6.8,socfa nodes,0.299,Poor
+palay,22.1,32.6,171,5.0,socfa nodes,0.171,Poor
+palay,26.2,32.4,77,5.3,socfa nodes,0.077,Moderate
+palay,22.5,32.8,300,6.9,socfa nodes,0.3,Poor
+palay,21.9,32.6,171,5.0,socfa nodes,0.171,Poor
+palay,22.5,32.8,300,6.9,socfa nodes,0.3,Poor
+palay,26.0,32.4,77,5.3,socfa nodes,0.077,Moderate
+palay,22.0,32.6,171,5.0,socfa nodes,0.171,Poor
+palay,22.4,32.7,300,6.9,socfa nodes,0.3,Poor
+palay,22.0,32.5,171,5.0,socfa nodes,0.171,Poor
+palay,26.2,32.5,77,5.3,socfa nodes,0.077,Moderate
+palay,22.5,32.7,300,6.9,socfa nodes,0.3,Poor
+palay,22.1,32.5,171,5.0,socfa nodes,0.171,Poor
+palay,26.2,32.4,78,5.3,socfa nodes,0.078,Moderate
+palay,22.5,32.7,300,6.9,socfa nodes,0.3,Poor
+palay,22.0,32.5,171,5.0,socfa nodes,0.171,Poor
+palay,22.4,32.7,301,6.9,socfa nodes,0.301,Poor
+palay,21.9,32.5,171,5.0,socfa nodes,0.171,Poor
+palay,22.5,32.7,300,6.9,socfa nodes,0.3,Poor
+palay,22.1,32.5,171,5.0,socfa nodes,0.171,Poor
+palay,22.5,32.7,301,7.0,socfa nodes,0.301,Poor
+palay,22.0,32.5,171,5.0,socfa nodes,0.171,Poor
+palay,22.6,32.7,302,7.0,socfa nodes,0.302,Poor
+palay,22.4,32.5,174,5.2,socfa nodes,0.174,Poor
+palay,22.4,32.7,302,7.0,socfa nodes,0.302,Poor
+palay,26.2,32.4,78,5.4,socfa nodes,0.078,Moderate
+palay,22.2,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,22.5,32.7,302,7.0,socfa nodes,0.302,Poor
+palay,22.4,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,79,5.3,socfa nodes,0.079,Moderate
+palay,22.5,32.7,302,7.0,socfa nodes,0.302,Poor
+palay,22.4,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,22.6,32.7,303,7.0,socfa nodes,0.303,Poor
+palay,22.3,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,22.5,32.7,303,7.0,socfa nodes,0.303,Poor
+palay,22.3,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,22.5,32.7,303,7.1,socfa nodes,0.303,Poor
+palay,22.4,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,22.5,32.7,303,7.1,socfa nodes,0.303,Poor
+palay,22.2,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,22.5,32.7,303,7.1,socfa nodes,0.303,Poor
+palay,22.4,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,79,5.3,socfa nodes,0.079,Moderate
+palay,22.4,32.7,273,7.1,socfa nodes,0.273,Poor
+palay,22.3,32.5,175,5.2,socfa nodes,0.175,Poor
+palay,21.8,32.7,284,7.1,socfa nodes,0.284,Poor
+palay,26.2,32.4,79,5.2,socfa nodes,0.079,Moderate
+palay,22.3,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.7,284,7.1,socfa nodes,0.284,Poor
+palay,26.2,32.4,79,5.2,socfa nodes,0.079,Moderate
+palay,22.4,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.7,285,7.1,socfa nodes,0.285,Poor
+palay,26.2,32.5,79,5.2,socfa nodes,0.079,Moderate
+palay,22.4,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.7,285,7.1,socfa nodes,0.285,Poor
+palay,26.2,32.5,79,5.2,socfa nodes,0.079,Moderate
+palay,22.4,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.7,285,7.1,socfa nodes,0.285,Poor
+palay,26.2,32.5,79,5.2,socfa nodes,0.079,Moderate
+palay,22.4,32.5,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.7,286,7.2,socfa nodes,0.286,Poor
+palay,22.3,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.7,286,7.2,socfa nodes,0.286,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,286,7.2,socfa nodes,0.286,Poor
+palay,26.2,32.4,80,5.3,socfa nodes,0.08,Moderate
+palay,22.2,32.4,175,5.2,socfa nodes,0.175,Poor
+palay,21.9,32.7,286,7.2,socfa nodes,0.286,Poor
+palay,26.2,32.5,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,286,7.2,socfa nodes,0.286,Poor
+palay,22.3,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,21.9,32.7,286,7.2,socfa nodes,0.286,Poor
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.5,80,5.2,socfa nodes,0.08,Moderate
+palay,21.9,32.7,286,7.2,socfa nodes,0.286,Poor
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.5,80,5.2,socfa nodes,0.08,Moderate
+palay,22.0,32.7,286,7.2,socfa nodes,0.286,Poor
+palay,22.2,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,287,7.2,socfa nodes,0.287,Poor
+palay,26.0,32.5,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.6,32.7,286,7.3,socfa nodes,0.286,Poor
+palay,26.1,32.5,80,5.2,socfa nodes,0.08,Moderate
+palay,22.3,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.7,287,7.3,socfa nodes,0.287,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,287,7.3,socfa nodes,0.287,Poor
+palay,26.2,32.5,80,5.4,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,287,7.3,socfa nodes,0.287,Poor
+palay,26.2,32.5,80,5.3,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,286,7.3,socfa nodes,0.286,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.7,287,7.3,socfa nodes,0.287,Poor
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.7,287,7.3,socfa nodes,0.287,Poor
+palay,26.2,32.4,80,5.3,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.7,287,7.3,socfa nodes,0.287,Poor
+palay,26.2,32.4,80,5.4,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,287,7.3,socfa nodes,0.287,Poor
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.7,287,7.4,socfa nodes,0.287,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.7,288,7.4,socfa nodes,0.288,Poor
+palay,26.2,32.4,80,5.4,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,288,7.4,socfa nodes,0.288,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.7,288,7.4,socfa nodes,0.288,Poor
+palay,22.3,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.6,288,7.4,socfa nodes,0.288,Poor
+palay,26.1,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.3,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.7,288,7.4,socfa nodes,0.288,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,288,7.4,socfa nodes,0.288,Poor
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,80,5.4,socfa nodes,0.08,Moderate
+palay,21.8,32.6,288,7.4,socfa nodes,0.288,Poor
+palay,22.3,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.4,socfa nodes,0.288,Poor
+palay,26.2,32.4,80,5.3,socfa nodes,0.08,Moderate
+palay,22.3,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.4,socfa nodes,0.288,Poor
+palay,26.2,32.5,80,5.3,socfa nodes,0.08,Moderate
+palay,22.4,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.4,socfa nodes,0.288,Poor
+palay,26.1,32.5,80,5.3,socfa nodes,0.08,Moderate
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.2,32.4,80,5.3,socfa nodes,0.08,Moderate
+palay,22.2,32.4,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.2,32.4,80,5.3,socfa nodes,0.08,Moderate
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.7,288,7.5,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.2,32.4,80,5.2,socfa nodes,0.08,Moderate
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.1,32.5,81,5.3,socfa nodes,0.081,Moderate
+palay,22.3,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.2,32.4,81,5.4,socfa nodes,0.081,Moderate
+palay,26.2,32.4,81,5.3,socfa nodes,0.081,Moderate
+palay,22.3,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,22.0,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.2,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,22.4,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,22.3,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,22.0,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.2,32.4,81,5.3,socfa nodes,0.081,Moderate
+palay,22.4,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,22.0,32.6,288,7.5,socfa nodes,0.288,Poor
+palay,26.1,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,22.3,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,26.2,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.8,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.3,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,22.0,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,21.8,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.3,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,21.7,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.3,socfa nodes,0.081,Moderate
+palay,21.8,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.5,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,21.8,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.3,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.5,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.1,32.4,81,5.3,socfa nodes,0.081,Moderate
+palay,22.0,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,21.8,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,22.0,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.9,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,22.0,32.6,288,7.6,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,22.0,32.6,288,7.7,socfa nodes,0.288,Poor
+palay,22.5,32.3,175,5.1,socfa nodes,0.175,Poor
+palay,21.7,32.6,288,7.7,socfa nodes,0.288,Poor
+palay,22.3,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,22.0,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.3,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,22.0,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.4,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,22.0,32.6,288,7.7,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,22.0,32.6,288,7.7,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,22.0,32.6,288,7.7,socfa nodes,0.288,Poor
+palay,22.3,32.2,175,5.2,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,21.8,32.6,288,7.7,socfa nodes,0.288,Poor
+palay,22.4,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,21.9,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.4,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,21.7,32.6,288,7.7,socfa nodes,0.288,Poor
+palay,22.5,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,22.0,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.4,32.3,175,5.2,socfa nodes,0.175,Poor
+palay,22.0,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.5,32.2,175,5.2,socfa nodes,0.175,Poor
+palay,26.3,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,21.8,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.5,32.2,175,5.2,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,22.0,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.4,32.2,175,5.2,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,22.0,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.4,32.2,175,5.2,socfa nodes,0.175,Poor
+palay,22.0,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.3,32.2,175,5.2,socfa nodes,0.175,Poor
+palay,26.1,32.4,81,5.2,socfa nodes,0.081,Moderate
+palay,21.7,32.6,287,7.7,socfa nodes,0.287,Poor
+palay,22.4,32.2,175,5.2,socfa nodes,0.175,Poor
+palay,26.2,32.4,81,5.1,socfa nodes,0.081,Moderate
+palay,21.7,32.3,279,7.4,socfa nodes,0.279,Poor
+palay,21.2,31.6,155,5.7,socfa nodes,0.155,Poor
+palay,25.7,32.1,80,5.3,socfa nodes,0.08,Moderate
+palay,22.0,32.3,279,7.4,socfa nodes,0.279,Poor
+palay,21.5,31.6,155,5.7,socfa nodes,0.155,Poor
+palay,26.2,32.1,80,5.4,socfa nodes,0.08,Moderate
+palay,21.8,32.3,279,7.4,socfa nodes,0.279,Poor
+palay,21.5,31.6,155,5.6,socfa nodes,0.155,Poor
+palay,26.2,32.1,80,5.3,socfa nodes,0.08,Moderate
+palay,22.1,32.3,278,7.4,socfa nodes,0.278,Poor
+palay,21.6,31.6,168,5.7,socfa nodes,0.168,Poor
+palay,23.8,32.1,33,5.8,socfa nodes,0.033,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.6,31.6,168,5.7,socfa nodes,0.168,Poor
+palay,23.8,32.1,33,5.2,socfa nodes,0.033,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.6,31.6,168,5.7,socfa nodes,0.168,Poor
+palay,23.8,32.1,33,5.2,socfa nodes,0.033,Poor
+palay,22.0,32.3,277,7.5,socfa nodes,0.277,Poor
+palay,21.6,31.6,168,5.7,socfa nodes,0.168,Poor
+palay,23.8,32.1,33,5.2,socfa nodes,0.033,Poor
+palay,21.8,32.3,277,7.5,socfa nodes,0.277,Poor
+palay,21.6,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.6,32.1,33,5.1,socfa nodes,0.033,Poor
+palay,22.0,32.3,277,7.5,socfa nodes,0.277,Poor
+palay,21.7,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,34,5.1,socfa nodes,0.034,Poor
+palay,21.7,32.3,277,7.5,socfa nodes,0.277,Poor
+palay,21.7,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,34,5.1,socfa nodes,0.034,Poor
+palay,22.0,32.3,277,7.5,socfa nodes,0.277,Poor
+palay,21.7,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,33,5.4,socfa nodes,0.033,Poor
+palay,22.1,32.3,277,7.5,socfa nodes,0.277,Poor
+palay,21.6,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,33,5.2,socfa nodes,0.033,Poor
+palay,22.0,32.3,277,7.5,socfa nodes,0.277,Poor
+palay,21.6,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,33,5.2,socfa nodes,0.033,Poor
+palay,22.0,32.3,277,7.5,socfa nodes,0.277,Poor
+palay,21.6,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,34,5.3,socfa nodes,0.034,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.6,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,34,5.3,socfa nodes,0.034,Poor
+palay,22.0,32.3,277,7.5,socfa nodes,0.277,Poor
+palay,21.7,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.5,32.1,34,5.3,socfa nodes,0.034,Poor
+palay,21.8,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.6,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.0,34,5.3,socfa nodes,0.034,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.7,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,34,5.4,socfa nodes,0.034,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.7,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,34,5.2,socfa nodes,0.034,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.7,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.0,34,5.3,socfa nodes,0.034,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.5,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.0,34,5.3,socfa nodes,0.034,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.5,31.6,169,5.6,socfa nodes,0.169,Poor
+palay,23.8,32.1,34,5.2,socfa nodes,0.034,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.6,31.6,170,5.6,socfa nodes,0.17,Poor
+palay,23.5,32.0,34,5.3,socfa nodes,0.034,Poor
+palay,21.7,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.7,31.6,170,5.6,socfa nodes,0.17,Poor
+palay,23.6,32.1,34,5.2,socfa nodes,0.034,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,21.4,31.6,153,5.9,socfa nodes,0.153,Poor
+palay,23.8,32.1,34,5.5,socfa nodes,0.034,Poor
+palay,22.0,32.3,276,7.5,socfa nodes,0.276,Poor
+palay,20.2,31.6,137,5.7,socfa nodes,0.137,Poor
+palay,23.8,32.0,31,5.4,socfa nodes,0.031,Poor
+palay,22.0,32.2,276,7.5,socfa nodes,0.276,Poor
+palay,19.7,31.6,122,5.7,socfa nodes,0.122,Poor
+palay,22.5,32.0,32,5.5,socfa nodes,0.032,Poor
+palay,22.0,32.3,278,7.5,socfa nodes,0.278,Poor
+palay,20.2,31.7,145,5.6,socfa nodes,0.145,Poor
+palay,23.0,32.1,11,5.5,socfa nodes,0.011,Poor
+palay,22.0,32.2,278,7.5,socfa nodes,0.278,Poor
+palay,20.2,31.7,145,5.6,socfa nodes,0.145,Poor
+palay,23.0,32.1,12,5.4,socfa nodes,0.012,Poor
+palay,22.0,32.2,278,7.5,socfa nodes,0.278,Poor
+palay,20.2,31.7,146,5.6,socfa nodes,0.146,Poor
+palay,23.0,32.0,12,5.4,socfa nodes,0.012,Poor
+palay,22.0,32.3,278,7.5,socfa nodes,0.278,Poor
+palay,20.2,31.7,146,5.6,socfa nodes,0.146,Poor
+palay,23.0,32.1,14,5.4,socfa nodes,0.014,Poor
+palay,22.0,32.2,277,7.5,socfa nodes,0.277,Poor
+palay,20.2,31.7,146,5.6,socfa nodes,0.146,Poor
+palay,23.0,32.1,14,5.4,socfa nodes,0.014,Poor
+palay,21.7,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,21.7,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,20.4,31.9,147,5.8,socfa nodes,0.147,Poor
+palay,22.9,31.8,29,5.5,socfa nodes,0.029,Poor
+palay,21.8,32.1,276,7.4,socfa nodes,0.276,Poor
+palay,20.4,31.9,147,5.8,socfa nodes,0.147,Poor
+palay,22.7,31.9,29,5.5,socfa nodes,0.029,Poor
+palay,21.8,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,20.4,31.9,147,5.8,socfa nodes,0.147,Poor
+palay,22.8,31.8,29,5.5,socfa nodes,0.029,Poor
+palay,21.8,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,20.4,31.9,147,5.8,socfa nodes,0.147,Poor
+palay,22.8,31.8,29,5.5,socfa nodes,0.029,Poor
+palay,21.7,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,20.4,31.9,147,5.8,socfa nodes,0.147,Poor
+palay,22.9,31.8,29,5.5,socfa nodes,0.029,Poor
+palay,21.7,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,20.4,31.9,147,5.8,socfa nodes,0.147,Poor
+palay,22.9,31.8,30,5.5,socfa nodes,0.03,Poor
+palay,21.8,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,22.9,31.8,30,5.5,socfa nodes,0.03,Poor
+palay,20.4,31.9,147,5.8,socfa nodes,0.147,Poor
+palay,21.8,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,22.9,31.8,30,5.4,socfa nodes,0.03,Poor
+palay,20.4,31.9,147,5.8,socfa nodes,0.147,Poor
+palay,21.7,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,22.9,31.8,30,5.4,socfa nodes,0.03,Poor
+palay,20.3,31.9,147,5.8,socfa nodes,0.147,Poor
+palay,21.7,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,22.4,31.8,42,5.6,socfa nodes,0.042,Poor
+palay,20.2,31.9,139,5.8,socfa nodes,0.139,Poor
+palay,21.7,32.0,276,7.4,socfa nodes,0.276,Poor
+palay,22.4,31.8,43,5.3,socfa nodes,0.043,Poor
+palay,23.5,32.0,355,7.5,socfa nodes,0.355,Poor
+palay,22.6,31.8,34,5.5,socfa nodes,0.034,Poor
+palay,17.0,30.9,243,9.0,socfa nodes,0.243,Poor
+palay,23.6,32.0,356,7.5,socfa nodes,0.356,Poor
+palay,17.0,31.1,243,7.5,socfa nodes,0.243,Poor
+palay,22.6,31.8,35,5.5,socfa nodes,0.035,Poor
+palay,23.7,32.0,359,7.5,socfa nodes,0.359,Poor
+palay,8.5,31.2,93,8.8,socfa nodes,0.093,Poor
+palay,22.8,31.8,12,5.6,socfa nodes,0.012,Poor
+palay,25.4,32.0,401,7.5,socfa nodes,0.401,Moderate
+palay,21.3,30.9,296,8.5,socfa nodes,0.296,Poor
+palay,22.8,31.8,21,5.4,socfa nodes,0.021,Poor
+palay,25.4,32.0,400,7.5,socfa nodes,0.4,Moderate
+palay,21.5,31.2,296,7.4,socfa nodes,0.296,Poor
+palay,22.6,31.8,22,5.5,socfa nodes,0.022,Poor
+palay,25.4,32.0,401,7.5,socfa nodes,0.401,Moderate
+palay,21.3,31.3,295,7.1,socfa nodes,0.295,Poor
+palay,22.8,31.8,22,5.4,socfa nodes,0.022,Poor
+palay,25.4,32.0,401,7.5,socfa nodes,0.401,Moderate
+palay,21.2,31.3,293,6.9,socfa nodes,0.293,Poor
+palay,22.9,31.8,26,5.4,socfa nodes,0.026,Poor
+palay,19.7,31.2,172,9.0,socfa nodes,0.172,Poor
+palay,22.8,31.8,28,5.4,socfa nodes,0.028,Poor
+palay,21.3,31.3,310,6.9,socfa nodes,0.31,Poor
+palay,19.9,30.9,171,8.5,socfa nodes,0.171,Poor
+palay,22.8,31.8,29,5.4,socfa nodes,0.029,Poor
+palay,21.3,31.4,300,6.8,socfa nodes,0.3,Poor
+palay,19.9,30.8,171,8.1,socfa nodes,0.171,Poor
+palay,22.8,31.8,29,5.4,socfa nodes,0.029,Poor
+palay,21.3,31.4,299,6.7,socfa nodes,0.299,Poor
+palay,21.2,31.4,253,6.7,socfa nodes,0.253,Poor
+palay,22.9,31.8,34,5.6,socfa nodes,0.034,Poor
+palay,38.5,30.8,592,9.0,socfa nodes,0.592,Moderate
+palay,23.7,31.4,393,6.9,socfa nodes,0.393,Poor
+palay,39.8,31.4,630,8.3,socfa nodes,0.63,Moderate
+palay,25.0,31.5,396,6.7,socfa nodes,0.396,Moderate
+palay,23.5,31.4,226,7.8,socfa nodes,0.226,Poor
+palay,39.8,31.5,628,8.1,socfa nodes,0.628,Moderate
+palay,25.0,31.5,397,6.6,socfa nodes,0.397,Moderate
+palay,23.3,31.4,226,7.0,socfa nodes,0.226,Poor
+palay,39.9,31.6,592,8.0,socfa nodes,0.592,Moderate
+palay,25.0,31.5,396,6.6,socfa nodes,0.396,Moderate
+palay,23.3,31.4,232,6.8,socfa nodes,0.232,Poor
+palay,39.3,31.7,638,8.0,socfa nodes,0.638,Moderate
+palay,25.0,31.5,396,6.6,socfa nodes,0.396,Moderate
+palay,23.5,31.4,226,6.7,socfa nodes,0.226,Poor
+palay,39.9,31.7,627,7.9,socfa nodes,0.627,Moderate
+palay,24.9,31.6,396,6.6,socfa nodes,0.396,Moderate
+palay,23.6,31.4,225,6.7,socfa nodes,0.225,Poor
+palay,39.8,31.7,627,7.9,socfa nodes,0.627,Moderate
+palay,24.6,31.6,396,6.6,socfa nodes,0.396,Moderate
+palay,23.6,31.4,225,6.6,socfa nodes,0.225,Poor
+palay,39.9,31.7,626,7.9,socfa nodes,0.626,Moderate
+palay,25.0,31.6,402,6.6,socfa nodes,0.402,Moderate
+palay,23.3,31.4,207,6.6,socfa nodes,0.207,Poor
+palay,39.9,31.8,626,7.8,socfa nodes,0.626,Moderate
+palay,25.0,31.6,396,6.6,socfa nodes,0.396,Moderate
+palay,23.6,31.4,225,6.5,socfa nodes,0.225,Poor
+palay,25.0,31.6,396,6.5,socfa nodes,0.396,Moderate
+palay,39.9,31.7,625,7.8,socfa nodes,0.625,Moderate
+palay,23.6,31.4,225,6.5,socfa nodes,0.225,Poor
+palay,25.0,31.6,396,6.5,socfa nodes,0.396,Moderate
+palay,39.9,31.8,625,7.8,socfa nodes,0.625,Moderate
+palay,23.6,31.4,224,6.5,socfa nodes,0.224,Poor
+palay,25.0,31.6,396,6.5,socfa nodes,0.396,Moderate
+palay,39.9,31.8,625,7.8,socfa nodes,0.625,Moderate
+palay,23.7,31.5,224,6.4,socfa nodes,0.224,Poor
+palay,24.9,31.6,396,6.5,socfa nodes,0.396,Moderate
+palay,40.0,31.8,625,7.8,socfa nodes,0.625,Moderate
+palay,23.7,31.5,225,6.4,socfa nodes,0.225,Poor
+palay,25.0,31.6,395,6.5,socfa nodes,0.395,Moderate
+palay,23.7,31.5,221,6.4,socfa nodes,0.221,Poor

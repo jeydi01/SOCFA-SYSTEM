@@ -1,0 +1,3 @@
+# Files that run on the Raspberry Pi keep Linux line endings on every laptop
+Thesis/pi/** text eol=lf
+*.sh text eol=lf

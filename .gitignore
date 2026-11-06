@@ -1,0 +1,43 @@
+# ── Keys: NEVER commit (share them privately with the team) ──
+firebase-key.json
+serviceAccountKey.json
+*.pem
+.env
+
+# ── Installed packages (each laptop installs its own) ──
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# ── Field data and training images (too big / private; back up to Google Drive) ──
+Thesis/captures/
+Thesis/dataset/
+Thesis/dataset_rgb/
+Thesis/dataset_rgb_old/
+Thesis/dataset_rgb_removed/
+Thesis/dataset_rgb_v2/
+Thesis/ndvi_reference/
+Thesis/*.zip
+Thesis/data_collection/results/
+
+# ── Made by the running app on each laptop ──
+Thesis/pi_url.txt
+Thesis/latest_drone.json
+Thesis/latest_ndvi.json
+Thesis/red_ndvi_calibration.invalid.json
+
+# ── Backup copies of edited files ──
+*.before-*
+*.v1.*
+*.v2.*
+*.v3.*
+*.v4.*
+*.old.*
+
+# ── Editor / OS ──
+.claude/
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

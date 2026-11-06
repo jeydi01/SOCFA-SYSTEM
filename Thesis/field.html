@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Assessment - SoCFA</title>
+    <link rel="stylesheet" href="soil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ---- Field Assessment — builds on the shared soil.css tokens ---- */
+        .notice {
+            display: flex; align-items: center; gap: 8px;
+            padding: 7px 14px; margin-bottom: 10px;
+            border-radius: 12px; font-size: 12.5px; font-weight: 500;
+            background: var(--moderate-soft); color: var(--moderate);
+            border: 1px solid color-mix(in srgb, var(--moderate) 25%, transparent);
+        }
+        .notice[hidden] { display: none; }
+        .notice-btn {
+            margin-left: 6px; padding: 2px 10px; border-radius: 999px; cursor: pointer;
+            font: inherit; font-size: 12px; font-weight: 600;
+            color: inherit; background: transparent; border: 1px solid currentColor;
+        }
+
+        .fa-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 12px;
+            align-items: start;
+        }
+        .fa-main { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+        .fa-main .card { padding: 16px 20px; }
+
+        .chip {
+            display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 7px;
+            font-size: 11.5px; font-weight: 600; white-space: nowrap;
+        }
+        .c-good     { color: var(--good);     background: var(--good-soft); }
+        .c-moderate { color: var(--moderate); background: var(--moderate-soft); }
+        .c-bad      { color: var(--bad);      background: var(--bad-soft); }
+        .c-none     { color: var(--text-muted); background: var(--bg-subtle); }
+        .bg-good { background: var(--good); } .bg-moderate { background: var(--moderate); } .bg-bad { background: var(--bad); }
+        .bg-none { background: var(--text-hint); }
+
+        /* verdict */
+        .verdict { display: grid; grid-template-columns: auto minmax(0, 1fr) 270px; gap: 22px; align-items: center; }
+        .verdict-badge {
+            width: 72px; height: 72px; border-radius: 50%;
+            display: grid; place-items: center; font-size: 26px; color: #fff;
+            box-shadow: 0 10px 24px -10px rgba(0,0,0,0.4);
+        }
+        .verdict-eyebrow { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+        .verdict-label { font-size: 34px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+        .verdict-conf  { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+        .verdict-why {
+            margin-top: 12px; padding: 9px 14px; border-radius: 12px;
+            background: var(--bg-subtle); font-size: 13px; line-height: 1.5; color: var(--text-secondary);
+        }
+
+        /* score bars (0–1 with the 1/3 and 2/3 cut-offs marked) */
+        .scores { display: flex; flex-direction: column; gap: 10px; }
+        .score-row { display: grid; grid-template-columns: 72px minmax(0, 1fr) 40px; align-items: center; gap: 12px; font-size: 12.5px; }
+        .score-row.total { font-weight: 600; }
+        .score-row .track { position: relative; height: 8px; border-radius: 999px; background: var(--bg-hover); overflow: hidden; }
+        .score-row .fill  { height: 100%; border-radius: 999px; transition: width 0.5s ease; }
+        .score-row .cut   { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--bg-surface); }
+        .score-row .val   { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+        /* based-on panels */
+        .based { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+        .panel-title { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+        .panel-title i { color: var(--text-muted); font-size: 12px; }
+        .panel-title .chip { margin-left: auto; }
+
+        .kv { display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; }
+        .kv div { display: flex; justify-content: space-between; gap: 8px; }
+        .kv span:first-child { color: var(--text-muted); }
+        .kv span:last-child  { font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+
+        .soil-list { display: flex; flex-direction: column; gap: 5px; }
+        .soil-row {
+            display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; gap: 10px; align-items: center;
+            padding: 7px 10px; border-radius: 10px; background: var(--bg-subtle); font-size: 12.5px; cursor: help;
+        }
+        .soil-row .sn { font-weight: 600; }
+        .soil-row .sv { color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+        .soil-note { margin-top: 8px; font-size: 11.5px; color: var(--text-muted); }
+
+
+        .card-title { display: flex; align-items: center; font-size: 15px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 10px; }
+
+        @media (max-width: 1180px) {
+            .fa-grid { grid-template-columns: minmax(0, 1fr); }
+            .verdict { grid-template-columns: auto minmax(0, 1fr); }
+            .scores { grid-column: 1 / -1; }
+        }
+        @media (max-width: 700px) {
+            .based { grid-template-columns: minmax(0, 1fr); }
+            .verdict { grid-template-columns: minmax(0, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="desktop-container">
+        <header class="main-header">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+                    <span class="logo-text">SoCFA</span>
+                </div>
+                <div class="tagline">For Farmers</div>
+            </div>
+            <div class="header-center">
+                <h1>Field Assessment</h1>
+            </div>
+            <div class="header-right">
+                <div class="current-time" id="current-time">Loading...</div>
+            </div>
+        </header>
+
+        <div class="main-content-area">
+            <aside class="sidebar">
+                <div class="navigation-section">
+                    <h3 class="sidebar-title"><i class="fas fa-compass"></i> Navigation</h3>
+                    <nav class="nav-menu">
+                        <a href="ndvi.html" class="nav-item"><i class="fas fa-map"></i><span>NDVI Analysis</span></a>
+                        <a href="soil.html" class="nav-item"><i class="fas fa-seedling"></i><span>Soil Condition</span></a>
+                        <a href="#" class="nav-item active"><i class="fas fa-layer-group"></i><span>Field Assessment</span></a>
+                    </nav>
+                </div>
+
+                <div class="sidebar-footer">
+                    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                </div>
+            </aside>
+
+            <main class="main-panel">
+                <div class="notice" id="notice" hidden><i class="fas fa-circle-info"></i><span id="notice-text"></span></div>
+
+                <div class="fa-grid">
+                    <div class="fa-main">
+                        <section class="card">
+                            <div class="verdict">
+                                <div class="verdict-badge bg-none" id="v-badge"><i class="fas fa-hourglass-half"></i></div>
+                                <div>
+                                    <div class="verdict-eyebrow" id="v-eyebrow">Zone condition</div>
+                                    <div class="verdict-label" id="v-label">--</div>
+                                    <div class="verdict-conf" id="v-conf">Loading…</div>
+                                </div>
+                                <div class="scores" id="v-scores"></div>
+                            </div>
+                            <div class="verdict-why" id="v-why">Waiting for the drone and soil results…</div>
+                        </section>
+
+                        <div class="based">
+                            <section class="card">
+                                <div class="panel-title"><i class="fas fa-helicopter"></i> Aerial (drone · NDVI + CNN) <span class="chip c-none" id="a-chip">--</span></div>
+                                <div class="kv" id="a-kv"></div>
+                            </section>
+                            <section class="card">
+                                <div class="panel-title"><i class="fas fa-microchip"></i> Soil (nodes · Random Forest) <span class="chip c-none" id="s-chip">--</span></div>
+                                <div class="soil-list" id="s-list"></div>
+                                <div class="soil-note" id="s-note"></div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo"><i class="fas fa-seedling"></i><span>SoCFA System</span></div>
+                    <div class="footer-info"><span>Colegio de Muntinlupa</span></div>
+                </div>
+                <div class="footer-right">
+                    <div class="last-update">Last Update: <span id="last-update">--</span></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+    const API_URL = 'http://localhost:5000';   // app.py (Flask)
+
+    const LABEL = { healthy: 'Healthy', moderate: 'Moderate', poor: 'Poor' };
+    const TONE  = { healthy: 'good', moderate: 'moderate', poor: 'bad' };
+    const ICON  = { healthy: 'fa-check', moderate: 'fa-exclamation', poor: 'fa-triangle-exclamation' };
+
+    // ── Soil rules (same thresholds as soil.js / train_soil_rf.py) ──
+    // Only used to explain WHICH parameter limits a node; the class comes from the Random Forest.
+    // Moisture: palay on clay loam — FAO-56 rice p = 0.20 of saturation (see soil.js)
+    const WILTING_POINT = 24.0, SATURATION = 46.4, P_RICE = 0.20;
+    const MOISTURE_HEALTHY_MIN = SATURATION - P_RICE * (SATURATION - WILTING_POINT);
+    const RULES = [
+        ['pH',          r => (r.ph >= 6.5 && r.ph <= 7.5) ? 'good' : 'moderate'],
+        ['EC',          r => r.ec / 1000 < 2 ? 'good' : r.ec / 1000 < 8 ? 'moderate' : 'bad'],
+        ['soil moisture', r => r.humidity >= MOISTURE_HEALTHY_MIN ? 'good' : r.humidity > WILTING_POINT ? 'moderate' : 'bad'],
+        ['temperature', r => r.temperature <= 32.2 ? 'good' : r.temperature <= 37.8 ? 'moderate' : 'bad'],
+    ];
+    function limiting(reading) {
+        const rated = RULES.map(([name, f]) => [name, f(reading)]);
+        const worst = rated.some(([, s]) => s === 'bad') ? 'bad' : rated.some(([, s]) => s === 'moderate') ? 'moderate' : 'good';
+        return worst === 'good' ? [] : rated.filter(([, s]) => s === worst).map(([name]) => name);
+    }
+
+    const pct  = p => `${Math.round(p * 100)}%`;
+    const when = ms => ms ? new Date(ms).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }) : '--';
+    const esc  = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+    function chip(el, cls, text) {
+        el.className = `chip c-${cls ? TONE[cls] : 'none'}`;
+        el.textContent = text;
+    }
+
+    function scoreRow(name, score, cls, total) {
+        return `<div class="score-row${total ? ' total' : ''}"><span>${name}</span>
+            <div class="track"><div class="fill bg-${TONE[cls]}" style="width:${score * 100}%"></div>
+                <span class="cut" style="left:33.33%"></span><span class="cut" style="left:66.67%"></span></div>
+            <span class="val">${score.toFixed(2)}</span></div>`;
+    }
+
+    function scoreClass(score, t) {
+        return score >= t.healthy_min ? 'healthy' : score >= t.moderate_min ? 'moderate' : 'poor';
+    }
+
+    function showNotice(text, withOverride) {
+        document.getElementById('notice').hidden = !text;
+        const el = document.getElementById('notice-text');
+        el.textContent = text || '';
+        if (withOverride) {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'notice-btn';
+            b.textContent = 'Show anyway';
+            b.addEventListener('click', () => load(true));
+            el.append(' ', b);
+        }
+    }
+
+    let allowStale = false;
+
+    function render(d) {
+        const { final, ndvi, soil, thresholds } = d;
+        const cls = final.final_class.toLowerCase();
+
+        // Verdict
+        const badge = document.getElementById('v-badge');
+        badge.className = `verdict-badge bg-${TONE[cls]}`;
+        badge.innerHTML = `<i class="fas ${ICON[cls]}"></i>`;
+        document.getElementById('v-eyebrow').textContent =
+            `${ndvi.field || 'Zone'} · ${soil.nodes.length} soil node${soil.nodes.length === 1 ? '' : 's'} · drone ${when(ndvi.timestamp)}`;
+        const label = document.getElementById('v-label');
+        label.textContent = LABEL[cls];
+        label.style.color = `var(--${TONE[cls]})`;
+        document.getElementById('v-conf').textContent =
+            `Combined score ${final.final_score.toFixed(3)} · Soil Random Forest + ${ndvi.method === 'ndvi_cnn' ? 'NDVI + CNN' : 'CNN only'}`;
+        document.getElementById('v-scores').innerHTML =
+            scoreRow('Drone', final.ndvi_score, scoreClass(final.ndvi_score, thresholds)) +
+            scoreRow('Soil', final.soil_score, scoreClass(final.soil_score, thresholds)) +
+            scoreRow('Combined', final.final_score, cls, true);
+
+        // Why
+        const limits = [...new Set(soil.nodes.flatMap(limiting))];
+        const nodeNames = cond => soil.nodes.filter(n => n.label.toLowerCase() === cond).map(n => `Node ${n.node_id}`);
+        let why = `From the air the crop looks ${LABEL[ndvi.health_class].toLowerCase()} (${ndvi.method === 'ndvi_cnn' ? `NDVI + CNN ${pct(ndvi.confidence)}` : `CNN only ${pct(ndvi.confidence)}`}). ` +
+                  `The soil nodes average ${LABEL[soil.label.toLowerCase()].toLowerCase()} (${pct(soil.confidence)})` +
+                  (limits.length ? `, limited by ${limits.join(', ')}` : '') + '. ';
+        if (cls === 'healthy') {
+            why += 'No action needed.';
+        } else {
+            const poorNodes = nodeNames('poor');
+            why += poorNodes.length
+                ? `Check ${poorNodes.join(', ')} first.`
+                : 'Monitor the zone and address the flagged parameters.';
+            if (ndvi.health_class !== 'poor' && soil.label === 'Poor') {
+                why += ' The crop does not show the stress yet — acting now can prevent it.';
+            }
+        }
+        document.getElementById('v-why').textContent = why;
+
+        // Aerial panel
+        chip(document.getElementById('a-chip'), ndvi.health_class, `${LABEL[ndvi.health_class]} ${pct(ndvi.confidence)}`);
+        const tc = ndvi.tile_counts || {};
+        document.getElementById('a-kv').innerHTML = `
+            <div><span>${ndvi.method === 'ndvi_cnn' ? 'NDVI + CNN result' : 'CNN result (no NDVI)'}</span><span>${LABEL[ndvi.health_class]}</span></div>
+            <div><span>${ndvi.method === 'ndvi_cnn' ? 'Combined' : 'Probabilities'}</span><span>H ${pct(ndvi.class_probabilities.healthy)} · M ${pct(ndvi.class_probabilities.moderate)} · P ${pct(ndvi.class_probabilities.poor)}</span></div>
+            <div><span>GRVI</span><span>${ndvi.grvi_value != null ? ndvi.grvi_value.toFixed(3) : '--'}</span></div>
+            ${ndvi.ndvi_value != null ? `<div><span>NDVI</span><span>${ndvi.ndvi_value.toFixed(3)}</span></div>` : ''}
+            <div><span>Tiles</span><span style="font-weight:500">${tc.healthy ?? 0} healthy · ${tc.moderate ?? 0} moderate · ${tc.poor ?? 0} poor</span></div>
+            <div><span>Source</span><span style="font-weight:500">${ndvi.source === 'drone' ? 'Drone capture' : 'Uploaded image'} · ${when(ndvi.timestamp)}</span></div>`;
+
+        // Soil panel
+        const soilCls = soil.label.toLowerCase();
+        chip(document.getElementById('s-chip'), soilCls, `${soil.label} ${pct(soil.confidence)}`);
+        document.getElementById('s-list').innerHTML = soil.nodes.map(n => {
+            const nc = n.label.toLowerCase();
+            const lim = limiting(n);
+            const viaRules = n.method === 'rules';
+            const tip = `${when(n.timestamp)}${lim.length ? ' · limited by ' + lim.join(', ') : ' · all parameters healthy'}` +
+                        (viaRules ? ` · rated by the reference rules (${n.outside_range.join(', ')} outside the Random Forest's training range)` : '');
+            return `<div class="soil-row" title="${esc(tip)}"><span class="sn">Node ${esc(n.node_id)}</span>
+                <span class="sv">pH ${n.ph.toFixed(1)} · ${(n.ec / 1000).toFixed(2)} dS/m · ${n.humidity.toFixed(0)}% · ${n.temperature.toFixed(1)}°C</span>
+                <span class="chip c-${TONE[nc]}">${n.label} ${viaRules ? '· rules' : pct(n.confidence)}</span></div>`;
+        }).join('') + (d.probe_out || []).map(n => `
+            <div class="soil-row" title="${esc(when(n.timestamp) + ' · 0% moisture or 0 EC: the probe is not in contact with the soil. Left out of the zone result.')}">
+                <span class="sn">Node ${esc(n.node_id)}</span>
+                <span class="sv">${n.humidity.toFixed(0)}% moisture · ${(n.ec / 1000).toFixed(2)} dS/m — not reading soil</span>
+                <span class="chip c-none">Check probe</span></div>`).join('');
+        document.getElementById('s-note').textContent =
+            `Zone soil = average of the ${soil.nodes.length} node results: H ${pct(soil.probabilities.Healthy)} · M ${pct(soil.probabilities.Moderate)} · P ${pct(soil.probabilities.Poor)}` +
+            ((d.probe_out || []).length ? ` · ${d.probe_out.length} node(s) left out (probe not reading soil)` : '');
+
+        document.getElementById('last-update').textContent =
+            new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+    }
+
+    async function load(stale) {
+        if (stale === true) allowStale = true;
+        try {
+            const res = await fetch(`${API_URL}/field-assessment${allowStale ? '?allow_stale=1' : ''}`);
+            const data = await res.json();
+            if (!res.ok) {
+                if (data.stale) { showNotice(data.error, true); return; }
+                throw new Error(data.error || 'Server error');
+            }
+            showNotice((data.warnings || []).join(' '));
+            render(data);
+        } catch (err) {
+            showNotice(err.message === 'Failed to fetch'
+                ? `Cannot reach the analysis server at ${API_URL}. Is app.py running?`
+                : err.message);
+        }
+    }
+
+    load();
+    setInterval(load, 30000);
+
+    // ── Clock + theme (same storage key as the other pages) ─────────────────
+    function tick() {
+        const now = new Date();
+        document.getElementById('current-time').textContent =
+            now.toLocaleTimeString('en-US', { hour12: false }) + ' | ' +
+            now.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+    }
+    tick(); setInterval(tick, 1000);
+    function applyTheme(t) {
+        document.documentElement.setAttribute('data-theme', t);
+        document.getElementById('theme-icon').className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        try { localStorage.setItem('socfa-theme', t); } catch (e) {}
+    }
+    let saved = 'light'; try { saved = localStorage.getItem('socfa-theme') || 'light'; } catch (e) {}
+    applyTheme(saved);
+    document.getElementById('theme-toggle').addEventListener('click', () =>
+        applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+    </script>
+</body>
+</html>
